@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue des Analyses | Laboratoire El HAYAT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            --primary: #ffffff;
+            --secondary: #0caac1;
+            --tertiary: #28cfe2;
+            --accent: #f6a201;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f0fdfa;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #ffffff;
+        }
+
+
+        .header {
+            background: transparent;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            position: fixed;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            border-radius: 1.5rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 32px;
+            border-left: 4px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(to right, var(--secondary), var(--tertiary));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .test-item:last-child {
+            border-bottom: none;
+        }
+
+        .n {
+            padding: 8px 16px;
+
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #0caac1;
+            background: white;
+            color: var(--secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+        }
+
+        .price-tag {
+            background: linear-gradient(to right, var(--secondary), var(--tertiary));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: none;
+            /* Hide individual prices */
+        }
+
+        .search-box {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            width: 50%;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(12, 170, 193, 0.1);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(to right, var(--secondary), var(--tertiary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+
+        .filter-btn.yoyo {
+            padding: 8px 16px;
+            border-radius: 2px;
+            border: 2px solid #0caac1;
+            background: white;
+            color: var(--secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #0caac1;
+            background: var(--secondary);
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn.yoyo:hover {
+            padding: 8px 16px;
+            border-radius: 2px;
+            border: 2px solid #0caac1;
+            background: white;
+            color: var(--secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            transition: all 0.3s ease;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(246, 162, 1, 0.3);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent) !important;
+            color: white !important;
+            border-color: var(--accent) !important;
+        }
+
+        /* Unified Button Brand Style */
+        .btn-brand {
+            background-color: #0caac1 !important;
+            background-image: none !important;
+            color: white !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+        }
+
+        .btn-brand:hover {
+            background-color: #f6a201 !important;
+            background-image: none !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(246, 162, 1, 0.3);
+        }
+
+        .analysis-item {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .analysis-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .analysis-item.selected {
+            border-color: var(--secondary);
+            background: linear-gradient(to right, rgba(12, 170, 193, 0.05), rgba(40, 207, 226, 0.05));
+        }
+
+        .analysis-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .analysis-checkbox.checked {
+            background: #f6a201;
+            /* Change to brand accent color */
+            border-color: #f6a201;
+        }
+
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .details-content.expanded {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+
+        .guide-btn {
+            background-color: #0caac1;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            border: none;
+            font-size: 14px;
+        }
+
+        .guide-btn:hover {
+            background-color: #f6a201;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(246, 162, 1, 0.3);
+        }
+
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        /* Navigation Link Theming */
+        .nav-link-custom {
+            color: #0caac1 !important;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-link-custom:hover {
+            color: #f6a201 !important;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Floating Cart Styles */
+        #cartPanel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 0;
+            overflow: hidden;
+            width: 380px;
+            max-width: calc(100vw - 4rem);
+            z-index: 100;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(120%);
+            pointer-events: none;
+        }
+
+        #cartPanel.visible {
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        #cartToggleBtn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 90;
+            border-radius: 999px;
+            padding: 1rem 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #cartToggleBtn:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            #cartPanel {
+                width: 100%;
+                bottom: 0;
+                right: 0;
+                max-width: 100vw;
+                border-radius: 2rem 2rem 0 0;
+            }
+
+            #cartToggleBtn {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.875rem;
+            }
+
+            .kolo {
+                font-weight: bold;
+                color: #f6a201;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-600 antialiased overflow-x-hidden bg-white">
+
+    <!-- Header -->
+    <header class="absolute w-full top-0 z-50 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo area -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-2 group">
+                        <div class="relative">
+                            <div
+                                class="absolute inset-0 bg-primary-500 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity">
+                            </div>
+                            <img class="h-10 w-auto relative z-10"
+                                src="logo_groue_medical_el_h0ayat_4x-removebg-preview.png"
+                                alt="Groupe Médical EL-HAYAT">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="titre text-slate-800">EL-HAYAT</span>
+                            <span class="text-[10px] font-bold text-primary-600 tracking-[0.2em] uppercase">Groupe
+                                Médical</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="index.html" class="px-3 py-2 text-sm font-semibold nav-link-custom transition-colors"
+                        data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+
+                    <div class="relative group px-3 py-2">
+                        <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                            <span data-fr="Le Groupe" data-ar="المجموعة">Le Groupe</span>
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                            <div
+                                class="bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden p-2">
+                                <a href="index1.html#missions"
+                                    class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <p class="text-sm font-semibold text-slate-900" data-fr="Nos missions"
+                                        data-ar="مهامنا">Nos missions</p>
+                                    <p class="text-xs text-slate-500 mt-0.5" data-fr="Notre engagement envers vous"
+                                        data-ar="التزامنا تجاهكم">Notre engagement envers vous</p>
+                                </a>
+                                <a href="index1.html#quality"
+                                    class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <p class="text-sm font-semibold text-slate-900" data-fr="Qualité" data-ar="الجودة">
+                                        Qualité</p>
+                                    <p class="text-xs text-slate-500 mt-0.5" data-fr="Standards internationaux"
+                                        data-ar="المعايير الدولية">Standards internationaux</p>
+                                </a>
+                                <a href="index1.html#group"
+                                    class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                    <p class="text-sm font-semibold text-slate-900" data-fr="Notre Histoire"
+                                        data-ar="تاريخنا">Notre Histoire</p>
+                                    <p class="text-xs text-slate-500 mt-0.5" data-fr="L'excellence depuis 25 ans"
+                                        data-ar="التميز منذ 25 عامًا">L'excellence depuis 25 ans</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group px-3 py-2">
+                        <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                            <span data-fr="Nos Entités" data-ar="كياناتنا">Nos Entités</span>
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-1/2 -translate-x-1/2 w-[480px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                            <div
+                                class="bg-white rounded-2xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden grid grid-cols-2">
+                                <div class="p-4 border-r border-slate-50">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4"
+                                        data-fr="Laboratoires" data-ar="المختبرات">Laboratoires</span>
+                                    <div class="space-y-1">
+                                        <a href="index1.html"
+                                            class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                            <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                data-fr="Bordj Menaïel" data-ar="برج منايل">
+                                                Bordj Menaïel</p>
+                                            <p class="text-[11px] text-slate-500" data-fr="Siège Principal"
+                                                data-ar="المقر الرئيسي">Siège Principal</p>
+                                        </a>
+                                        <a href="index2.html"
+                                            class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                            <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                data-fr="Isser" data-ar="يسر">
+                                                Isser</p>
+                                            <p class="text-[11px] text-slate-500" data-fr="Centre d'excellence"
+                                                data-ar="مركز التميز">Centre d'excellence</p>
+                                        </a>
+                                        <a href="index3.html"
+                                            class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                            <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                data-fr="Dely Ibrahim" data-ar="دالي إبراهيم">
+                                                Dely Ibrahim</p>
+                                            <p class="text-[11px] text-slate-500" data-fr="Nouvelle entité"
+                                                data-ar="كيان جديد">Nouvelle entité</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-slate-50/50">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4"
+                                        data-fr="Cabinets" data-ar="العيادات">Cabinets</span>
+                                    <div class="space-y-1">
+                                        <a href="dentairesbou_improved.html"
+                                            class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                            <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                data-fr="Cabinet Dentaire" data-ar="عيادة الأسنان">
+                                                Cabinet Dentaire</p>
+                                            <p class="text-[11px] text-slate-500" data-fr="Boumerdès" data-ar="بومرداس">
+                                                Boumerdès</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="prices.html" class="px-3 py-2 text-sm font-semibold nav-link-custom transition-colors"
+                        data-fr="Catalogue" data-ar="الكتالوج">Catalogue</a>
+
+                    <div class="relative group px-3 py-2">
+                        <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                            <span data-fr="Services" data-ar="الخدمات">Services</span>
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full right-0 w-72 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                            <div
+                                class="bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                <div class="p-3 bg-slate-50 border-b border-slate-100">
+                                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                                        data-fr="Patients" data-ar="المرضى">Patients</span>
+                                </div>
+                                <div class="p-2">
+                                    <a href="index1.html#results"
+                                        class="flex items-start px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <i data-lucide="file-check" class="w-5 h-5 text-primary-500 mt-0.5 mr-3"></i>
+                                        <div>
+                                            <p class="text-sm font-semibold text-slate-900" data-fr="Résultats en ligne"
+                                                data-ar="النتائج عبر الإنترنت">Résultats en ligne</p>
+                                            <p class="text-xs text-slate-500" data-fr="Consultez vos analyses"
+                                                data-ar="اطلع على تحاليلك">Consultez vos analyses</p>
+                                        </div>
+                                    </a>
+                                    <a href="index1.html#home-service"
+                                        class="flex items-start px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <i data-lucide="home" class="w-5 h-5 text-secondary-500 mt-0.5 mr-3"></i>
+                                        <div>
+                                            <p class="text-sm font-semibold text-slate-900"
+                                                data-fr="Prélèvement domicile" data-ar="سحب منزلي">Prélèvement domicile
+                                            </p>
+                                            <p class="text-xs text-slate-500" data-fr="Sans vous déplacer"
+                                                data-ar="دون تنقل">Sans vous déplacer</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex items-center gap-3">
+                        <div class="hidden lg:flex items-center border-l border-slate-200 pl-4 space-x-1">
+                            <button id="fr-btn" onclick="switchLanguage('fr')"
+                                class="lang-btn active text-xs font-bold text-primary-600 bg-primary-50 px-2 py-1.5 rounded-lg border border-primary-100 hover:bg-primary-100 transition-colors">FR</button>
+                            <button id="ar-btn" onclick="switchLanguage('ar')"
+                                class="lang-btn text-xs font-bold text-slate-400 hover:text-slate-600 px-2 py-1.5 transition-colors">AR</button>
+                        </div>
+                        <a href="#contact"
+                            class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-bold rounded-full btn-brand shadow-lg shadow-primary-500/30">
+                            <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                            Rendez-vous
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-slate-600 hover:text-slate-900">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <div class="px-3 pb-2">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Le Groupe</span>
+                </div>
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Accueil</a>
+
+                <div class="px-3 pt-4 pb-2 border-t border-slate-50">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Nos Entités</span>
+                </div>
+                <a href="index1.html"
+                    class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                    Bordj Menaïel</a>
+                <a href="index2.html"
+                    class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                    Isser</a>
+                <a href="index3.html"
+                    class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                    Dely Ibrahim</a>
+                <a href="dentairesbou_improved.html"
+                    class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Cabinet
+                    Dentaire</a>
+
+                <div class="px-3 pt-4 border-t border-slate-50">
+                    <a href="prices.html"
+                        class="block px-3 py-3 rounded-xl text-base font-bold bg-primary-50 text-primary-600 text-center"
+                        data-fr="Catalogue des Analyses" data-ar="كتالوج التحاليل">Catalogue
+                        des Analyses</a>
+                </div>
+                <div class="px-3 pt-4 border-t border-slate-50">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <button onclick="switchLanguage('fr')"
+                            class="lang-btn mobile-lang-btn active px-4 py-2 rounded-lg text-sm font-bold border transition-all">Français</button>
+                        <button onclick="switchLanguage('ar')"
+                            class="lang-btn mobile-lang-btn px-4 py-2 rounded-lg text-sm font-bold border transition-all text-slate-400">العربية</button>
+                    </div>
+                </div>
+                <a href="#contact"
+                    class="block px-3 py-4 mt-2 text-center rounded-xl text-base font-bold btn-brand shadow-md"
+                    data-fr="Prendre Rendez-vous" data-ar="تحديد موعد">Prendre
+                    Rendez-vous</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center animate-slide-up">
+                <!-- Back Button Page -->
+                <div class="flex justify-start mb-6">
+                    <button onclick="history.back()"
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-slate-100 text-slate-600 hover:text-primary-600 font-bold transition-all hover:shadow-md hover:-translate-y-0.5 group">
+                        <i data-lucide="arrow-left" class="w-5 h-5 transition-transform group-hover:-translate-x-1"></i>
+                        <span data-fr="Retour" data-ar="العودة">Retour</span>
+                    </button>
+                </div>
+                <div
+                    class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 border border-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wide mb-6">
+                    <span class="w-2 h-2 rounded-full bg-primary-500 mr-2 animate-pulse"></span>
+                    Catalogue Complet & Tarifs
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-slate-800 tracking-tight mb-4">
+                    Prix des <span class="text-primary-600">Analyses</span>
+                </h1>
+                <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-10">
+                    Consultez notre catalogue complet d'analyses médicales. Qualité, précision et rapidité à Bordj
+                    Menaïel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filters Container -->
+    <section class="relative z-10 -mt-10 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 shadow-2xl">
+                <!-- Search Box -->
+                <div class="relative max-w-3xl mx-auto mb-10">
+                    <div class="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                        <i data-lucide="search" class="w-6 h-6 text-primary-500"></i>
+                    </div>
+                    <input type="text" id="searchInput" placeholder="Rechercher une analyse (ex: Glycémie, NFS...)"
+                        class="w-full bg-white/50 border-2 border-slate-100 focus:border-primary-400 focus:ring-4 focus:ring-primary-400/10 rounded-2xl py-5 pl-16 pr-6 text-xl outline-none transition-all shadow-inner">
+
+                </div>
+
+                <!-- Filter Categories -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button
+                        class="filter-btn active px-6 py-3 rounded-xl text-sm font-bold transition-all shadow-sm flex items-center gap-2"
+                        data-category="all">
+                        <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        Tous
+                    </button>
+                    <button
+                        class="filter-btn btn-brand px-6 py-3 rounded-xl text-sm font-bold hover:shadow-lg flex items-center gap-2"
+                        data-category="Hématobiologie">
+                        <i data-lucide="droplets" class="w-4 h-4"></i>
+                        Hématobiologie
+                    </button>
+                    <button
+                        class="filter-btn btn-brand px-6 py-3 rounded-xl text-sm font-bold hover:shadow-lg flex items-center gap-2"
+                        data-category="Sérologie inféctieuse">
+                        <i data-lucide="microscope" class="w-4 h-4"></i>
+                        Sérologie
+                    </button>
+                    <button
+                        class="filter-btn btn-brand px-6 py-3 rounded-xl text-sm font-bold hover:shadow-lg flex items-center gap-2"
+                        data-category="Biochimie sanguine">
+                        <i data-lucide="test-tube" class="w-4 h-4"></i>
+                        Biochimie
+                    </button>
+                    <button
+                        class="filter-btn btn-brand px-6 py-3 rounded-xl text-sm font-bold hover:shadow-lg flex items-center gap-2"
+                        data-category="Hormonologie">
+                        <i data-lucide="flame" class="w-4 h-4"></i>
+                        Hormones
+                    </button>
+                    <button
+                        class="filter-btn btn-brand px-6 py-3 rounded-xl text-sm font-bold hover:shadow-lg flex items-center gap-2"
+                        data-category="Marqueurs tumoraux">
+                        <i data-lucide="target" class="w-4 h-4"></i>
+                        Marqueurs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Analyses List -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="analysesList" class="space-y-4">
+                <!-- Analyses will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">📍 Adresse</h3>
+                    <p>Rue Colonel Amirouche</p>
+                    <p>Bordj Menaïel, Boumerdès 35002</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">📞 Contact</h3>
+                    <p>0660 07 09 62</p>
+                    <p>044 33 49 71</p>
+                    <p>contact@lamelhayat.com</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">🕒 Horaires</h3>
+                    <p class="text-2xl font-bold text-teal-400">24/7</p>
+                    <p class="text-sm opacity-75">Service continu</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Laboratoire El HAYAT - Tous droits réservés</p>
+            </div>
+        </div>
+        <!-- Floating Cart Toggle -->
+        <button id="cartToggleBtn"
+            class="flex items-center gap-3 text-white font-black uppercase tracking-widest py-4 px-8 rounded-full shadow-2xl hover:bg-primary-600 transition-all z-50"
+            style="background-color: #0caac1;">
+            <div class="relative">
+                <!-- <i data-lucide="shopping-basket" class="w-6 h-6"></i>-->
+                <span id="cartBadge" style="background-color: #f6a201; display: none;"></span>
+            </div>
+            <i data-lucide="clipboard-list" class="w-8 h-8 text-primary-600"></i>
+            <span class="kolo">Mon Ordonnance</span>
+        </button>
+
+        <!-- Selection Drawer -->
+        <div id="cartPanel"
+            class="glass-card fixed bottom-0 right-0 w-full sm:w-[400px] h-[600px] max-h-[80vh] shadow-2xl z-[100] transform translate-y-full transition-all duration-500 ease-in-out border-t border-l border-white/40 overflow-hidden flex flex-col rounded-t-3xl sm:rounded-tl-3xl sm:rounded-tr-none">
+            <!-- Header -->
+            <div class="bg-primary-500 p-6 flex justify-between items-center text-white"
+                style="background-color: #0caac1;">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="shopping-basket" class="w-6 h-6"></i>
+                    <h3 class="font-black uppercase tracking-widest text-sm">Analyses Sélectionnées</h3>
+                </div>
+                <button id="closeCartBtn" class="p-2 hover:bg-white/20 rounded-xl transition-all">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Notice Message -->
+            <div class="px-6 py-3 bg-amber-50 border-b border-amber-100 flex items-start gap-3">
+                <i data-lucide="info" class="w-5 h-5 text-amber-600 mt-0.5 shrink-0"></i>
+                <p class="text-xs font-bold text-amber-900 leading-relaxed" dir="rtl">
+                    يتم إضافة 100 دينار في بعض الحالات.
+                </p>
+            </div>
+
+            <!-- List -->
+            <div id="cartList" class="flex-1 overflow-y-auto p-6 space-y-4 bg-slate-50/50">
+                <!-- Items injected by JS -->
+                <div class="text-center py-12 text-slate-400">
+                    <i data-lucide="search" class="w-12 h-12 mx-auto mb-3 opacity-20"></i>
+                    <p>Aucune analyse sélectionnée</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="p-6 bg-white border-t border-slate-100 shadow-[0_-10px_20px_-15px_rgba(0,0,0,0.1)]">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Total Estimation
+                        </p>
+                        <p id="totalPrice" class="text-3xl font-black text-slate-800">0 DZD</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Tests</p>
+                        <p id="itemCount" class="text-xl font-black text-primary-600" style="color: #0caac1;">0</p>
+                    </div>
+                </div>
+                <button id="bookingBtn"
+                    class="w-full py-4 rounded-2xl bg-primary-500 text-white font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-primary-600 shadow-lg shadow-primary-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    style="background-color: #0caac1;" disabled>
+                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    Réserver en ligne
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-white pt-20 pb-10 mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    <!-- Group Info -->
+                    <div class="col-span-1 md:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <img src="logo_groue_medical_el_h0ayat_4x-removebg-preview.png"
+                                class="h-10 w-auto brightness-0 invert" alt="Logo">
+                            <span class="font-bold text-xl tracking-tight">EL-HAYAT</span>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            L'excellence en biologie médicale et en soins dentaires. Un réseau d'experts dédié à votre
+                            santé à travers l'Algérie.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Labs -->
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6">Nos Laboratoires
+                        </h4>
+                        <ul class="space-y-4">
+                            <li><a href="index1.html"
+                                    class="text-slate-400 hover:text-white transition-colors text-sm">Laboratoire Bordj
+                                    Menaïel</a></li>
+                            <li><a href="index2.html"
+                                    class="text-slate-400 hover:text-white transition-colors text-sm">Laboratoire
+                                    Isser</a></li>
+                            <li><a href="index3.html"
+                                    class="text-slate-400 hover:text-white transition-colors text-sm">Laboratoire Dely
+                                    Ibrahim</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Cabinets -->
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6">Nos Cabinets</h4>
+                        <ul class="space-y-4">
+                            <li><a href="dentairesbou_improved.html"
+                                    class="text-slate-400 hover:text-white transition-colors text-sm">Cabinet Dentaire
+                                    Boumerdès</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6">Contact Central
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                <span class="text-slate-400 text-sm">contact@elhayat-groupe.dz</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="phone" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                <span class="text-slate-400 text-sm">+213 (0) 550 00 00 00</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="calendar" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                <span class="text-slate-400 text-sm">Disponible 24h/24 & 7j/7</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-slate-500 text-xs">
+                        &copy; 2024 Groupe Médical EL-HAYAT. Tous droits réservés.
+                    </p>
+                    <div class="flex gap-8">
+                        <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Mentions
+                            Légales</a>
+                        <a href="#"
+                            class="text-slate-500 hover:text-white text-xs transition-colors">Confidentialité</a>
+                        <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Medical Analyses Data
+
+            const analyses = [
+                { "nom": "NUMERATION-FORMULE SANGUINE (NFS)", "abr": "FNS", "prix": 450, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "SEROLOGIE HIV", "abr": "HIV", "prix": 700, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "MAGNESIUM", "abr": "MG", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "TAUX DE PROTHROMBINE", "abr": "TP", "prix": 200, "categorie": "Hémostase", "source": "Plasma", "unite": "" },
+                { "nom": "IONOGRAMME URINAIRE", "abr": "IONO", "prix": 500, "categorie": "Analyse d'urine", "source": "Urine non stérile", "unite": "" },
+                { "nom": "BILIRUBINE DIRECT", "abr": "BIL D", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "BILIRUBINE TOTALE", "abr": "bilt", "prix": 300, "categorie": "Biochimie sanguine", "source": "", "unite": "mg/L" },
+                { "nom": "c reactive", "abr": "CRP ch", "prix": 500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "antigéne carcino-embryonnaire", "abr": "ACE", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "CHOLESTEROL HDL", "abr": "HDL", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "CHOLESTEROL LDL", "abr": "LDL", "prix": 150, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "CHOLESTEROL TOTAL", "abr": "CHOL", "prix": 150, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "SEROLOGIE DE L'HEPATITE B", "abr": "HBS", "prix": 500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE DE L'HEPATITE C", "abr": "HCV", "prix": 500, "categorie": "Sérologie inféctieuse", "source": "Sérum", "unite": "" },
+                { "nom": "V.D.R.L", "abr": "VDRL", "prix": 500, "categorie": "Sérologie de la Syphilis", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ANTISTREPTOLYSINE", "abr": "ASLO", "prix": 450, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "Progesterone", "abr": "PRG", "prix": 800, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PSA TOTALE", "abr": "PSAT", "prix": 800, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PROTIDES TOTAUX", "abr": "PRT", "prix": 200, "categorie": "Cyto-Micro-Biologie", "source": "Sang", "unite": "g/L" },
+                { "nom": "PROTEINURIE DE 24 H", "abr": "PROT24H", "prix": 300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "TESTOSTERONE", "abr": "TEST", "prix": 750, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Tshus", "abr": "TSH", "prix": 600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "u[IU]/mL" },
+                { "nom": "Créatine Phosphokinase", "abr": "CPK", "prix": 400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "CREATININE URINAIRE", "abr": "CREA UR", "prix": 200, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "OESTRADIOL", "abr": "E2", "prix": 700, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "pg/mL" },
+                { "nom": "FERRITINEMIE", "abr": "FERR", "prix": 850, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "(Thyroxine libre)", "abr": "FT4", "prix": 600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "pmol/L" },
+                { "nom": "Tri-iodothyronine libre", "abr": "FT3", "prix": 600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "pmol/L" },
+                { "nom": "MICRO ALBUMINURIE DES 24H", "abr": "MALB 24H", "prix": 600, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "Glycémie post-prandiale", "abr": "GPP", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Fsh", "abr": "FSH", "prix": 700, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "m[IU]/mL" },
+                { "nom": "GLYCEMIE A JEUN", "abr": "GLY", "prix": 150, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "VITESSE DE SEDIMENTATION (V.S)", "abr": "VS", "prix": 200, "categorie": "Immuno-hématologie", "source": "Plasma", "unite": "" },
+                { "nom": "LIPASE", "abr": "LIPA", "prix": 1200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "ACIDE URIQUE SANGUIN", "abr": "AU", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "TEMPS DE CEPHALINE KAOLIN (T.C.K)", "abr": "TCK", "prix": 200, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Gamma Glutamyl Transférase", "abr": "GGT", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "ANTIGENE CA 19-9", "abr": "CA19.9", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "TOXOPLASMOSE IgM", "abr": "TOXM", "prix": 750, "categorie": "Sérologie de la Toxoplasmose", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HbA1C (Hb glyquée)", "abr": "HBA1C", "prix": 650, "categorie": "Biochimie sanguine", "source": "Sang", "unite": "%" },
+                { "nom": "AMYLASURIE", "abr": "AMY UR", "prix": 900, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "U/L" },
+                { "nom": "ALAT (GPT)", "abr": "ALAT", "prix": 150, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "ALBUMINEMIE", "abr": "ALB", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "IONOGRAMME SANGUIN", "abr": "IONOGRAMME", "prix": 400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "FER SERIQUE", "abr": "FER", "prix": 250, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "LDH (Lactate Deshydrogenase):", "abr": "LDH", "prix": 600, "categorie": "Biochimie sanguine", "source": "Liquide biologique", "unite": "U/L" },
+                { "nom": "TRIGLYCERIDES", "abr": "TRIG", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "FIBRINOGENE", "abr": "FIB", "prix": 300, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "PHOSPHATASES ALCALINES", "abr": "PAL", "prix": 250, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "OSMOLALITE URINAIRE", "abr": "OSMOLALITE UR", "prix": 950, "categorie": "Analyse d'urine", "source": "Urine non stérile", "unite": "mosm/L" },
+                { "nom": "OSM UREE", "abr": "OSM U", "prix": 200, "categorie": "Analyse d'urine", "source": "Urine non stérile", "unite": "mosm/L" },
+                { "nom": "OSM GLUCOSE", "abr": "OSM G", "prix": 150, "categorie": "Analyse d'urine", "source": "Urine non stérile", "unite": "mmol/L" },
+                { "nom": "- Ac Anti-CMV  IgG", "abr": "IGG CMV", "prix": 1300, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "- Ac Anti-CMV  IgM", "abr": "IGM  CMV", "prix": 1300, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "- AC ANTI-HAV IGG", "abr": "HAV IGG", "prix": 1300, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "- Ac anti-HBc TOTAUX", "abr": "ACHBC", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "- AC ANTI-HBC TOTAUX (IGG+IGM) CORE T", "abr": "AC ANTI HBC", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "- Antigéne HBe", "abr": "AGHBE", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "17-Hydroxyprogesteron", "abr": "17OH", "prix": 1200, "categorie": "Hormonologie", "source": "Sérum", "unite": "ng/mL" },
+                { "nom": "A.C.T.H", "abr": "ACTH", "prix": 1600, "categorie": "Hormonologie", "source": "Sang", "unite": "pg/mL" },
+                { "nom": "AC ANTI BP 180", "abr": "BP180", "prix": 20000, "categorie": "Hormonologie", "source": "Sérum/Plasma^Donneur", "unite": "ng" },
+                { "nom": "AC ANTI BP230", "abr": "BP230", "prix": 15000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng" },
+                { "nom": "AC ANTI CARDIOLIPINE IgG", "abr": "CAR IGG", "prix": 5500, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "AC ANTI GP210", "abr": "GP210", "prix": 4600, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Ac Anti HAV IgM", "abr": "HAV IgM", "prix": 1300, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "S/CO" },
+                { "nom": "AC ANTI IA2", "abr": "Ac anti IA2", "prix": 3500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "AC ANTI INSULINE", "abr": "IAA", "prix": 11550, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI MITOCHONDRI", "abr": "MIT", "prix": 3000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI SP100", "abr": "SP100", "prix": 10500, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Ac anti- peau", "abr": "anti peau", "prix": 2600, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "AC ANTI-ACIDE GLUTAMIQUE DECARBOXYLASE", "abr": "anti GAD", "prix": 3000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "AC ANTI-ANTIGENES ENA", "abr": "ENA", "prix": 7000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI-CARDIOLIPINE IGM", "abr": "CAR IGM", "prix": 5550, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI-CARDIOLIPINE Screen (IgG, IgM)", "abr": "AC CARDIO", "prix": 9000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Ac anti-gliadine", "abr": "ANTI-GLIADINE", "prix": 2100, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Ac Anti-HCV", "abr": "HCV", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI-INSULINE", "abr": "AC INSULINE", "prix": 8500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AC ANTI-RECEPTEUR DE LA TSH", "abr": "TSI", "prix": 4000, "categorie": "Hormonologie", "source": "Sérum", "unite": "U/L" },
+                { "nom": "AC ANTI-RETICULINE", "abr": "AC ANTI RETICULINE", "prix": 1000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Ac anti-transglutaminase IgA", "abr": "ANTI TRANS IgA", "prix": 2200, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "Ac anti-transglutaminase IgG", "abr": "ANTI TRANS IgG", "prix": 2200, "categorie": "Immunologie", "source": "Sérum", "unite": "U/mL" },
+                { "nom": "AC ANTICOLAGENE", "abr": "COL", "prix": 22000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng" },
+                { "nom": "Ac AntiGliadine IgA", "abr": "ANTI GLIA IgA", "prix": 2100, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "Ac AntiGliadine IgG", "abr": "ANTI GLIA IgG", "prix": 2100, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "AC HBC", "abr": "ACHBC", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "S/CO" },
+                { "nom": "AC-ANTI ACETYLCHOLINE", "abr": "ARACH", "prix": 2500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "antigéne carcino-embryonnaire", "abr": "ACE", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "ACIDE LACTIQUE", "abr": "LACTATE", "prix": 3000, "categorie": "Biochimie sanguine", "source": "Sang", "unite": "" },
+                { "nom": "acide methylmalonique urinaire", "abr": "ammu", "prix": 9330, "categorie": "Médicaments et produits toxiques", "source": "Urine non stérile", "unite": "" },
+                { "nom": "ACIDE URIQUE URINAIRE", "abr": "URATES24H", "prix": 300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "depakine", "abr": "DEPAKINE", "prix": 2000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/mL" },
+                { "nom": "ACIDE VANYL MANDELIQUE (V M A)", "abr": "VMA", "prix": 3800, "categorie": "Hématobiologie", "source": "Urine de 24h", "unite": "" },
+                { "nom": "alpha-foetoproteine", "abr": "AFP", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "ALBUMINE DU LIQUIDE D'ASCITE", "abr": "ALBUMINE DU LIQUIDE D'ASCITE", "prix": 300, "categorie": "Biochimie sanguine", "source": "Liquide biologique", "unite": "g/L" },
+                { "nom": "Aldolase", "abr": "ALDO", "prix": 2500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ALDOSTERONE", "abr": "ALDOST", "prix": 7900, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ALDOSTERONE URINAIRE", "abr": "Aldosterone Ur", "prix": 4300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "ALPHA 1 ANTI TRYPSINE", "abr": "Alpha 1", "prix": 2100, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "amoniémie", "abr": "amonium", "prix": 4600, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Amylase", "abr": "AMY", "prix": 1000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "Amylase dans le Liquide Abdominal", "abr": "ALA", "prix": 1000, "categorie": "Biochimie sanguine", "source": "Liquide biologique", "unite": "U/L" },
+                { "nom": "ANGIOTENSINE II", "abr": "Angiotensine II", "prix": 1400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ANTI ACTINE F", "abr": "F", "prix": 2800, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anti corps anti beta", "abr": "Beta 2 GP1", "prix": 11100, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "anti hepatite C total", "abr": "antiHCV total", "prix": 1200, "categorie": "Sérologie", "source": "Sérum", "unite": "UI/ML" },
+                { "nom": "anti lupique circulant", "abr": "anti lupique circulant", "prix": 15400, "categorie": "Immuno-hématologie", "source": "Plasma pauvre en plaquettes", "unite": "" },
+                { "nom": "Anti muscle lisse", "abr": "AML", "prix": 2800, "categorie": "Immunologie", "source": "Serum/Plasma 1", "unite": "" },
+                { "nom": "ANTI-GAD", "abr": "ANTI GAD", "prix": 2000, "categorie": "Hématobiologie", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "ANti-TPO", "abr": "ATPO", "prix": 900, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "ANTICORPS ANTI -THYROGLOBILINE (anti TG)", "abr": "Anti TG", "prix": 950, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "Ac anti DNA natif", "abr": "anti DNA", "prix": 2250, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "anticorps anti HBC IgM", "abr": "ACHBC IgM", "prix": 1200, "categorie": "Sérologie", "source": "Serum/Plasma 1", "unite": "S/CO" },
+                { "nom": "Anticorps anti HCV", "abr": "HCV R", "prix": 500, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anticorps anti phospholipides ( APL)", "abr": "APL", "prix": 7000, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "Anticorps anti-cytoplasme des polynucléaires neutro philes", "abr": "ANCA", "prix": 3800, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anticorps anti-endomysium IgA", "abr": "ENDOMISIUM", "prix": 2700, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "Anticorps Anti-HBe", "abr": "ACHBE", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "Anticorps Anti-HBs", "abr": "ACHBS", "prix": 1200, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anticorps anti-muscles lisses", "abr": "Muscle lisse", "prix": 2300, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anticorps anti-nucléaire ( AAN)", "abr": "AAN", "prix": 5700, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "Anticorps anti-peptide cycliques citrulline?s ( ACCP )", "abr": "ACCP", "prix": 2500, "categorie": "Immunologie", "source": "Sérum", "unite": "U/mL" },
+                { "nom": "Anticorps anti-saccharomyces cervisiae (ASCA)", "abr": "ASCA", "prix": 6500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Anticorps Anti-Treponema Pallidum TPHA )", "abr": "SYPHILIS", "prix": 600, "categorie": "Sérologie", "source": "Plasma", "unite": "" },
+                { "nom": "ANTICORPS ANTICELLULES PARIéTALES", "abr": "ACP", "prix": 5600, "categorie": "Immuno-hématologie", "source": "Sérum", "unite": "" },
+                { "nom": "ANTICORPS ANTIFACTEUR INTRINSéQUE", "abr": "FIS", "prix": 5600, "categorie": "Immuno-hématologie", "source": "Sérum", "unite": "" },
+                { "nom": "ANTIGENE CA 125", "abr": "CA125", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "ANTIGENE CA 15-3", "abr": "CA153", "prix": 1000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "Antigéne HBs", "abr": "Ag HBS R", "prix": 500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ANTITHROMBINE 3", "abr": "ANTB 3", "prix": 4000, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ASAT(GOT)", "abr": "ASAT", "prix": 150, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "aspergillose", "abr": "aspergillose", "prix": 9800, "categorie": "Immuno-hématologie", "source": "Sérum", "unite": "" },
+                { "nom": "AUTO-ANTICORPS ANTI-IA2", "abr": "IA2", "prix": 5250, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "AVIDITE DES IGG ANTI TOXOPLASMIQUE", "abr": "TOXO G avidité", "prix": 3750, "categorie": "Sérologie de la Toxoplasmose", "source": "Serum/Plasma", "unite": "%" },
+                { "nom": "AVIDITE DES IgG ANTI-RUBEOLIQUE", "abr": "Rub G avidite", "prix": 3400, "categorie": "Sérologie de la Rubéole", "source": "Serum/Plasma", "unite": "%" },
+                { "nom": "B2 microglobuline", "abr": "B2MIC", "prix": 2000, "categorie": "Hématobiologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "BETA HCG", "abr": "BHCG", "prix": 800, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "m[IU]/mL" },
+                { "nom": "Biochimie du liquide d'ascite", "abr": "BL ascite", "prix": 500, "categorie": "Divers", "source": "Liquide biologique", "unite": "" },
+                { "nom": "C1 INIHIBITEUR ( Action fonctionnelle )", "abr": "C1 INH", "prix": 6600, "categorie": "Immunologie", "source": "Plasma", "unite": "" },
+                { "nom": "C3", "abr": "C3", "prix": 2250, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "C3 PRO ACTIVATEU", "abr": "C3 PRO ACTIVATEU", "prix": 3600, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "C4", "abr": "C4", "prix": 2250, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "CALCIUM SANGUIN", "abr": "CA", "prix": 250, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "CALCIUM URINAIRE", "abr": "CA24H", "prix": 350, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "Calciurie", "abr": "CLC URI", "prix": 400, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/L" },
+                { "nom": "Calciurie des 24h", "abr": "CAL URI 24H", "prix": 400, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "CALPROTECTINE FECALE", "abr": "calprotectine fecale", "prix": 13000, "categorie": "Cyto-Micro-Biologie", "source": "Selles", "unite": "" },
+                { "nom": "Calprotectine Fécale (CF)", "abr": "CF", "prix": 5000, "categorie": "Microbiologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "CAPACITE DE FIXATION DU FER (T.I.B.C)", "abr": "TIBC", "prix": 350, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "CARIOTYPE", "abr": "CAR", "prix": 42500, "categorie": "Immuno-hématologie", "source": "Sérum/Plasma^Donneur", "unite": "" },
+                { "nom": "CERULEOPLASMINE", "abr": "CERULEOPLASMINE", "prix": 2700, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "CH 50(complement hémolythique totale)", "abr": "CH50", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "CH5", "abr": "CH5", "prix": 2250, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "CHAINE LEGERE SANGUINE", "abr": "CHLS", "prix": 25000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "chaine legere urinaire", "abr": "kappa lambda urinaire", "prix": 26860, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "chaine legere urinaire", "abr": "Kappa/lambda urinaire", "prix": 268600, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "chaine legere urinaire", "abr": "CHLU", "prix": 15200, "categorie": "Sérologie", "source": "Urine non stérile", "unite": "" },
+                { "nom": "Chaines légéres Kappa", "abr": "kappa", "prix": 4800, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "Chaines légéres Lambda", "abr": "LAMBDA", "prix": 4800, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "CHARGE VIRALE C (ARN VHC)", "abr": "PCR C", "prix": 9500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "CHARGE VIRALE HEPATITE B", "abr": "PCR B", "prix": 10500, "categorie": "Sérologie", "source": "Sang", "unite": "" },
+                { "nom": "CHIMIE DES URINES", "abr": "CH", "prix": 150, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "CHLAMYDIA", "abr": "CHL V", "prix": 1600, "categorie": "Bactériologie", "source": "Génital", "unite": "" },
+                { "nom": "CHROMATOGRAPHI DES ACIDE AMINES", "abr": "Acides aminés", "prix": 13500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "CLAIRANCE DE LA CREATININE", "abr": "UV/P", "prix": 500, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "mL/min" },
+                { "nom": "CLAIRANCE DE LA CREATININE - Cockcroft-Gault", "abr": "Cockroft", "prix": 500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "COEFFICIENT DE SATURATION", "abr": "CS", "prix": 100, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "%" },
+                { "nom": "COMPTE D'ADDIS- HAMBURGER(HLM)", "abr": "COMPTE D'ADDIS", "prix": 600, "categorie": "Cyto-Micro-Biologie", "source": "Urine stérile", "unite": "" },
+                { "nom": "COOMBS INDIRECT", "abr": "COI", "prix": 800, "categorie": "Immuno-hématologie", "source": "Sang", "unite": "" },
+                { "nom": "COPRO-PARASITOLOGIE DES SELLES", "abr": "COPAr", "prix": 400, "categorie": "Parasitologie", "source": "Selles", "unite": "" },
+                { "nom": "COPROCULTURE", "abr": "COPC", "prix": 500, "categorie": "Microbiologie", "source": "Selles", "unite": "" },
+                { "nom": "Cortisol", "abr": "cortisol", "prix": 1000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "nmol/L" },
+                { "nom": "Cortisol 15 mn", "abr": "cortisol 15mn hypo", "prix": 1200, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "CORTISOL URINAIRE", "abr": "CORU", "prix": 1200, "categorie": "Hormonologie", "source": "Urine non stérile", "unite": "ug/(24.h)" },
+                { "nom": "CPK (Créatine Phosphokinase):", "abr": "CPK", "prix": 400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "CREATININE SANGUINE", "abr": "CREA", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "Créatinine", "abr": "creat", "prix": 300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/L" },
+                { "nom": "CUIVRE ECHANGEABLE", "abr": "CUIVRE ECHANGEABLE", "prix": 11200, "categorie": "Immunologie", "source": "Sérum/Plasma^Donneur", "unite": "" },
+                { "nom": "CUIVRE SANGUIN", "abr": "CUIVRE", "prix": 1350, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "CUIVRE URINAIRE", "abr": "CUIVRE URINAIRE", "prix": 3250, "categorie": "Biochimie sanguine", "source": "Urine de 24h", "unite": "" },
+                { "nom": "CUIVRE URINAIRE (CUPRIURIE)", "abr": "Cup U", "prix": 2900, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "CYTOMEGALOVIRUS (CMV)  IgG", "abr": "CMV", "prix": 1400, "categorie": "Sérologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "CYTOMEGALOVIRUSE CMV IGM", "abr": "CMV", "prix": 1400, "categorie": "Sérologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "D-DIMERES", "abr": "Ddim", "prix": 2900, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "DELTA 4 ANDROSTENDIONE", "abr": "D4", "prix": 1800, "categorie": "Hormonologie", "source": "Plasma_Sérologie", "unite": "ng/mL" },
+                { "nom": "DENSITE", "abr": "densité", "prix": 100, "categorie": "Biochimie urinaire", "source": "Urine stérile", "unite": "" },
+                { "nom": "DEPAKINASE", "abr": "DEPAKINASE", "prix": 6300, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "DEPISTAGE DU DIABETE GESTATIONNEL (HGPO)", "abr": "HG75.", "prix": 600, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "DERIVES METHOXYLES (Métanéphrines)", "abr": "METHANEPHRINE SANG", "prix": 26000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "DESMOGLEINE 1 ET 3", "abr": "DESMOGLEINE 1 ET 3", "prix": 2700, "categorie": "Hématobiologie", "source": "Serum/Plasma", "unite": "{absorbance}" },
+                { "nom": "Déhydroépiandrostérone-sulfate", "abr": "S.DHEA", "prix": 1300, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "Diurése:", "abr": "ml", "prix": 150, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "mL" },
+                { "nom": "DOSAGE DE L'HAPTOGLOBINE", "abr": "HAPTOGLOBINE", "prix": 1400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "DOSAGE DE LA CARBAMAZIPINE(TEGRETOLEMIE)", "abr": "tegretol", "prix": 2000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/mL" },
+                { "nom": "DOSAGE DE LA VITAMINE B 12", "abr": "vit b12", "prix": 1500, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "pg/mL" },
+                { "nom": "DOSAGE DES DERIVES METHOXYLES", "abr": "DOSAGE DES DERIVES METRHOXYLES", "prix": 11750, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "DOSAGE DES IGA", "abr": "IGAS", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "DOSAGE DES IgE TOTALES", "abr": "IGE", "prix": 1000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "DOSAGE DES IGG", "abr": "IGG", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "DOSAGE DES IgG SERIQUES", "abr": "IgG", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "DOSAGE DES IGM", "abr": "IGMS", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "DOSAGE DES IgM SERIQUES", "abr": "IgM", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "Déhydroépiandrostérone", "abr": "DHEA", "prix": 9000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ECB de l'écoulement mammelonnaire", "abr": "ECB mammelonnaire", "prix": 1200, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "ECB DE LA GOUTTE URETHRALE", "abr": "PU", "prix": 1000, "categorie": "Cyto-Micro-Biologie", "source": "Urétre", "unite": "" },
+                { "nom": "ECB DE LIQUIDE DE PONCTION", "abr": "ECB LP", "prix": 800, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "ECB DE LIQUIDE SYNOVIAL", "abr": "L. Synovial", "prix": 1000, "categorie": "Cyto-Micro-Biologie", "source": "LCR", "unite": "" },
+                { "nom": "ECB DES EXPECTORATIONS", "abr": "ECB DU PUS", "prix": 1200, "categorie": "Cyto-Micro-Biologie", "source": "Pus", "unite": "" },
+                { "nom": "ECB des Gouttes Urétrales", "abr": "Urétral", "prix": 1000, "categorie": "Microbiologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "ECB DU PRELEVEMENT DE GORGE", "abr": "GORGE", "prix": 1000, "categorie": "Cyto-Micro-Biologie", "source": "Gorge", "unite": "" },
+                { "nom": "ECB DU PRELEVEMENT VAGINAL", "abr": "PV", "prix": 800, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "ECB DU PRELEVEMENT VAGINAL/PRELEVEMENT", "abr": "PV/PRVM", "prix": 1200, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "ECB SPERME ( MYCO / CHLAM )", "abr": "SPM", "prix": 3500, "categorie": "Cyto-Micro-Biologie", "source": "Génital", "unite": "10.L/min" },
+                { "nom": "ECB VAGINAL ( MYCO /UREA )", "abr": "EBV MYC", "prix": 4200, "categorie": "Cyto-Micro-Biologie", "source": "Génital", "unite": "" },
+                { "nom": "ELECTROPHORESE DES PROTEINES", "abr": "EPP", "prix": 900, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "ELECTROPHORESES D'HEMOGLOBINE", "abr": "EPHB", "prix": 1200, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "ELECTROPHORéSE DES PROTEINES URINAIRES", "abr": "Proteine(Electrophorése)", "prix": 1100, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "Enzyme de conversion de l'angiotensine", "abr": "ECA", "prix": 1500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "Examen Bactériologique des selles", "abr": "BACT SELL", "prix": 500, "categorie": "Cyto-Micro-Biologie", "source": "Selles", "unite": "" },
+                { "nom": "EXAMEN CYTO-BACTERIOLOGIQUE DE PUS", "abr": "Pus", "prix": 1000, "categorie": "Microbiologie", "source": "GR", "unite": "" },
+                { "nom": "EXAMEN CYTO-BACTERIOLOGIQUE DES URINES", "abr": "ECBU", "prix": 500, "categorie": "Microbiologie", "source": "Urine de 24h", "unite": "" },
+                { "nom": "EXAMEN CYTOBACTéRIOLOGIQUE DE PUS", "abr": "ecb pus", "prix": 800, "categorie": "Bactériologie", "source": "Pus", "unite": "" },
+                { "nom": "EXAMEN D'UN FROTTIS DES SECRETIONS NASALES", "abr": "EOSINOPHILIES NASALES", "prix": 1000, "categorie": "Hématobiologie", "source": "Nez", "unite": "" },
+                { "nom": "Examen Mycologique", "abr": "MYCO", "prix": 1000, "categorie": "Cyto-Micro-Biologie", "source": "Isolat", "unite": "" },
+                { "nom": "EXAMEN MYCOLOGIQUE", "abr": "myco", "prix": 700, "categorie": "Cyto-Micro-Biologie", "source": "Urine stérile", "unite": "" },
+                { "nom": "EXAMEN PARASITOLOGIQUE DES SELLES", "abr": "PARA SELL", "prix": 300, "categorie": "Cyto-Micro-Biologie", "source": "Selles", "unite": "" },
+                { "nom": "facteur ix", "abr": "FACTEUR  IX", "prix": 3700, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Facteur Anti-nucléaire (FAN)", "abr": "FAN", "prix": 4500, "categorie": "Immunologie", "source": "Sérum", "unite": "" },
+                { "nom": "facteur de willebrand", "abr": "FW", "prix": 3357, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "FACTEUR RHUMATOIDE", "abr": "FR", "prix": 500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "Facteur V", "abr": "Facteur V", "prix": 2100, "categorie": "Hématobiologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "FACTEUR V", "abr": "FACTEUR V", "prix": 2300, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "FACTEUR VIII", "abr": "FACTEUR  VIII", "prix": 3700, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "facteur willebrand", "abr": "FW", "prix": 3400, "categorie": "Hématobiologie", "source": "Plasma pauvre en plaquettes", "unite": "" },
+                { "nom": "Facteurs Rhumatoides IgM", "abr": "FRIgM", "prix": 400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "FIBROTEST ACTITEST", "abr": "FIBRO", "prix": 20000, "categorie": "Hématobiologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "FOLATES (vit B9)", "abr": "b9", "prix": 1400, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "FRACTION C3 DU COMPLEMENT", "abr": "C3", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "FRACTION C4  DU COMPLEMENT", "abr": "C4", "prix": 1500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "mg/dL" },
+                { "nom": "FROTTIS NASAL", "abr": "EOSINOPHILIES NASALES", "prix": 1000, "categorie": "Immuno-hématologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "FROTTIS SANGUIN", "abr": "FROTTIS SANGUIN 1", "prix": 300, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "FROTTIS SANGUIN COLORé AU MGG", "abr": "FS", "prix": 800, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "FROTTIS SANGUIN:", "abr": "FS", "prix": 1000, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "FRUCTOSAMINE", "abr": "FRUC", "prix": 1500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "umol/L" },
+                { "nom": "Tri-iodothyronine libre", "abr": "FT3", "prix": 600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "pmol/L" },
+                { "nom": "(Thyroxine libre) ft4", "abr": "FT4", "prix": 600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "pmol/L" },
+                { "nom": "Gamma Glutamyl Transférase", "abr": "GGT", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "U/L" },
+                { "nom": "Hormone de croissance (GH)", "abr": "GH", "prix": 1800, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "GLUCOSE", "abr": "GLU", "prix": 100, "categorie": "Biochimie sanguine", "source": "Liquide pleural", "unite": "" },
+                { "nom": "GLUCOSE-6-PHOSPHATE DESHYDROGENASE (G6-PDH)", "abr": "G6PD", "prix": 3750, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "GLUCOSURIE", "abr": "GLU", "prix": 200, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "Glycémie post-prandiale", "abr": "GPP", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "GROUPAGE", "abr": "gs", "prix": 350, "categorie": "Immuno-hématologie", "source": "Sang", "unite": "" },
+                { "nom": "GROUPAGE PHENOTYPE", "abr": "GPH", "prix": 1900, "categorie": "Immuno-hématologie", "source": "Sang", "unite": "" },
+                { "nom": "HbA1C (Hb glyquée)", "abr": "HBA1C", "prix": 650, "categorie": "Biochimie sanguine", "source": "Sang", "unite": "%" },
+                { "nom": "HBs Antigene", "abr": "HBS AG", "prix": 600, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "S/CO" },
+                { "nom": "HCG, MARQUEUR TUMORAL", "abr": "HCG TUMORAL", "prix": 4000, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Helicobacter Pylori IgG", "abr": "HP IgG", "prix": 2000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "hepatite C igG", "abr": "HBC igG", "prix": 1200, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "hepatite C igM", "abr": "HBC igM", "prix": 1200, "categorie": "Sérologie", "source": "Serum/Plasma 1", "unite": "" },
+                { "nom": "Herpes HSV 1/2 IgG", "abr": "Herpes HSV 1/2 IgG", "prix": 1500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Herpes HSV 1/2 IgM", "abr": "Herpes HSV 1/2 IgM", "prix": 1500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HERPES SIMPLEX VIRUS 1 ET 2", "abr": "HSV  1+2", "prix": 3600, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HERPES SIMPLEX VIRUS G + M (CERBA)", "abr": "HSV", "prix": 11900, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HLA B27", "abr": "HLA B27", "prix": 11400, "categorie": "HLA", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HOMOCYSTEINE", "abr": "Homocy", "prix": 2500, "categorie": "Hématobiologie", "source": "Sérum", "unite": "umol/L" },
+                { "nom": "HOMOCYSTEINE URINAIRE", "abr": "HOMOCYSTEINURIE", "prix": 3200, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "" },
+                { "nom": "HORMAONE ANTI MULLURIENNE", "abr": "AMH CERBA", "prix": 5000, "categorie": "Hormonologie", "source": "Plasma_Sérologie", "unite": "" },
+                { "nom": "Hormone ANTI mullurienne", "abr": "AMH", "prix": 5000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "HORMONE ANTI-DIURETIQUE", "abr": "ADH", "prix": 10650, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Hormone de croissance (GH)", "abr": "GH  hypo", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  +15 mn", "abr": "GH 15 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  +30 mn", "abr": "GH 30 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  +60 mn", "abr": "GH 60 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Espace intravasculaire.XXX", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  00 mn", "abr": "GH 00 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  120 mn", "abr": "GH 120 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  90 mn", "abr": "GH 90 mn", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Hormone de croissance (GH)  T120", "abr": "GH T 120", "prix": 1900, "categorie": "Hormonologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "Human papillomavirus", "abr": "hpv", "prix": 9000, "categorie": "Cyto-Micro-Biologie", "source": "Col de l'utérus/Vagin", "unite": "" },
+                { "nom": "Hyper Glycémie Provoquée Per Os", "abr": "HGPO", "prix": 900, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HYPERGLYCEMIE PROVOQUE PAR VOIE ORAL (HGPO) Grossesse", "abr": "HGPO G", "prix": 900, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "HYPERGLYCEMIE PROVOQUEE PAR VOIE ORALE (HGPO) hors grossesse", "abr": "HGPO", "prix": 900, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Hépatite B-détermination quantitative -charge virale (VHB)", "abr": "VHB", "prix": 9000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "IgA anti-transglutaminase tissulaire", "abr": "IgA transglutamlinase", "prix": 2500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "IgA SERIQUES", "abr": "IgA", "prix": 1400, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "IgE Alimentaire ( TROPHATOP )", "abr": "trophatop", "prix": 3800, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IGE LAIT DE VACHE", "abr": "IGE LAIT DE VACHE", "prix": 7000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IgE specifique : panel pédiatrique)", "abr": "panel pediatrique", "prix": 5000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IGE SPECIFIQUES  ALIMENTAIRE", "abr": "IgE ALIMENTAIRE", "prix": 5000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IGE SPECIFIQUES (RESPIRATOIRE)", "abr": "respiratoire", "prix": 5000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IGE SPECIFIQUES DU BLE", "abr": "Ige spécifiques du blé", "prix": 5000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "{absorbance}" },
+                { "nom": "IgE Spécifique ( Lait de Vache)", "abr": "VACHE", "prix": 5000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IgE spécifiques :Panel pédiatrique", "abr": "IGE PED", "prix": 5000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IgEspécifique respiratoire", "abr": "IGE RESP", "prix": 5000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IGG 4", "abr": "IGG 4", "prix": 5600, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IgG anti-transglutaminase", "abr": "IgG transglutaminase", "prix": 2500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "IMMUNOTYPAGE", "abr": "IMEPP", "prix": 6500, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Immunoélectrophorése des protéines sérique (IEP)", "abr": "IEP Sérique", "prix": 6000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Immunoélectrophorése des protéines urinaire (IEP)", "abr": "IEP urinaire", "prix": 6000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Inhibine B", "abr": "INHIBINE B", "prix": 7550, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "insuline", "abr": "INSUL", "prix": 1600, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "u[IU]/mL" },
+                { "nom": "IONOGRAMME  URINAIRE", "abr": "IONO", "prix": 500, "categorie": "Analyse d'urine", "source": "Urine non stérile", "unite": "" },
+                { "nom": "JAK2 MUTATION V617F", "abr": "jak2", "prix": 58764.51, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "LATEX", "abr": "LATEX", "prix": 400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "LH", "abr": "LH", "prix": 700, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "m[IU]/mL" },
+                { "nom": "LIPIDE TOTAUX", "abr": "LIPT", "prix": 50, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "liquide de ponction pleural", "abr": "LDP", "prix": 300, "categorie": "Biochimie sanguine", "source": "Liquide biologique", "unite": "g/L" },
+                { "nom": "LKM", "abr": "LKM", "prix": 4000, "categorie": "Sérologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "LKM1", "abr": "LKM1", "prix": 7000, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "LOCUS B", "abr": "LB", "prix": 22500, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "LYME (igg/igm)", "abr": "lyme", "prix": 10900, "categorie": "Sérologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "MAGNESIUM URINAIRE", "abr": "MG24h", "prix": 300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "MEDULLOGRAMME", "abr": "MO", "prix": 3500, "categorie": "Cytologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "MICRO  ALBUMINURIE DES 24H", "abr": "MALB 24H", "prix": 600, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/(24.h)" },
+                { "nom": "Microalbuminurie", "abr": "MAL", "prix": 500, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/L" },
+                { "nom": "Microalbuminurie échantillon", "abr": "MALB", "prix": 500, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "mg/L" },
+                { "nom": "MYCOLOGIE", "abr": "myco", "prix": 500, "categorie": "Microbiologie", "source": "Spermatozoédes", "unite": "" },
+                { "nom": "MYCOPLASMA", "abr": "MSC", "prix": 4000, "categorie": "CYTOGENETIQUE", "source": "Liquide séminal", "unite": "" },
+                { "nom": "MYCOPLASMA PNEUMONIAE IGG", "abr": "MYCOPLASMA PNEUMONIAE", "prix": 3300, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "MYCOPLASMA PNEUMONIAE IGM", "abr": "MYCOPLASMA PNEUMONIAE IGM", "prix": 3200, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Mycoplasme sur sperm", "abr": "myc sperm", "prix": 2200, "categorie": "Bactériologie", "source": "Spermatozoédes", "unite": "" },
+                { "nom": "MYTOCHODRIE POSITIF TYPAGE M2", "abr": "M2", "prix": 13500, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "NT PRO BNP- BRAIN NATRIURETIC PEPTIDE", "abr": "PRO BNP", "prix": 4500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "pg/mL" },
+                { "nom": "OXALURIE", "abr": "OXALURIE 24 H", "prix": 3000, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "P. DE LA GOUTTE URETHRALE", "abr": "PUM", "prix": 4200, "categorie": "Bactériologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "Parasitologie des selles", "abr": "PARA SELL", "prix": 300, "categorie": "Bactériologie", "source": "Selles", "unite": "" },
+                { "nom": "peptide c", "abr": "PEPTIDE C", "prix": 3000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PHOSPHORE", "abr": "Phos", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "PHOSPHORE", "abr": "PU24H", "prix": 300, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "Phénylalanine", "abr": "Phénylalanine", "prix": 13450, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "PIGMENT BILIAIRE", "abr": "pigment bilaire", "prix": 100, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "" },
+                { "nom": "Poumons eleveur d'oiseau", "abr": "Precipitine", "prix": 6900, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "PRELEVEMENT DE GORGE", "abr": "ECBG", "prix": 600, "categorie": "Cyto-Micro-Biologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "PROCALCITONINE", "abr": "Procalcitonine", "prix": 4000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PROLACTINE", "abr": "PRL", "prix": 750, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PROTEIN C", "abr": "PRT C", "prix": 4200, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "PROTEIN S", "abr": "PRT S", "prix": 4200, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "PROTEINE C ACTIVE", "abr": "PRT C ACTIVE", "prix": 9050, "categorie": "Hémostase", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "PROTEINES DE BENCE- JONES", "abr": "bence jones TIAR", "prix": 7500, "categorie": "Immunologie", "source": "Urine de 24h", "unite": "" },
+                { "nom": "Proteines de Bence-Jones", "abr": "bence jones cerba", "prix": 15500, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "" },
+                { "nom": "proteinurie", "abr": "PRO UM", "prix": 500, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "mg/L" },
+                { "nom": "PSA LIBRE", "abr": "PSA L", "prix": 800, "categorie": "Marqueurs tumoraux", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "PTH", "abr": "PTH", "prix": 1100, "categorie": "Hormonologie", "source": "Sang", "unite": "pg/mL" },
+                { "nom": "QUANTIFERON", "abr": "Quantiferon", "prix": 13000, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "RAI (panel )", "abr": "RAI (panel )", "prix": 5000, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "RAPPORT ALBUMINE / CREATININE URINAIRE", "abr": "ACR", "prix": 700, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "" },
+                { "nom": "RAPPORT ALDOSTERONE / RENINE", "abr": "TAR", "prix": 12000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "RECHERCHE D'Ag D'HELICOBACTER PYLORI DANS LES SELLES", "abr": "Helico Ag", "prix": 1500, "categorie": "Microbiologie", "source": "Selles", "unite": "" },
+                { "nom": "RECHERCHE DE BK", "abr": "BK", "prix": 1000, "categorie": "Bactériologie", "source": "Expectorations", "unite": "" },
+                { "nom": "Recherche de Chlamydia sur sperme", "abr": "CHLA", "prix": 1800, "categorie": "Bactériologie", "source": "Spermatozoédes", "unite": "" },
+                { "nom": "Recherche de Chlamydia sur un prélévement vaginal", "abr": "chlm pv", "prix": 1800, "categorie": "Microbiologie", "source": "Vaginal", "unite": "" },
+                { "nom": "Recherche de Mycoplasme dans l'urétre", "abr": "myc ur", "prix": 2200, "categorie": "Microbiologie", "source": "Urétre", "unite": "" },
+                { "nom": "Recherche de Mycoplasme dans les sécrétions vaginales:", "abr": "myco pv", "prix": 2200, "categorie": "Cyto-Micro-Biologie", "source": "Vaginal", "unite": "" },
+                { "nom": "Recherche de mycoplasme sur prélévement de sperme:", "abr": "Myco sperm", "prix": 2200, "categorie": "Bactériologie", "source": "Génital", "unite": "" },
+                { "nom": "Recherche de sang dans les selles", "abr": "Sang dans les selles", "prix": 800, "categorie": "Cyto-Micro-Biologie", "source": "Selles", "unite": "" },
+                { "nom": "RECHERCHE DE SPERME DANS LES URINES", "abr": "SPUR", "prix": 600, "categorie": "Fertilité", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "recherge ag aspergillaire", "abr": "asp", "prix": 4600, "categorie": "Immuno-hématologie", "source": "Sérum", "unite": "" },
+                { "nom": "RENINE", "abr": "RENINE", "prix": 7050, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "m[IU]/L" },
+                { "nom": "RT-PCR SARS COV-2", "abr": "PCR COV", "prix": 7000, "categorie": "Cyto-Micro-Biologie", "source": "Nez", "unite": "" },
+                { "nom": "RUBEOLE IgG", "abr": "RUBG", "prix": 750, "categorie": "Sérologie de la Rubéole", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "RUBEOLE IgM", "abr": "RUBM", "prix": 750, "categorie": "Sérologie de la Rubéole", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SARS- COV-2 TYPE IGG", "abr": "COVG S", "prix": 1500, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "AU/ml" },
+                { "nom": "SARS- COV-2 TYPE IGM", "abr": "COVM S", "prix": 1500, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "AU/ml" },
+                { "nom": "SARS-COV-2 RNA SCREENING ( REAL TIME RT-PCR )", "abr": "SPCR", "prix": 7000, "categorie": "Biologie moléculaire", "source": "Nasopharynx", "unite": "" },
+                { "nom": "SCOTCH TEST (RECHERCHE DE PARASITES INTESTINAUX)", "abr": "SCOTCH", "prix": 600, "categorie": "Parasitologie", "source": "Liquide biologique", "unite": "" },
+                { "nom": "sels biliare", "abr": "sels biliare", "prix": 9000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SERO-AGGLUTINATION DE WRIGHT", "abr": "WRIGHT", "prix": 600, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "SEROLOGIE ASPERGILLOSE", "abr": "DEPISTAGE", "prix": 22700, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE CHLAMYDIA IgA", "abr": "CHLAM IgA", "prix": 2000, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "SEROLOGIE CHLAMYDIA IgG", "abr": "CHLAM IgG", "prix": 2000, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "SEROLOGIE CHLAMYDIA IgM", "abr": "Chlam  IgM", "prix": 2000, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "DU/mL" },
+                { "nom": "SEROLOGIE COVID IGG", "abr": "COVG", "prix": 1200, "categorie": "Sérologie", "source": "Plasma_Sérologie", "unite": "UI/ML" },
+                { "nom": "SEROLOGIE COVID IGM", "abr": "COVM", "prix": 1200, "categorie": "Sérologie", "source": "Plasma_Sérologie", "unite": "UI/ML" },
+                { "nom": "SEROLOGIE COVID-19", "abr": "COV S", "prix": 1800, "categorie": "Sérologie", "source": "Plasma_Sérologie", "unite": "" },
+                { "nom": "SEROLOGIE DE L'HEPATITE A (IgM)", "abr": "HAV IgM", "prix": 1200, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE DE LA BRUCELLOSE", "abr": "bruc", "prix": 1700, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE DE LA CYTOMEGALO VIRUS", "abr": "IGG CMV", "prix": 2800, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE DE LA MALADIE COELIAQUE", "abr": "coeliaque", "prix": 5700, "categorie": "Immunologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "serologie de wright", "abr": "serologie de wright", "prix": 1200, "categorie": "Immuno-hématologie", "source": "Sérum/Plasma^Donneur", "unite": "" },
+                { "nom": "SEROLOGIE EBV", "abr": "EBV", "prix": 6000, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE HEPATITE  E", "abr": "HEV", "prix": 10500, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE HYDATIDOSE (Dépistage )", "abr": "HYDATIDOSE", "prix": 3500, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE HYDATIQUE", "abr": "HYD", "prix": 3400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE LEISHMANIOSE", "abr": "LEISHMANIOSE (1/2éme dét.)", "prix": 3800, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "serologie leptospirose", "abr": "LEPT", "prix": 7100, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE MYCOPLASME", "abr": "semyc", "prix": 3400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE SYPHILIS", "abr": "SYPHILIS", "prix": 600, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE VARICELLE", "abr": "SEROLOGIE VARICELLE", "prix": 12600, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Somatomédine C IGF", "abr": "IGF1", "prix": 2700, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "sous classe igG", "abr": "sous classe IgG", "prix": 22300, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SPERMOCULTURE", "abr": "CULT", "prix": 500, "categorie": "Microbiologie", "source": "Spermatozoédes", "unite": "" },
+                { "nom": "SPERMOCULTURE MYC/CHL", "abr": "SPCM", "prix": 4500, "categorie": "Cyto-Micro-Biologie", "source": "Liquide séminal", "unite": "" },
+                { "nom": "SPERMOGRAMME", "abr": "SPG", "prix": 1500, "categorie": "CYTOGENETIQUE", "source": "Spermatozoédes", "unite": "" },
+                { "nom": "SPERMOGRAMME ET SPERMOCYTOGRAMME", "abr": "Spg", "prix": 1500, "categorie": "Microbiologie", "source": "Liquide séminal", "unite": "" },
+                { "nom": "SSA/SSB", "abr": "SSA/SSB", "prix": 7800, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Sérodiagnostic de Widal et Félix", "abr": "WIDAL", "prix": 600, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SéROLOGIE DE L'H. PYLORI IGG/IGA( AGGLUTINATION )", "abr": "pylori IgG/IgA", "prix": 5000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Sérologie de l'Helicobacter pylori IgG", "abr": "Helicobacter", "prix": 5000, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "U/mL" },
+                { "nom": "T.P.H.A", "abr": "TPHA", "prix": 400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "TAUX DE PROTIDE (LIQUIDE DE PONCTION)", "abr": "PROT AS", "prix": 500, "categorie": "Hématobiologie", "source": "Liquide biologique", "unite": "g/L" },
+                { "nom": "TAUX DE RETICULOCYTES", "abr": "RETICULOCYTES", "prix": 400, "categorie": "Hématobiologie", "source": "Sang", "unite": "%" },
+                { "nom": "TEMPS DE CEPHALINE KAOLIN", "abr": "TCK", "prix": 200, "categorie": "Hémostase", "source": "Plasma", "unite": "" },
+                { "nom": "TEMPS DE COAGULATION", "abr": "TC", "prix": 100, "categorie": "Hématobiologie", "source": "^Patient", "unite": "min" },
+                { "nom": "TEMPS DE SAIGNEMENT", "abr": "TS", "prix": 200, "categorie": "Hématobiologie", "source": "^Patient", "unite": "min" },
+                { "nom": "TEST ANTIGéNIQUE  SARS COVID 2", "abr": "AG COVID2", "prix": 1000, "categorie": "Maladie Infectueuses", "source": "Nez/Trachée", "unite": "" },
+                { "nom": "TEST AU ROSE BENGAL", "abr": "Rose Bengale", "prix": 600, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/ML" },
+                { "nom": "TEST DE COOMBS DIRECT", "abr": "COD", "prix": 700, "categorie": "Immuno-hématologie", "source": "Sang", "unite": "" },
+                { "nom": "Test de coombs indirect RAI", "abr": "RAI COOMBS", "prix": 2000, "categorie": "Immuno-hématologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "TEST DE FALCIFORMATION", "abr": "TF", "prix": 800, "categorie": "Hématobiologie", "source": "Sang", "unite": "" },
+                { "nom": "TEST DE GROSSESSE", "abr": "GROSS", "prix": 200, "categorie": "Biochimie urinaire", "source": "Urine non stérile", "unite": "" },
+                { "nom": "TEST DE MONONUCLEOSE INFECTIEUSE M.N.I", "abr": "MNI", "prix": 900, "categorie": "Sérologie inféctieuse", "source": "Sérum", "unite": "" },
+                { "nom": "TEST POST COETAL", "abr": "TPC", "prix": 1000, "categorie": "Fertilité", "source": "Sécrétions génitales", "unite": "" },
+                { "nom": "TEST RAPIDE MULTI-DROGUES (12)", "abr": "TRD (12)", "prix": 6000, "categorie": "Médicaments et produits toxiques", "source": "Urine stérile", "unite": "" },
+                { "nom": "TEST RAPIDE MULTI-DROGUES (7)", "abr": "TRD (7)", "prix": 3400, "categorie": "Médicaments et produits toxiques", "source": "Urine stérile", "unite": "" },
+                { "nom": "Test respiratoire Hélicobacter pylori", "abr": "helico resp", "prix": 6200, "categorie": "Microbiologie", "source": "Gaz expiré", "unite": "" },
+                { "nom": "TEST REVALTAT", "abr": "rev", "prix": 600, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "testosterone libre", "abr": "testosterone libre", "prix": 10650, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "THYROCALCITONINE", "abr": "TCT", "prix": 1400, "categorie": "Marqueurs tumoraux", "source": "Sérum", "unite": "pg/mL" },
+                { "nom": "THYROGLOBULINE", "abr": "TG", "prix": 1000, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ug/L" },
+                { "nom": "thyroxine t4", "abr": "T4", "prix": 800, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "nmol/L" },
+                { "nom": "TOXOPLASMOSE IgG", "abr": "TOXG", "prix": 750, "categorie": "Sérologie de la Toxoplasmose", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "TP INR", "abr": "TP INR", "prix": 200, "categorie": "Hémostase", "source": "Plasma", "unite": "" },
+                { "nom": "TPHA", "abr": "TPHA2", "prix": 1000, "categorie": "Hématobiologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "TRANSAMINASES SERIQUES ASAT/ALAT", "abr": "GOT /GPT", "prix": 300, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "TRANSFERRINE", "abr": "transferrine", "prix": 1400, "categorie": "Hématobiologie", "source": "Sérum/Plasma^Unité de produit sanguin", "unite": "" },
+                { "nom": "triiodothyronine", "abr": "T3", "prix": 800, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "nmol/L" },
+                { "nom": "Troponine", "abr": "TRP", "prix": 1500, "categorie": "Hormonologie", "source": "Serum/Plasma", "unite": "ng/L" },
+                { "nom": "TYPAGE HLA B51", "abr": "HLA B51", "prix": 14000, "categorie": "Immunologie", "source": "Sang", "unite": "" },
+                { "nom": "U.I.B.C", "abr": "uibc", "prix": 400, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "uracilémie", "abr": "uracilémie", "prix": 12000, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "URAPLASMA", "abr": "URE V", "prix": 1600, "categorie": "Bactériologie", "source": "Génital", "unite": "" },
+                { "nom": "UREE SANGUINE", "abr": "UREE", "prix": 200, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "g/L" },
+                { "nom": "UREE URINAIRE", "abr": "UREE URINAIRE", "prix": 200, "categorie": "Biochimie urinaire", "source": "Urine de 24h", "unite": "g/(24.h)" },
+                { "nom": "VITAMIBE B6", "abr": "VITAMINE B6", "prix": 9900, "categorie": "Vitamines", "source": "Sang", "unite": "" },
+                { "nom": "VITAMINE B1", "abr": "VITAMIBE B1", "prix": 9900, "categorie": "Vitamines", "source": "Sang", "unite": "" },
+                { "nom": "vitamine C", "abr": "VIT C", "prix": 13700, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "VITAMINE D2D3  25 HYDROXY VITAMINE D", "abr": "VITAMINE D", "prix": 2300, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "VITAMINE E", "abr": "VIT E", "prix": 8000, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Vitamine K", "abr": "VIT K", "prix": 34500, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "WALER ROSE", "abr": "WR", "prix": 400, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "UI/mL" },
+                { "nom": "ZINC", "abr": "Zinc", "prix": 6600, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Taux de prothrombine", "abr": "TP INR", "prix": 200, "categorie": "Hémostase", "source": "Plasma", "unite": "" },
+                { "nom": "FER SERIQUE", "abr": "fer", "prix": 250, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "ug/dL" },
+                { "nom": "BILAN LIPIDIQUE", "abr": "BL", "prix": 500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "SEROLOGIE HYDATIDOSE", "abr": "HYD", "prix": 2200, "categorie": "Sérologie", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "BILIRUBINE TOTALE", "abr": "BIL T", "prix": 250, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "MYCOPLASMA", "abr": "MYC V", "prix": 2200, "categorie": "Bactériologie", "source": "Génital", "unite": "" },
+                { "nom": "SEROLOGIE HIV", "abr": "HIV R", "prix": 500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Hormone de croissance (GH)", "abr": "GH 15 mn hypo", "prix": 1900, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "Cortisol", "abr": "cortisol hypo", "prix": 1200, "categorie": "TEST DYNAMIQUE GH", "source": "Serum/Plasma", "unite": "ng/mL" },
+                { "nom": "EXAMEN MYCOLOGIQUE", "abr": "MYCO", "prix": 700, "categorie": "Cyto-Micro-Biologie", "source": "Ongle", "unite": "" },
+                { "nom": "c reactive", "abr": "CRP r", "prix": 500, "categorie": "Biochimie sanguine", "source": "Serum/Plasma", "unite": "mg/L" },
+                { "nom": "SEROLOGIE SYPHILIS", "abr": "SYPHILIS R", "prix": 500, "categorie": "Sérologie inféctieuse", "source": "Serum/Plasma", "unite": "" },
+                { "nom": "Bilan Complet Decembre", "abr": "BL", "prix": 5000, "categorie": "Biochimie sanguine", "source": "Sang/Sérum", "unite": "" },
+                { "nom": "HbA1C (Hb glyquée)", "abr": "HBA1C integra", "prix": 650, "categorie": "Biochimie sanguine", "source": "Sang", "unite": "%" },
+                { "nom": "Vitamine K", "abr": "Vit K", "prix": 34500, "categorie": "Vitamines", "source": "Serum/Plasma", "unite": "" }
+            ];
+
+
+            // ======== دمج الفئات حسب المخطط ========
+            const mergeMap = {
+                "Sérologie de la Toxoplasmose": "Sérologie",
+                "Analyse d'urine": "Urinaire",
+                "Hémostase": "Hématobiologie",
+                "Sérologie de la Syphilis": "Sérologie",
+                "Cyto-Micro-Biologie": "Bactériologie"
+            };
+
+            analyses.forEach(a => {
+                if (mergeMap[a.categorie]) {
+                    a.categorie = mergeMap[a.categorie];
+                }
+            });
+
+            // Medical Analysis PDF Mapping
+            const pdfMapping = {
+                // Analysis Name -> PDF Filename relative to nunupdf/
+                "CHOLESTEROL HDL": "CHOLESTEROL HDL.pdf",
+                "CHOLESTEROL LDL": "CHOLESTEROL LDL.pdf",
+                "Progesterone": "Progesterone.pdf",
+                "PSA TOTALE": "PSA TOTALE.pdf",
+                "Testosterone": "Testosterone.pdf",
+                "Tshus": "Tshus.pdf",
+                "Fsh": "Fsh.pdf",
+                "Lipase": "Lipase.pdf",
+                "HbA1C (Hb glyquée)": "HbA1C.pdf",
+                "FER SERIQUE": "FER SERIQUE.pdf",
+                "FIBRINOGENE": "FIBRINOGENE.pdf",
+                "AC ANTI CARDIOLIPINE IgG": "AC ANTI CARDIOLIPINE IgG.pdf",
+                "AC ANTI INSULINE": "AC ANTI INSULINE.pdf",
+                "Ac anti- peau": "Ac anti- peau.pdf",
+                "AC ANTI-ACIDE GLUTAMIQUE DECARBOXYLASE": "AC ANTI-ACIDE GLUTAMIQUE DECARBOXYLASE.pdf",
+                "AC ANTI-ANTIGENES ENA": "AC ANTI-ANTIGENES ENA.pdf",
+                "AC ANTI-CARDIOLIPINE IGM": "AC ANTI-CARDIOLIPINE IGM.pdf",
+                "AC ANTI-CARDIOLIPINE Screen (IgG, IgM)": "AC ANTI-CARDIOLIPINE Screen (IgG, IgM).pdf",
+                "AC ANTI-RETICULINE": "AC ANTI-RETICULINE.pdf",
+                "Ac anti-transglutaminase IgA": "Ac anti-transglutaminase IgA.pdf",
+                "Ac anti-transglutaminase IgG": "Ac anti-transglutaminase IgG.pdf",
+                "AC-ANTI ACETYLCHOLINE": "AC-ANTI ACETYLCHOLINE.pdf",
+                "ACIDE LACTIQUE": "ACIDE LACTIQUE.pdf",
+                "Aldolase": "Aldolase.pdf",
+                "ALDOSTERONE": "ALDOSTERONE.pdf",
+                "ALDOSTERONE URINAIRE": "ALDOSTERONE URINAIRE.pdf",
+                "ALPHA 1 ANTI TRYPSINE": "ALPHA 1 ANTI TRYPSINE.pdf",
+                "Amylase": "Amylase.pdf",
+                "anti lupique circulant": "anti lupique circulant.pdf",
+                "Anti muscle lisse": "Anti muscle lisse.pdf",
+                "ANTI-GAD": "ANTI-GAD.pdf",
+                "ANTICORPS ANTI -THYROGLOBILINE (anti TG)": "ANTICORPS ANTI -THYROGLOBILINE (anti TG).pdf",
+                "Anticorps anti-endomysium IgA": "Anticorps anti-endomysium IgA.pdf",
+                "Anticorps anti-muscles lisses": "Anticorps anti-muscles lisses.pdf",
+                "Anticorps anti-saccharomyces cervisiae (ASCA)": "Anticorps anti-saccharomyces cervisiae (ASCA).pdf",
+                "ANTITHROMBINE 3": "ANTITHROMBINE 3.pdf",
+                "AUTO-ANTICORPS ANTI-IA2": "AUTO-ANTICORPS ANTI-IA2.pdf",
+                "BETA HCG": "BETA HCG.pdf",
+                "CERULEOPLASMINE": "CERULEOPLASMINE.pdf",
+                "chaine legere urinaire": "chaine legere urinaire.pdf",
+                "Chaines légéres Kappa": "Chaines légéres Kappa.pdf",
+                "CHLAMYDIA": "CHLAMYDIA.pdf",
+                "CHROMATOGRAPHI DES ACIDE AMINES": "CHROMATOGRAPHI DES ACIDE AMINES.pdf",
+                "Cortisol": "Cortisol.pdf",
+                "D-DIMERES": "D-DIMERES.pdf",
+                "Déhydroépiandrostérone": "Déhydroépiandrostérone.pdf",
+                "ELECTROPHORESE DES PROTEINES": "ELECTROPHORESE DES PROTEINES.pdf",
+                "ELECTROPHORéSE DES PROTEINES URINAIRES": "ELECTROPHORéSE DES PROTEINES URINAIRES.pdf",
+                "Enzyme de conversion de l'angiotensine": "Enzyme de conversion de l'angiotensine.pdf",
+                "facteur ix": "facteur ix.pdf",
+                "facteur de willebrand": "facteur de willebrand.pdf",
+                "FRUCTOSAMINE": "FRUCTOSAMINE.pdf",
+                "GLUCOSE": "GLUCOSE.pdf",
+                "GLUCOSE-6-PHOSPHATE DESHYDROGENASE (G6-PDH)": "GLUCOSE-6-PHOSPHATE DESHYDROGENASE (G6-PDH).pdf",
+                "HCG, MARQUEUR TUMORAL": "HCG, MARQUEUR TUMORAL.pdf",
+                "HOMOCYSTEINE URINAIRE": "HOMOCYSTEINE URINAIRE.pdf",
+                "HORMONE ANTI-DIURETIQUE": "HORMONE ANTI-DIURETIQUE.pdf",
+                "Hormone de croissance (GH)": "Hormone de croissance (GH).pdf",
+                "IgA anti-transglutaminase tissulaire": "IgA anti-transglutaminase tissulaire.pdf",
+                "IGE LAIT DE VACHE": "IGE LAIT DE VACHE.pdf",
+                "IGG 4": "IGG 4.pdf",
+                "IgG anti-transglutaminase": "IgG anti-transglutaminase.pdf",
+                "insuline": "insuline.pdf",
+                "LH": "LH.pdf",
+                "LKM": "LKM1.pdf",
+                "peptide c": "peptide c.pdf",
+                "Phénylalanine": "Phénylalanine.pdf",
+                "PROCALCITONINE": "PROCALCITONINE.pdf",
+                "PROTEINE C ACTIVE": "PROTEINE C ACTIVE.pdf",
+                "PSA LIBRE": "PSA LIBRE.pdf",
+                "PTH": "PTH.pdf",
+                "testosterone libre": "testosterone.pdf",
+                "THYROCALCITONINE": "THYROCALCITONINE.pdf",
+                "thyroxine t4": "thyroxine t4.pdf",
+                "TRANSFERRINE": "TRANSFERRINE.pdf",
+                "triiodothyronine": "triiodothyronine.pdf",
+                "Troponine": "Troponine.pdf",
+                "VITAMINE D2D3  25 HYDROXY VITAMINE D": "VITAMINE D2D3  25 HYDROXY VITAMINE D.pdf",
+                "ZINC": "ZINC.pdf",
+                "MAGNESIUM": "MAGNESIUM.pdf",
+                "c reactive": "c reactive.pdf",
+                "antigéne carcino-embryonnaire": "antigéne carcino-embryonnaire.pdf",
+                "ANTISTREPTOLYSINE": "ANTISTREPTOLYSINE.pdf",
+                "Créatine Phosphokinase": "Créatine Phosphokinase.pdf",
+                "OESTRADIOL": "OESTRADIOL.pdf",
+                "(Thyroxine libre) ft4": "(Thyroxine libre) ft4.pdf",
+                "Tri-iodothyronine libre": "Tri-iodothyronine libre.pdf",
+                "17-Hydroxyprogesteron": "17-Hydroxyprogesteron.pdf",
+                "AC ANTI MITOCHONDRI": "AC ANTI MITOCHONDRI.pdf",
+                "depakine": "depakine.pdf",
+                "alpha-foetoproteine": "alpha-foetoproteine.pdf",
+                "Anti corps anti beta": "Anti corps anti beta.pdf",
+                "ANti-TPO": "ANti-TPO.pdf",
+                "Anticorps anti-cytoplasme des polynucléaires neutro philes": "Anticorps anti-cytoplasme des polynucléaires neutro philes.pdf",
+                "Déhydroépiandrostérone-sulfate": "Déhydroépiandrostérone-sulfate.pdf",
+                "facteur vii": "facteur vii.pdf",
+                "HOMOCYSTEINE": "HOMOCYSTEINEpdf.pdf",
+                "Hormone de croissance GH": "Hormone de croissance GH.pdf",
+                "LOCUS B": "Locus B.pdf",
+                "PHOSPHORE": "PHOSPHORE.pdf",
+                "CHLAMYDIA IgG": "CHLAMYDIA IgG.pdf",
+                "CHLAMYDIA IgM": "CHLAMYDIA IgM.pdf",
+                "17-OH PROGESTERONE": "17-Hydroxyprogesteron.pdf",
+                "LKM1": "LKM1.pdf",
+                "Ac anti DNA natif": "Ac anti DNA natif.pdf",
+                "(Thyroxine libre)": "(Thyroxine libre).pdf"
+            };
+
+            let selectedAnalyses = [];
+            let currentFilter = 'all';
+
+            // Show temporary message function
+            function showTemporaryMessage(message) {
+                try {
+                    // Create message element
+                    const messageDiv = document.createElement('div');
+                    messageDiv.style.cssText = `
+                        position: fixed;
+                        top: 100px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background-color: #0caac1;
+                        color: white;
+                        padding: 16px 32px;
+                        border-radius: 12px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                        z-index: 10000;
+                        animation: slideDown 0.3s ease-out;
+                        text-align: center;
+                        direction: rtl;
+                    `;
+                    messageDiv.textContent = message;
+
+                    // Add animation keyframes
+                    if (!document.getElementById('tempMessageStyles')) {
+                        const style = document.createElement('style');
+                        style.id = 'tempMessageStyles';
+                        style.textContent = `
+                            @keyframes slideDown {
+                                from {
+                                    opacity: 0;
+                                    transform: translateX(-50%) translateY(-20px);
+                                }
+                                to {
+                                    opacity: 1;
+                                    transform: translateX(-50%) translateY(0);
+                                }
+                            }
+                            @keyframes slideUp {
+                                from {
+                                    opacity: 1;
+                                    transform: translateX(-50%) translateY(0);
+                                }
+                                to {
+                                    opacity: 0;
+                                    transform: translateX(-50%) translateY(-20px);
+                                }
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }
+
+                    document.body.appendChild(messageDiv);
+
+                    // Remove after 3 seconds
+                    setTimeout(() => {
+                        messageDiv.style.animation = 'slideUp 0.3s ease-out';
+                        setTimeout(() => {
+                            if (messageDiv && messageDiv.parentNode) {
+                                messageDiv.remove();
+                            }
+                        }, 300);
+                    }, 3000);
+                } catch (error) {
+                    console.log('Message display error:', error);
+                }
+            }
+
+            // Initialize the application
+            function init() {
+                const savedLang = localStorage.getItem('lang') || 'fr';
+                switchLanguage(savedLang);
+
+                renderAnalyses();
+                setupEventListeners();
+            }
+
+            // Group analyses by category
+            function groupAnalysesByCategory() {
+                const grouped = {};
+                analyses.forEach((analysis, index) => {
+                    if (!grouped[analysis.categorie]) {
+                        grouped[analysis.categorie] = [];
+                    }
+                    grouped[analysis.categorie].push({ ...analysis, globalIndex: index });
+                });
+
+                return grouped;
+            }
+
+            // Check if an analysis has a PDF guide
+            function hasPDFGuide(analysisName) {
+                return !!pdfMapping[analysisName];
+            }
+
+            // Get PDF path for an analysis
+            function getPDFPath(analysisName) {
+                const filename = pdfMapping[analysisName];
+                return filename ? `nunupdf/${filename}` : '';
+            }
+
+            // Get Icon for Category
+            function getCategoryIcon(category) {
+                const icons = {
+                    'Hématobiologie': 'droplets',
+                    'Sérologie inféctieuse': 'microscope',
+                    'Biochimie sanguine': 'test-tube',
+                    'Hormonologie': 'flame',
+                    'Marqueurs tumoraux': 'target',
+                    'Immunologie': 'shield-check',
+                    'Bactériologie': 'bug',
+                    'Vitamines': 'sun',
+                    'default': 'flask-conical'
+                };
+                return icons[category] || icons['default'];
+            }
+
+            // Render analyses based on current filter
+            function renderAnalyses() {
+                const container = document.getElementById('analysesList');
+                const grouped = groupAnalysesByCategory();
+
+                let filteredCategories = Object.keys(grouped);
+                if (currentFilter !== 'all') {
+                    filteredCategories = [currentFilter];
+                }
+
+                const html = filteredCategories.map(category => {
+                    const tests = grouped[category].filter(analysis => {
+                        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                        return analysis.nom.toLowerCase().includes(searchTerm);
+                    });
+
+                    if (tests.length === 0) return '';
+
+                    return `
+                    <div class="mb-12 animate-slide-up">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="p-3 rounded-2xl bg-primary-500 text-white shadow-lg shadow-primary-500/20" style="background-color: #0caac1;">
+                                <i data-lucide="${getCategoryIcon(category)}" class="w-8 h-8"></i>
+                            </div>
+                            <h2 class="text-3xl font-black text-slate-800 tracking-tight">${category}</h2>
+                            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-400 text-xs font-bold">${tests.length} tests</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                            ${tests.map(analysis => {
+                        const isSelected = selectedAnalyses.find(a => a.id === analysis.globalIndex);
+                        const hasPDF = hasPDFGuide(analysis.nom);
+                        const pdfPath = hasPDF ? getPDFPath(analysis.nom) : '';
+
+                        return `
+                                    <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] group ${isSelected ? 'ring-2 ring-primary-500' : ''}" data-id="${analysis.globalIndex}">
+                                        <div class="flex justify-between items-start mb-4">
+                                            <h3 class="font-bold text-slate-800 leading-tight group-hover:text-primary-600 transition-colors uppercase text-sm tracking-tight">${analysis.nom}</h3>
+                                            <div class="analysis-checkbox ${isSelected ? 'checked' : ''} p-2 rounded-xl bg-slate-50 group-hover:bg-white transition-all cursor-pointer shadow-sm flex items-center gap-2 pr-4" style="${isSelected ? 'background-color: #f6a201;' : ''}" data-id="${analysis.globalIndex}">
+                                                <i data-lucide="${isSelected ? 'check' : 'plus'}" class="w-5 h-5 ${isSelected ? 'text-white' : 'text-slate-400 group-hover:text-primary-500'}"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2 mb-4 opacity-0 h-0 pointer-events-none">
+                                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Prix:</span>
+                                            <span class="text-lg font-black text-primary-600" style="color: #0caac1;">${analysis.prix} DA</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 mt-auto">
+                                            ${hasPDF ? `
+                                                <a href="${pdfPath}" target="_blank" class="flex-1 py-3 px-3 rounded-xl bg-slate-50 text-slate-500 text-[11px] font-black uppercase tracking-widest hover:bg-slate-100 transition-all flex items-center justify-center gap-2 border border-slate-100">
+                                                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                                                    Guide
+                                                </a>
+                                            ` : ''}
+                                            <button class="details-btn flex-1 py-3 px-3 rounded-xl text-blue-600 text-[11px] font-black uppercase tracking-widest hover:bg-primary-100 transition-all flex items-center justify-center gap-2 border border-primary-100" style="background-color: #0caac10a; color: #0caac1;" data-id="${analysis.globalIndex}">
+                                                <i data-lucide="eye" class="w-4 h-4"></i>
+                                                Détails
+                                            </button>
+                                        </div>
+                                        <!-- Details Content -->
+                                        <div class="details-content overflow-hidden transition-all duration-300 text-sm text-slate-500 border-t border-slate-100 leading-relaxed" data-id="${analysis.globalIndex}">
+                                            <div class="flex flex-col gap-2">
+                                                <div class="flex justify-between">
+                                                    <span class="font-bold text-slate-400 uppercase text-[10px]">Catégorie:</span>
+                                                    <span class="text-slate-700 font-medium">${analysis.categorie || 'Non spécifiée'}</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="font-bold text-slate-400 uppercase text-[10px]">Source:</span>
+                                                    <span class="text-slate-700 font-medium">${analysis.source || 'Non spécifié'}</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span class="font-bold text-slate-400 uppercase text-[10px]">Unité:</span>
+                                                    <span class="text-slate-700 font-medium">${analysis.unite || 'Valeur qualitative'}</span>
+                                                </div>
+                                                ${analysis.abr ? `
+                                                <div class="flex justify-between">
+                                                    <span class="font-bold text-slate-400 uppercase text-[10px]">Abréviation:</span>
+                                                    <span class="text-slate-700 font-medium">${analysis.abr}</span>
+                                                </div>
+                                                ` : ''}
+                                                <div class="flex justify-between opacity-0 h-0 pointer-events-none">
+                                                    <span class="font-bold text-slate-400 uppercase text-[10px]">Prix:</span>
+                                                    <span class="text-slate-700 font-bold">${analysis.prix} DA</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                    }).join('')}
+                        </div>
+                    </div>
+                `;
+                }).join('');
+
+                if (html.trim() === '') {
+                    container.innerHTML = `
+                    <div class="text-center py-20 animate-slide-up">
+                        <div class="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="search-x" class="w-12 h-12 text-slate-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-800 mb-2">Aucune analyse trouvée</h3>
+                        <p class="text-slate-500">Essayez de modifier votre recherche ou de changer de catégorie.</p>
+                        <button onclick="document.getElementById('searchInput').value=''; renderAnalyses();" class="mt-8 text-primary-600 font-bold uppercase tracking-widest text-xs hover:text-primary-700 transition-colors" style="color: #0caac1;">
+                            Voir tout le catalogue
+                        </button>
+                    </div>
+                `;
+                } else {
+                    container.innerHTML = html;
+                }
+
+                lucide.createIcons();
+            }
+
+            // This block was misplaced and causing a syntax error.
+            // It should either be part of renderAnalyses or a separate function called after rendering.
+            // For now, it's removed as per the user's provided 'clean up' which implies removing the problematic part.
+            /*
+            const counterEl = document.getElementById('resultsCounter');
+            const emptyMessageEl = document.getElementById('noResultsMessage');
+    
+            if (!counterEl) {
+                return;
+            }
+    
+            const visibleCount = Array.from(document.querySelectorAll('.test-item')).filter(item => {
+                const itemDisplay = item.style.display;
+                const categoryCard = item.closest('.category-card');
+                const cardDisplay = categoryCard ? categoryCard.style.display : '';
+                const itemHidden = itemDisplay === 'none';
+                const cardHidden = categoryCard && cardDisplay === 'none';
+                return !itemHidden && !cardHidden;
+            }).length;
+    
+            const totalInScope = currentFilter === 'all'
+                ? analyses.length
+                : analyses.filter(a => a.categorie === currentFilter).length;
+    
+            counterEl.textContent = `Analyses visibles: ${visibleCount} / ${totalInScope}`;
+    
+            if (emptyMessageEl) {
+                if (visibleCount === 0) {
+                    emptyMessageEl.classList.remove('hidden');
+                } else {
+                    emptyMessageEl.classList.add('hidden');
+                }
+            }
+            */
+
+
+            // Setup event listeners
+            function setupEventListeners() {
+                // Filter buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.category;
+                        renderAnalyses();
+                    });
+                });
+
+                // Search functionality
+                document.getElementById('searchInput').addEventListener('input', function (e) {
+                    renderAnalyses();
+                });
+
+                // Cart toggle functionality
+                const toggleCart = () => {
+                    const cartPanel = document.getElementById('cartPanel');
+                    const isOpening = !cartPanel.classList.contains('visible');
+
+                    if (isOpening) {
+                        cartPanel.classList.add('visible');
+                    } else {
+                        cartPanel.classList.remove('visible');
+                    }
+                };
+
+                document.getElementById('cartToggleBtn').addEventListener('click', toggleCart);
+                document.getElementById('closeCartBtn').addEventListener('click', toggleCart);
+
+                // Analysis selection
+                document.addEventListener('click', function (e) {
+                    const checkbox = e.target.closest('.analysis-checkbox');
+                    if (checkbox) {
+                        const analysisId = parseInt(checkbox.dataset.id);
+                        toggleAnalysisSelection(analysisId);
+                    }
+
+                    const detailsBtn = e.target.closest('.details-btn');
+                    if (detailsBtn) {
+                        const analysisId = detailsBtn.dataset.id;
+                        const content = document.querySelector(`.details-content[data-id="${analysisId}"]`);
+                        content.classList.toggle('expanded');
+
+                        // Optional: Update button text/icon
+                        const icon = detailsBtn.querySelector('i');
+                        if (content.classList.contains('expanded')) {
+                            detailsBtn.style.backgroundColor = '#f6a20122';
+                            detailsBtn.style.color = '#f6a201';
+                            if (icon) icon.setAttribute('data-lucide', 'eye-off');
+                        } else {
+                            detailsBtn.style.backgroundColor = '#0caac10a';
+                            detailsBtn.style.color = '#0caac1';
+                            if (icon) icon.setAttribute('data-lucide', 'eye');
+                        }
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
+                    }
+                });
+
+                // Booking buttons
+                document.getElementById('bookingBtn').addEventListener('click', handleBooking);
+            }
+
+            // Toggle analysis selection
+            function toggleAnalysisSelection(analysisId) {
+                const analysis = analyses[analysisId];
+                const isAlreadySelected = selectedAnalyses.find(a => a.id === analysisId);
+
+                if (isAlreadySelected) {
+                    selectedAnalyses = selectedAnalyses.filter(a => a.id !== analysisId);
+                } else {
+                    selectedAnalyses.push({ ...analysis, id: analysisId });
+                }
+
+                // Re-render and update UI
+                renderAnalyses();
+                updateCartSummary();
+            }
+
+            // Update cart summary
+            function updateCartSummary() {
+                const itemCount = document.getElementById('itemCount');
+                const totalPrice = document.getElementById('totalPrice');
+                const bookingBtn = document.getElementById('bookingBtn');
+                const cartList = document.getElementById('cartList');
+                const cartBadge = document.getElementById('cartBadge');
+
+                const total = selectedAnalyses.reduce((sum, analysis) => sum + analysis.prix, 0);
+
+                itemCount.textContent = selectedAnalyses.length;
+                totalPrice.textContent = `${total.toFixed(0)} DZD`;
+                cartBadge.textContent = selectedAnalyses.length;
+                cartBadge.style.display = selectedAnalyses.length > 0 ? 'flex' : 'none';
+
+                if (selectedAnalyses.length > 0) {
+                    cartList.innerHTML = selectedAnalyses.map(analysis => `
+                    <div class="flex justify-between items-center p-4 bg-white/50 rounded-xl border border-white shadow-sm animate-slide-up">
+                        <div class="flex-1">
+                            <p class="font-bold text-slate-800 text-sm">${analysis.nom}</p>
+                            <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">${analysis.categorie}</p>
+                        </div>
+                        <button onclick="toggleAnalysisSelection(${analysis.id})" class="p-2 text-slate-400 hover:text-red-500 transition-colors">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+                    bookingBtn.disabled = false;
+                } else {
+                    cartList.innerHTML = `
+                    <div class="text-center py-8 text-slate-400">
+                        <i data-lucide="search" class="w-12 h-12 mx-auto mb-3 opacity-20"></i>
+                        <p>Aucune analyse sélectionnée</p>
+                    </div>
+                `;
+                    bookingBtn.disabled = true;
+                }
+                lucide.createIcons();
+            }
+
+            // Handle booking
+            function handleBooking() {
+                if (selectedAnalyses.length > 0) {
+                    const total = selectedAnalyses.reduce((sum, analysis) => sum + analysis.prix, 0);
+                    const analysisNames = selectedAnalyses.map(a => a.nom).join(', ');
+
+                    alert(`🎉 Réservation confirmée !\n\nAnalyses : ${analysisNames}\n\nTotal Estimation: ${total.toFixed(0)} DZD\n\nNous vous contacterons bientôt.`);
+
+                    selectedAnalyses = [];
+                    renderAnalyses();
+                    updateCartSummary();
+                    document.getElementById('cartPanel').classList.remove('visible');
+                }
+            }
+
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('hidden');
+            }
+
+            let currentLang = 'fr';
+            function switchLanguage(lang) {
+                if (!lang) return;
+                localStorage.setItem('lang', lang);
+                currentLang = lang;
+
+                // Update all matching language buttons (desktop and mobile)
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    const onclickAttr = btn.getAttribute('onclick') || '';
+                    const isTarget = onclickAttr.includes(`'${lang}'`);
+                    btn.classList.toggle('active', isTarget);
+
+                    if (btn.classList.contains('mobile-lang-btn')) {
+                        if (isTarget) {
+                            btn.classList.add('bg-primary-50', 'text-primary-600', 'border-primary-100');
+                            btn.classList.remove('text-slate-400', 'border-transparent');
+                        } else {
+                            btn.classList.remove('bg-primary-50', 'text-primary-600', 'border-primary-100');
+                            btn.classList.add('text-slate-400', 'border-transparent');
+                        }
+                    } else {
+                        // Desktop buttons
+                        if (isTarget) {
+                            btn.classList.add('text-primary-600', 'bg-primary-50', 'border-primary-100');
+                            btn.classList.remove('text-slate-400');
+                        } else {
+                            btn.classList.remove('text-primary-600', 'bg-primary-50', 'border-primary-100');
+                            btn.classList.add('text-slate-400');
+                        }
+                    }
+                });
+
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.lang = lang;
+
+                document.querySelectorAll('[data-fr]').forEach(el => {
+                    el.textContent = el.getAttribute('data-' + lang);
+                });
+
+                if (window.lucide) lucide.createIcons();
+            }
+
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar?.classList.add('scrolled');
+                } else {
+                    navbar?.classList.remove('scrolled');
+                }
+            });
+            init();
+        </script>
+
+</html>

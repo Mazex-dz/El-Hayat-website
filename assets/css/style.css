@@ -1,0 +1,235 @@
+/* Custom Glassmorphism & Utilities */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #0f172a;
+    /* Slate 900 for high contrast */
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.glass-nav {
+    background: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #0caac1 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Editorial Typography */
+.h-xl {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.text-detail {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+    color: #64748b;
+}
+
+/* Premium Card & Glass */
+.card-premium {
+    background: #ffffff;
+    border: 1px solid rgba(241, 245, 249, 0.8);
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.03);
+    border-radius: 2rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-premium:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.06);
+    border-color: #e2e8f0;
+}
+
+.glass-blur {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Interactive Elements */
+.btn-premium {
+    position: relative;
+    padding: 1rem 2.5rem;
+    background: #0caac1;
+    color: white;
+    font-weight: 700;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #0caac1, #28cfe2);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.btn-premium:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(12, 170, 193, 0.3);
+}
+
+.btn-premium:hover::before {
+    opacity: 1;
+}
+
+
+/* --- Premium Artistic Aura --- */
+.art-aura-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.aura-blob {
+    position: absolute;
+    filter: blur(100px);
+    opacity: 0.25;
+    /* Boosted for better presence */
+    mix-blend-mode: multiply;
+    animation: aura-float 30s infinite alternate ease-in-out;
+}
+
+.aura-1 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, #0caac1 0%, transparent 70%);
+    top: -10%;
+    left: -10%;
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
+}
+
+.aura-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #f6a201 0%, transparent 70%);
+    bottom: -10%;
+    right: -10%;
+    border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%;
+    animation-delay: -5s;
+    opacity: 0.18;
+    /* Boosted */
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    /* Boosted from 0.03 for a more textured feel */
+    mix-blend-mode: overlay;
+}
+
+@keyframes aura-float {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(5%, 10%) scale(1.1) rotate(5deg);
+    }
+
+    100% {
+        transform: translate(-5%, 5%) scale(0.9) rotate(-5deg);
+    }
+}
+
+
+
+
+/* Scroll Reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Reduced movement */
+    transition: all 0.6s ease-out;
+    /* Smoother transition */
+}
+
+.scroll-reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stencil Reveal Animation */
+.stencil-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.stencil-reveal::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    transform: translateX(0);
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.stencil-reveal.reveal-visible::after {
+    transform: translateX(101%);
+}
+
+
+/* RTL support */
+[lang="ar"] body {
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+}
+
+/* Smooth Scroll Padding for fixed header */
+html {
+    scroll-padding-top: 5rem;
+}
+
+/* Premium Hover Effects (Stable) */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    /* Reduced lift */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Utility */
+.card {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: #e2e8f0;
+}

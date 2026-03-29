@@ -1,0 +1,3474 @@
+[
+  {
+    "nom": "- Ac Anti-CMV  IgG",
+    "abr": "IGG CMV",
+    "prix": 1300,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "- Ac Anti-CMV  IgM",
+    "abr": "IGM  CMV",
+    "prix": 1300,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "- AC ANTI-HAV IGG",
+    "abr": "HAV IGG",
+    "prix": 1300,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "- Ac anti-HBc TOTAUX",
+    "abr": "ACHBC",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "- AC ANTI-HBC TOTAUX (IGG+IGM) CORE T",
+    "abr": "AC ANTI HBC",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "- Antig�ne HBe",
+    "abr": "AGHBE",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "17-Hydroxyprogesterone ( 17-OHP)",
+    "abr": "17OH",
+    "prix": 1200,
+    "categorie": "Hormonologie",
+    "source": "S�rum",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "A.C.T.H",
+    "abr": "ACTH",
+    "prix": 1600,
+    "categorie": "Hormonologie",
+    "source": "Sang",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "AC ANTI BP 180",
+    "abr": "BP180",
+    "prix": 20000,
+    "categorie": "Hormonologie",
+    "source": "S�rum/Plasma^Donneur",
+    "unite": "ng"
+  },
+  {
+    "nom": "AC ANTI BP230",
+    "abr": "BP230",
+    "prix": 15000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng"
+  },
+  {
+    "nom": "AC ANTI CARDIOLIPINE IgG",
+    "abr": "CAR IGG",
+    "prix": 5500,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI GP210",
+    "abr": "GP210",
+    "prix": 4600,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Ac Anti HAV IgM",
+    "abr": "HAV IgM",
+    "prix": 1300,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "S/CO"
+  },
+  {
+    "nom": "AC ANTI IA2",
+    "abr": "Ac anti IA2",
+    "prix": 3500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "AC ANTI INSULINE",
+    "abr": "IAA",
+    "prix": 11550,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI MITOCHONDRIE",
+    "abr": "MIT",
+    "prix": 3000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI SP100",
+    "abr": "SP100",
+    "prix": 10500,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Ac anti- peau",
+    "abr": "anti peau",
+    "prix": 2600,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI-ACIDE GLUTAMIQUE DECARBOXYLASE",
+    "abr": "anti GAD",
+    "prix": 3000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "AC ANTI-ANTIGENES ENA",
+    "abr": "ENA",
+    "prix": 7000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI-CARDIOLIPINE IGM",
+    "abr": "CAR IGM",
+    "prix": 5550,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI-CARDIOLIPINE Screen (IgG, IgM)",
+    "abr": "AC CARDIO",
+    "prix": 9000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Ac anti-gliadine",
+    "abr": "ANTI-GLIADINE",
+    "prix": 2100,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Ac Anti-HCV",
+    "abr": "HCV",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI-INSULINE",
+    "abr": "AC INSULINE",
+    "prix": 8500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AC ANTI-RECEPTEUR DE LA TSH",
+    "abr": "TSI",
+    "prix": 4000,
+    "categorie": "Hormonologie",
+    "source": "S�rum",
+    "unite": "U/L"
+  },
+  {
+    "nom": "AC ANTI-RETICULINE",
+    "abr": "AC ANTI RETICULINE",
+    "prix": 1000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Ac anti-transglutaminase IgA",
+    "abr": "ANTI TRANS IgA",
+    "prix": 2200,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "Ac anti-transglutaminase IgG",
+    "abr": "ANTI TRANS IgG",
+    "prix": 2200,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "AC ANTICOLAGENE",
+    "abr": "COL",
+    "prix": 22000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng"
+  },
+  {
+    "nom": "Ac AntiGliadine IgA",
+    "abr": "ANTI GLIA IgA",
+    "prix": 2100,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "Ac AntiGliadine IgG",
+    "abr": "ANTI GLIA IgG",
+    "prix": 2100,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "AC HBC",
+    "abr": "ACHBC",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "S/CO"
+  },
+  {
+    "nom": "AC-ANTI  ACETYLCHOLINE",
+    "abr": "ARACH",
+    "prix": 2500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ACE (antig�ne carcino-embryonnaire )",
+    "abr": "ACE",
+    "prix": 1000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "ACIDE LACTIQUE",
+    "abr": "LACTATE",
+    "prix": 3000,
+    "categorie": "Biochimie sanguine",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "acide methylmalonique urinaire",
+    "abr": "ammu",
+    "prix": 9330,
+    "categorie": "M�dicaments et produits toxiques",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "ACIDE URIQUE SANGUIN",
+    "abr": "AU",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "ACIDE URIQUE URINAIRE",
+    "abr": "URATES24H",
+    "prix": 300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "ACIDE VALPOIQUE(DEPAKINE)",
+    "abr": "DEPAKINE",
+    "prix": 2000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/mL"
+  },
+  {
+    "nom": "ACIDE VANYL MANDELIQUE (V M A)",
+    "abr": "VMA",
+    "prix": 3800,
+    "categorie": "Hématologie",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "AFP (alpha-foetoproteine)",
+    "abr": "AFP",
+    "prix": 1000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "ALAT (GPT)",
+    "abr": "ALAT",
+    "prix": 150,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "ALBUMINE DU LIQUIDE D'ASCITE",
+    "abr": "ALBUMINE DU LIQUIDE D'ASCITE",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Liquide biologique",
+    "unite": "g/L"
+  },
+  {
+    "nom": "ALBUMINEMIE",
+    "abr": "ALB",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "Aldolase",
+    "abr": "ALDO",
+    "prix": 2500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ALDOSTERONE",
+    "abr": "ALDOST",
+    "prix": 7900,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ALDOSTERONE URINAIRE",
+    "abr": "Aldosterone Ur",
+    "prix": 4300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "ALPHA 1 ANTI TRYPSINE",
+    "abr": "Alpha 1",
+    "prix": 2100,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "amoni�mie",
+    "abr": "amonium",
+    "prix": 4600,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AMYLASE",
+    "abr": "AMY",
+    "prix": 1000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "Amylase dans le Liquide Abdominal",
+    "abr": "ALA",
+    "prix": 1000,
+    "categorie": "Biochimie sanguine",
+    "source": "Liquide biologique",
+    "unite": "U/L"
+  },
+  {
+    "nom": "AMYLASURIE",
+    "abr": "AMY UR",
+    "prix": 900,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "U/L"
+  },
+  {
+    "nom": "ANGIOTENSINE II",
+    "abr": "Angiotensine II",
+    "prix": 1400,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ANTI ACTINE F",
+    "abr": "F",
+    "prix": 2800,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anti corps anti beta 2 glycoproteine IgG / IgM",
+    "abr": "Beta 2 GP1",
+    "prix": 11100,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "anti hepatite C total",
+    "abr": "antiHCV total",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "S�rum",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "anti lupique circulant",
+    "abr": "anti lupique circulant",
+    "prix": 15400,
+    "categorie": "Immuno-h�matologie",
+    "source": "Plasma pauvre en plaquettes",
+    "unite": ""
+  },
+  {
+    "nom": "Anti muscle lisse",
+    "abr": "AML",
+    "prix": 2800,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma 1",
+    "unite": ""
+  },
+  {
+    "nom": "ANTI-GAD",
+    "abr": "ANTI GAD",
+    "prix": 2000,
+    "categorie": "Hématologie",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "ANTI-TPO(Anticorps Anti-thyroperoxidase)",
+    "abr": "ATPO",
+    "prix": 900,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "ANTICORPS ANTI -THYROGLOBILINE (anti TG)",
+    "abr": "Anti TG",
+    "prix": 950,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "Anticorps anti DNA natif",
+    "abr": "anti DNA",
+    "prix": 2250,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "anticorps anti HBC IgM",
+    "abr": "ACHBC IgM",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma 1",
+    "unite": "S/CO"
+  },
+  {
+    "nom": "Anticorps anti HCV",
+    "abr": "HCV R",
+    "prix": 500,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti phospholipides ( APL)",
+    "abr": "APL",
+    "prix": 7000,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti-cytoplasme des polynucl�aires neutro philes (ANCA)",
+    "abr": "ANCA",
+    "prix": 3800,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti-endomysium IgA",
+    "abr": "ENDOMISIUM",
+    "prix": 2700,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps Anti-HBe",
+    "abr": "ACHBE",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "Anticorps Anti-HBs",
+    "abr": "ACHBS",
+    "prix": 1200,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti-muscles lisses",
+    "abr": "Muscle lisse",
+    "prix": 2300,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti-nucl�aire ( AAN)",
+    "abr": "AAN",
+    "prix": 5700,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps anti-peptide cycliques citrulline?s ( ACCP )",
+    "abr": "ACCP",
+    "prix": 2500,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "Anticorps anti-saccharomyces cervisiae (ASCA)",
+    "abr": "ASCA",
+    "prix": 6500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Anticorps Anti-Treponema Pallidum TPHA )",
+    "abr": "SYPHILIS",
+    "prix": 600,
+    "categorie": "S�rologie",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ANTICORPS ANTICELLULES PARI�TALES",
+    "abr": "ACP",
+    "prix": 5600,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "ANTICORPS ANTIFACTEUR INTRINS�QUE",
+    "abr": "FIS",
+    "prix": 5600,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "ANTIGENE CA 125",
+    "abr": "CA125",
+    "prix": 1000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "ANTIGENE CA 15-3",
+    "abr": "CA153",
+    "prix": 1000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "ANTIGENE CA 19-9",
+    "abr": "CA19.9",
+    "prix": 1000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "Antig�ne HBs",
+    "abr": "Ag HBS R",
+    "prix": 500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ANTISTREPTOLYSINE O (ASLO)",
+    "abr": "ASLO",
+    "prix": 450,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "ANTITHROMBINE 3",
+    "abr": "ANTB 3",
+    "prix": 4000,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ASAT(GOT)",
+    "abr": "ASAT",
+    "prix": 150,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "aspergillose",
+    "abr": "aspergillose",
+    "prix": 9800,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "AUTO-ANTICORPS ANTI-IA2",
+    "abr": "IA2",
+    "prix": 5250,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "AVIDITE DES IGG ANTI TOXOPLASMIQUE",
+    "abr": "TOXO G avidit�",
+    "prix": 3750,
+    "categorie": "S�rologie de la Toxoplasmose",
+    "source": "Serum/Plasma",
+    "unite": "%"
+  },
+  {
+    "nom": "AVIDITE DES IgG ANTI-RUBEOLIQUE",
+    "abr": "Rub G avidite",
+    "prix": 3400,
+    "categorie": "S�rologie de la Rub�ole",
+    "source": "Serum/Plasma",
+    "unite": "%"
+  },
+  {
+    "nom": "B2 microglobuline",
+    "abr": "B2MIC",
+    "prix": 2000,
+    "categorie": "H�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "BETA- HCG",
+    "abr": "BHCG",
+    "prix": 800,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "m[IU]/mL"
+  },
+  {
+    "nom": "Bilan Complet Decembre",
+    "abr": "BL",
+    "prix": 5000,
+    "categorie": "",
+    "source": "",
+    "unite": ""
+  },
+  {
+    "nom": "BILAN LIPIDIQUE",
+    "abr": "BL",
+    "prix": 500,
+    "categorie": "",
+    "source": "",
+    "unite": ""
+  },
+  {
+    "nom": "BILIRUBINE DIRECT",
+    "abr": "BIL D",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "BILIRUBINE TOTALE",
+    "abr": "bilt",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "Biochimie du liquide d'ascite",
+    "abr": "BL ascite",
+    "prix": 500,
+    "categorie": "Divers",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "C- REACTIVE PROTEINE (CRP)",
+    "abr": "CRP ch",
+    "prix": 500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "C1 INIHIBITEUR ( Action fonctionnelle )",
+    "abr": "C1 INH",
+    "prix": 6600,
+    "categorie": "Immunologie",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "C3",
+    "abr": "C3",
+    "prix": 2250,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "C3 PRO ACTIVATEU",
+    "abr": "C3 PRO ACTIVATEU",
+    "prix": 3600,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "C4",
+    "abr": "C4",
+    "prix": 2250,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "CALCIUM SANGUIN",
+    "abr": "CA",
+    "prix": 250,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "CALCIUM URINAIRE",
+    "abr": "CA24H",
+    "prix": 350,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "Calciurie",
+    "abr": "CLC URI",
+    "prix": 400,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "Calciurie des 24h",
+    "abr": "CAL URI 24H",
+    "prix": 400,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "CALPROTECTINE FECALE",
+    "abr": "calprotectine fecale",
+    "prix": 13000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "Calprotectine F�cale (CF)",
+    "abr": "CF",
+    "prix": 5000,
+    "categorie": "Microbiologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "CAPACITE DE FIXATION DU FER (T.I.B.C)",
+    "abr": "TIBC",
+    "prix": 350,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/dL"
+  },
+  {
+    "nom": "CARIOTYPE",
+    "abr": "CAR",
+    "prix": 42500,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum/Plasma^Donneur",
+    "unite": ""
+  },
+  {
+    "nom": "CERULEOPLASMINE",
+    "abr": "CERULEOPLASMINE",
+    "prix": 2700,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "CH 50(complement h�molythique totale)",
+    "abr": "CH50",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "CH5",
+    "abr": "CH5",
+    "prix": 2250,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "CHAINE LEGERE SANGUINE",
+    "abr": "CHLS",
+    "prix": 25000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "chaine legere urinaire",
+    "abr": "kappa lambda urinaire",
+    "prix": 26860,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "Chaine legere urinaire",
+    "abr": "Kappa/lambda urinaire",
+    "prix": 268600,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "CHAINE LEGERE URINAIRE",
+    "abr": "CHLU",
+    "prix": 15200,
+    "categorie": "S�rologie",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "Chaines l�g�res Kappa",
+    "abr": "kappa",
+    "prix": 4800,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "Chaines l�g�res Lambda",
+    "abr": "LAMBDA",
+    "prix": 4800,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "CHARGE VIRALE C (ARN VHC)",
+    "abr": "PCR C",
+    "prix": 9500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "CHARGE VIRALE HEPATITE B",
+    "abr": "PCR B",
+    "prix": 10500,
+    "categorie": "S�rologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "CHIMIE DES URINES",
+    "abr": "CH",
+    "prix": 150,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "CHLAMYDIA",
+    "abr": "CHL V",
+    "prix": 1600,
+    "categorie": "Bact�riologie",
+    "source": "G�nital",
+    "unite": ""
+  },
+  {
+    "nom": "CHOLESTEROL HDL",
+    "abr": "HDL",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "CHOLESTEROL LDL",
+    "abr": "LDL",
+    "prix": 150,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "CHOLESTEROL TOTAL",
+    "abr": "CHOL",
+    "prix": 150,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "CHROMATOGRAPHI DES ACIDE AMINES",
+    "abr": "Acides amin�s",
+    "prix": 13500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "CLAIRANCE DE LA CREATININE",
+    "abr": "UV/P",
+    "prix": 500,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": "mL/min"
+  },
+  {
+    "nom": "CLAIRANCE DE LA CREATININE - Cockcroft-Gault",
+    "abr": "Cockroft",
+    "prix": 500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "COEFFICIENT DE SATURATION",
+    "abr": "CS",
+    "prix": 100,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "%"
+  },
+  {
+    "nom": "COMPTE D'ADDIS- HAMBURGER(HLM)",
+    "abr": "COMPTE D'ADDIS",
+    "prix": 600,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Urine st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "COOMBS INDIRECT",
+    "abr": "COI",
+    "prix": 800,
+    "categorie": "Immuno-h�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "COPRO-PARASITOLOGIE DES SELLES",
+    "abr": "COPAr",
+    "prix": 400,
+    "categorie": "Parasitologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "COPROCULTURE",
+    "abr": "COPC",
+    "prix": 500,
+    "categorie": "Microbiologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "Cortisol",
+    "abr": "cortisol",
+    "prix": 1000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "nmol/L"
+  },
+  {
+    "nom": "Cortisol 15 mn",
+    "abr": "cortisol 15mn hypo",
+    "prix": 1200,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "CORTISOL URINAIRE",
+    "abr": "CORU",
+    "prix": 1200,
+    "categorie": "Hormonologie",
+    "source": "Urine non st�rile",
+    "unite": "ug/(24.h)"
+  },
+  {
+    "nom": "CPK (Cr�atine Phosphokinase):",
+    "abr": "CPK",
+    "prix": 400,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "CREATININE SANGUINE",
+    "abr": "CREA",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "CREATININE URINAIRE",
+    "abr": "CREA UR",
+    "prix": 200,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "Cr�atinine",
+    "abr": "creat",
+    "prix": 300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "CUIVRE ECHANGEABLE",
+    "abr": "CUIVRE ECHANGEABLE",
+    "prix": 11200,
+    "categorie": "Immunologie",
+    "source": "S�rum/Plasma^Donneur",
+    "unite": ""
+  },
+  {
+    "nom": "CUIVRE SANGUIN",
+    "abr": "CUIVRE",
+    "prix": 1350,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/dL"
+  },
+  {
+    "nom": "CUIVRE URINAIRE",
+    "abr": "CUIVRE URINAIRE",
+    "prix": 3250,
+    "categorie": "Biochimie sanguine",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "CUIVRE URINAIRE (CUPRIURIE)",
+    "abr": "Cup U",
+    "prix": 2900,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "CYTOMEGALOVIRUS (CMV)  IgG",
+    "abr": "CMV",
+    "prix": 1400,
+    "categorie": "S�rologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "CYTOMEGALOVIRUSE CMV IGM",
+    "abr": "CMV",
+    "prix": 1400,
+    "categorie": "S�rologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "D-DIMERES",
+    "abr": "Ddim",
+    "prix": 2900,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "DELTA 4 ANDROSTENDIONE",
+    "abr": "D4",
+    "prix": 1800,
+    "categorie": "Hormonologie",
+    "source": "Plasma_S�rologie",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "DENSITE",
+    "abr": "densit�",
+    "prix": 100,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "DEPAKINASE",
+    "abr": "DEPAKINASE",
+    "prix": 6300,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "DEPISTAGE DU DIABETE GESTATIONNEL (HGPO)",
+    "abr": "HG75.",
+    "prix": 600,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "DERIVES METHOXYLES (M�tan�phrines)",
+    "abr": "METHANEPHRINE SANG",
+    "prix": 26000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "DESMOGLEINE 1 ET 3",
+    "abr": "DESMOGLEINE 1 ET 3",
+    "prix": 2700,
+    "categorie": "H�matologie",
+    "source": "Serum/Plasma",
+    "unite": "{absorbance}"
+  },
+  {
+    "nom": "DHEA-S (D�hydro�piandrost�rone-sulfate )",
+    "abr": "S.DHEA",
+    "prix": 1300,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ug/dL"
+  },
+  {
+    "nom": "Diur�se:",
+    "abr": "ml",
+    "prix": 150,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": "mL"
+  },
+  {
+    "nom": "DOSAGE DE L'HAPTOGLOBINE",
+    "abr": "HAPTOGLOBINE",
+    "prix": 1400,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "DOSAGE DE LA CARBAMAZIPINE(TEGRETOLEMIE)",
+    "abr": "tegretol",
+    "prix": 2000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/mL"
+  },
+  {
+    "nom": "DOSAGE DE LA VITAMINE B 12",
+    "abr": "vit b12",
+    "prix": 1500,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "DOSAGE DES DERIVES METHOXYLES",
+    "abr": "DOSAGE DES DERIVES METRHOXYLES",
+    "prix": 11750,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "DOSAGE DES IGA",
+    "abr": "IGAS",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "DOSAGE DES IgE TOTALES",
+    "abr": "IGE",
+    "prix": 1000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "DOSAGE DES IGG",
+    "abr": "IGG",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "DOSAGE DES IgG SERIQUES",
+    "abr": "IgG",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "DOSAGE DES IGM",
+    "abr": "IGMS",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "DOSAGE DES IgM SERIQUES",
+    "abr": "IgM",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "D�HYDRO�PIANDROST�RONE",
+    "abr": "DHEA",
+    "prix": 9000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ECB de l'�coulement mammelonnaire",
+    "abr": "ECB mammelonnaire",
+    "prix": 1200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DE LA GOUTTE URETHRALE",
+    "abr": "PU",
+    "prix": 1000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Ur�tre",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DE LIQUIDE DE PONCTION",
+    "abr": "ECB LP",
+    "prix": 800,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DE LIQUIDE SYNOVIAL",
+    "abr": "L. Synovial",
+    "prix": 1000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "LCR",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DES EXPECTORATIONS",
+    "abr": "ECB DU PUS",
+    "prix": 1200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Pus",
+    "unite": ""
+  },
+  {
+    "nom": "ECB des Gouttes Ur�trales",
+    "abr": "Ur�tral",
+    "prix": 1000,
+    "categorie": "Microbiologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DU PRELEVEMENT DE GORGE",
+    "abr": "GORGE",
+    "prix": 1000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Gorge",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DU PRELEVEMENT VAGINAL",
+    "abr": "PV",
+    "prix": 800,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "ECB DU PRELEVEMENT VAGINAL/PRELEVEMENT",
+    "abr": "PV/PRVM",
+    "prix": 1200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "ECB SPERME ( MYCO / CHLAM )",
+    "abr": "SPM",
+    "prix": 3500,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "G�nital",
+    "unite": "10.L/min"
+  },
+  {
+    "nom": "ECB VAGINAL ( MYCO /UREA )",
+    "abr": "EBV MYC",
+    "prix": 4200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "G�nital",
+    "unite": ""
+  },
+  {
+    "nom": "ELECTROPHORESE DES PROTEINES",
+    "abr": "EPP",
+    "prix": 900,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "ELECTROPHORESES D'HEMOGLOBINE",
+    "abr": "EPHB",
+    "prix": 1200,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "ELECTROPHOR�SE DES PROTEINES URINAIRES",
+    "abr": "Proteine(Electrophor�se)",
+    "prix": 1100,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "Enzyme de conversion de l'angiotensine",
+    "abr": "ECA",
+    "prix": 1500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "Examen Bact�riologique des selles",
+    "abr": "BACT SELL",
+    "prix": 500,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN CYTO-BACTERIOLOGIQUE DE PUS",
+    "abr": "Pus",
+    "prix": 1000,
+    "categorie": "Microbiologie",
+    "source": "GR",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN CYTO-BACTERIOLOGIQUE DES URINES",
+    "abr": "ECBU",
+    "prix": 500,
+    "categorie": "Microbiologie",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN CYTOBACT�RIOLOGIQUE DE PUS",
+    "abr": "ecb pus",
+    "prix": 800,
+    "categorie": "Bact�riologie",
+    "source": "Pus",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN D'UN FROTTIS DES SECRETIONS NASALES",
+    "abr": "EOSINOPHILIES NASALES",
+    "prix": 1000,
+    "categorie": "H�matologie",
+    "source": "Nez",
+    "unite": ""
+  },
+  {
+    "nom": "Examen Mycologique",
+    "abr": "MYCO",
+    "prix": 1000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Isolat",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN MYCOLOGIQUE",
+    "abr": "myco",
+    "prix": 700,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Urine st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "EXAMEN PARASITOLOGIQUE DES SELLES",
+    "abr": "PARA SELL",
+    "prix": 300,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "FACTEUR  IX",
+    "abr": "FACTEUR  IX",
+    "prix": 3700,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Facteur Anti-nucl�aire (FAN)",
+    "abr": "FAN",
+    "prix": 4500,
+    "categorie": "Immunologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "facteur de willebrand",
+    "abr": "FW",
+    "prix": 3357,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "FACTEUR RHUMATOIDE",
+    "abr": "FR",
+    "prix": 500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "Facteur V",
+    "abr": "Facteur V",
+    "prix": 2100,
+    "categorie": "H�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "FACTEUR V",
+    "abr": "FACTEUR V",
+    "prix": 2300,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "FACTEUR VIII",
+    "abr": "FACTEUR  VIII",
+    "prix": 3700,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "facteur willebrand",
+    "abr": "FW",
+    "prix": 3400,
+    "categorie": "H�matologie",
+    "source": "Plasma pauvre en plaquettes",
+    "unite": ""
+  },
+  {
+    "nom": "Facteurs Rhumatoides IgM",
+    "abr": "FRIgM",
+    "prix": 400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "FER SERIQUE",
+    "abr": "FER",
+    "prix": 250,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/dL"
+  },
+  {
+    "nom": "FERRITINEMIE",
+    "abr": "FERR",
+    "prix": 850,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "FIBRINOGENE",
+    "abr": "FIB",
+    "prix": 300,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "FIBROTEST ACTITEST",
+    "abr": "FIBRO",
+    "prix": 20000,
+    "categorie": "Hématologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "FOLATES (vit B9)",
+    "abr": "b9",
+    "prix": 1400,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "FRACTION C3 DU COMPLEMENT",
+    "abr": "C3",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "FRACTION C4  DU COMPLEMENT",
+    "abr": "C4",
+    "prix": 1500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "mg/dL"
+  },
+  {
+    "nom": "FROTTIS NASAL",
+    "abr": "EOSINOPHILIES NASALES",
+    "prix": 1000,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "FROTTIS SANGUIN",
+    "abr": "FROTTIS SANGUIN 1",
+    "prix": 300,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "FROTTIS SANGUIN COLOR� AU MGG",
+    "abr": "FS",
+    "prix": 800,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "FROTTIS SANGUIN:",
+    "abr": "FS",
+    "prix": 1000,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "FRUCTOSAMINE",
+    "abr": "FRUC",
+    "prix": 1500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "umol/L"
+  },
+  {
+    "nom": "FSH",
+    "abr": "FSH",
+    "prix": 700,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "m[IU]/mL"
+  },
+  {
+    "nom": "FT3 ( Tri-iodothyronine libre )",
+    "abr": "FT3",
+    "prix": 600,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "pmol/L"
+  },
+  {
+    "nom": "FT4 (Thyroxine libre )",
+    "abr": "FT4",
+    "prix": 600,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "pmol/L"
+  },
+  {
+    "nom": "Gamma Glutamyl Transf�rase",
+    "abr": "GGT",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "GH (Hormone de croissance)",
+    "abr": "GH",
+    "prix": 1800,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "GLUCOSE",
+    "abr": "GLU",
+    "prix": 100,
+    "categorie": "Biochimie sanguine",
+    "source": "Liquide pleural",
+    "unite": ""
+  },
+  {
+    "nom": "GLUCOSE-6-PHOSPHATE DESHYDROGENASE (G6-PDH)",
+    "abr": "G6PD",
+    "prix": 3750,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "GLUCOSURIE",
+    "abr": "GLU",
+    "prix": 200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "GLYCEMIE A JEUN",
+    "abr": "GLY",
+    "prix": 150,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "Glyc�mie post-prandiale",
+    "abr": "GPP",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "GROUPAGE",
+    "abr": "gs",
+    "prix": 350,
+    "categorie": "Immuno-h�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "GROUPAGE PHENOTYPE",
+    "abr": "GPH",
+    "prix": 1900,
+    "categorie": "Immuno-h�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "HbA1C (Hb glyqu�e)",
+    "abr": "HBA1C",
+    "prix": 650,
+    "categorie": "Biochimie sanguine",
+    "source": "Sang",
+    "unite": "%"
+  },
+  {
+    "nom": "HBs Antigene",
+    "abr": "HBS AG",
+    "prix": 600,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "S/CO"
+  },
+  {
+    "nom": "HCG, MARQUEUR TUMORAL",
+    "abr": "HCG TUMORAL",
+    "prix": 4000,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Helicobacter Pylori IgG",
+    "abr": "HP IgG",
+    "prix": 2000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "hepatite C igG",
+    "abr": "HBC igG",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "hepatite C igM",
+    "abr": "HBC igM",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma 1",
+    "unite": ""
+  },
+  {
+    "nom": "Herpes HSV 1/2 IgG",
+    "abr": "Herpes HSV 1/2 IgG",
+    "prix": 1500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Herpes HSV 1/2 IgM",
+    "abr": "Herpes HSV 1/2 IgM",
+    "prix": 1500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HERPES SIMPLEX VIRUS 1 ET 2",
+    "abr": "HSV  1+2",
+    "prix": 3600,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HERPES SIMPLEX VIRUS G + M (CERBA)",
+    "abr": "HSV",
+    "prix": 11900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HLA B27",
+    "abr": "HLA B27",
+    "prix": 11400,
+    "categorie": "HLA",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HOMOCYSTEINE",
+    "abr": "Homocy",
+    "prix": 2500,
+    "categorie": "Hématologie",
+    "source": "Srum",
+    "unite": "umol/L"
+  },
+  {
+    "nom": "HOMOCYSTEINE URINAIRE",
+    "abr": "HOMOCYSTEINURIE",
+    "prix": 3200,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "HORMAONE ANTI MULLURIENNE",
+    "abr": "AMH CERBA",
+    "prix": 5000,
+    "categorie": "Hormonologie",
+    "source": "Plasma_S�rologie",
+    "unite": ""
+  },
+  {
+    "nom": "HORMONE ANTI MULLERIENNE  (AMH)",
+    "abr": "AMH",
+    "prix": 5000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "HORMONE ANTI-DIURETIQUE",
+    "abr": "ADH",
+    "prix": 10650,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Hormone de croissance (GH)",
+    "abr": "GH  hypo",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  +15 mn",
+    "abr": "GH 15 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  +30 mn",
+    "abr": "GH 30 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  +60 mn",
+    "abr": "GH 60 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Espace intravasculaire.XXX",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  00 mn",
+    "abr": "GH 00 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  120 mn",
+    "abr": "GH 120 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  90 mn",
+    "abr": "GH 90 mn",
+    "prix": 1900,
+    "categorie": "TEST DYNAMIQUE GH",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "Hormone de croissance (GH)  T120",
+    "abr": "GH T 120",
+    "prix": 1900,
+    "categorie": "Hormonologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "Human papillomavirus",
+    "abr": "hpv",
+    "prix": 9000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Col de l'ut�rus/Vagin",
+    "unite": ""
+  },
+  {
+    "nom": "Hyper Glyc�mie Provoqu�e Per Os",
+    "abr": "HGPO",
+    "prix": 900,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HYPERGLYCEMIE PROVOQUE PAR VOIE ORAL (HGPO) Grossesse",
+    "abr": "HGPO G",
+    "prix": 900,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "HYPERGLYCEMIE PROVOQUEE PAR VOIE ORALE (HGPO) hors grossesse",
+    "abr": "HGPO",
+    "prix": 900,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "H�patite B-d�termination quantitative -charge virale (VHB)",
+    "abr": "VHB",
+    "prix": 9000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "IgA anti-transglutaminase tissulaire",
+    "abr": "IgA transglutamlinase",
+    "prix": 2500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "IgA SERIQUES",
+    "abr": "IgA",
+    "prix": 1400,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "IgE Alimentaire ( TROPHATOP )",
+    "abr": "trophatop",
+    "prix": 3800,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IGE LAIT DE VACHE",
+    "abr": "IGE LAIT DE VACHE",
+    "prix": 7000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IgE specifique : panel p�diatrique)",
+    "abr": "panel pediatrique",
+    "prix": 5000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IGE SPECIFIQUES  ALIMENTAIRE",
+    "abr": "IgE ALIMENTAIRE",
+    "prix": 5000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IGE SPECIFIQUES (RESPIRATOIRE)",
+    "abr": "respiratoire",
+    "prix": 5000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IGE SPECIFIQUES DU BLE",
+    "abr": "Ige sp�cifiques du bl�",
+    "prix": 5000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "{absorbance}"
+  },
+  {
+    "nom": "IgE Sp�cifique ( Lait de Vache)",
+    "abr": "VACHE",
+    "prix": 5000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IgE sp�cifiques :Panel p�diatrique",
+    "abr": "IGE PED",
+    "prix": 5000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IgEsp�cifique respiratoire",
+    "abr": "IGE RESP",
+    "prix": 5000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IGG 4",
+    "abr": "IGG 4",
+    "prix": 5600,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IgG anti-transglutaminase",
+    "abr": "IgG transglutaminase",
+    "prix": 2500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "IMMUNOTYPAGE",
+    "abr": "IMEPP",
+    "prix": 6500,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Immuno�lectrophor�se des prot�ines s�rique (IEP)",
+    "abr": "IEP S�rique",
+    "prix": 6000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Immuno�lectrophor�se des prot�ines urinaire (IEP)",
+    "abr": "IEP urinaire",
+    "prix": 6000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Inhibine B",
+    "abr": "INHIBINE B",
+    "prix": 7550,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "INSULINE",
+    "abr": "INSUL",
+    "prix": 1600,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "u[IU]/mL"
+  },
+  {
+    "nom": "IONOGRAMME  URINAIRE",
+    "abr": "IONO",
+    "prix": 500,
+    "categorie": "Analyse d'urine",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "IONOGRAMME SANGUIN",
+    "abr": "IONOGRAMME",
+    "prix": 400,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "JAK2 MUTATION V617F",
+    "abr": "jak2",
+    "prix": 58764.51,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "LATEX",
+    "abr": "LATEX",
+    "prix": 400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "LDH (Lactate Deshydrogenase):",
+    "abr": "LDH",
+    "prix": 600,
+    "categorie": "Biochimie sanguine",
+    "source": "Liquide biologique",
+    "unite": "U/L"
+  },
+  {
+    "nom": "LH",
+    "abr": "LH",
+    "prix": 700,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "m[IU]/mL"
+  },
+  {
+    "nom": "LIPASE",
+    "abr": "LIPA",
+    "prix": 1200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "LIPIDE TOTAUX",
+    "abr": "LIPT",
+    "prix": 50,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "liquide de ponction pleural",
+    "abr": "LDP",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Liquide biologique",
+    "unite": "g/L"
+  },
+  {
+    "nom": "LKM",
+    "abr": "LKM",
+    "prix": 4000,
+    "categorie": "S�rologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "LKM1",
+    "abr": "LKM1",
+    "prix": 7000,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "LOCUS B",
+    "abr": "LB",
+    "prix": 22500,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "LYME (igg/igm)",
+    "abr": "lyme",
+    "prix": 10900,
+    "categorie": "S�rologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "MAGNESIUM SANGUIN",
+    "abr": "MG",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "MAGNESIUM URINAIRE",
+    "abr": "MG24h",
+    "prix": 300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "MEDULLOGRAMME",
+    "abr": "MO",
+    "prix": 3500,
+    "categorie": "Cytologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "MICRO  ALBUMINURIE DES 24H",
+    "abr": "MALB 24H",
+    "prix": 600,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "Microalbuminurie",
+    "abr": "MAL",
+    "prix": 500,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "Microalbuminurie �chantillon",
+    "abr": "MALB",
+    "prix": 500,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "MYCOLOGIE",
+    "abr": "myco",
+    "prix": 500,
+    "categorie": "Microbiologie",
+    "source": "Spermatozo�des",
+    "unite": ""
+  },
+  {
+    "nom": "MYCOPLASMA",
+    "abr": "MSC",
+    "prix": 4000,
+    "categorie": "CYTOGENETIQUE",
+    "source": "Liquide s�minal",
+    "unite": ""
+  },
+  {
+    "nom": "MYCOPLASMA PNEUMONIAE IGG",
+    "abr": "MYCOPLASMA PNEUMONIAE",
+    "prix": 3300,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "MYCOPLASMA PNEUMONIAE IGM",
+    "abr": "MYCOPLASMA PNEUMONIAE IGM",
+    "prix": 3200,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Mycoplasme sur sperm",
+    "abr": "myc sperm",
+    "prix": 2200,
+    "categorie": "Bact�riologie",
+    "source": "Spermatozo�des",
+    "unite": ""
+  },
+  {
+    "nom": "MYTOCHODRIE POSITIF TYPAGE M2",
+    "abr": "M2",
+    "prix": 13500,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "NT PRO BNP- BRAIN NATRIURETIC PEPTIDE",
+    "abr": "PRO BNP",
+    "prix": 4500,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "NUMERATION-FORMULE SANGUINE (NFS)",
+    "abr": "FNS",
+    "prix": 450,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "OESTRADIOL E2",
+    "abr": "E2",
+    "prix": 700,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "OSM GLUCOSE",
+    "abr": "OSM G",
+    "prix": 150,
+    "categorie": "Analyse d'urine",
+    "source": "Urine non st�rile",
+    "unite": "mmol/L"
+  },
+  {
+    "nom": "OSM UREE",
+    "abr": "OSM U",
+    "prix": 200,
+    "categorie": "Analyse d'urine",
+    "source": "Urine non st�rile",
+    "unite": "mosm/L"
+  },
+  {
+    "nom": "OSMOLALITE URINAIRE",
+    "abr": "OSMOLALITE UR",
+    "prix": 950,
+    "categorie": "Analyse d'urine",
+    "source": "Urine non st�rile",
+    "unite": "mosm/L"
+  },
+  {
+    "nom": "OXALURIE",
+    "abr": "OXALURIE 24 H",
+    "prix": 3000,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "P. DE LA GOUTTE URETHRALE",
+    "abr": "PUM",
+    "prix": 4200,
+    "categorie": "Bact�riologie",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "Parasitologie des selles",
+    "abr": "PARA SELL",
+    "prix": 300,
+    "categorie": "Bact�riologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "PEPTIDE C",
+    "abr": "PEPTIDE C",
+    "prix": 3000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PHOSPHATASES ALCALINES",
+    "abr": "PAL",
+    "prix": 250,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "U/L"
+  },
+  {
+    "nom": "PHOSPHORE SANGUIN",
+    "abr": "Phos",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "PHOSPHORE URINAIRE",
+    "abr": "PU24H",
+    "prix": 300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "Ph�nylalanine",
+    "abr": "Ph�nylalanine",
+    "prix": 13450,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "PIGMENT BILIAIRE",
+    "abr": "pigment bilaire",
+    "prix": 100,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "Poumons eleveur d'oiseau",
+    "abr": "Precipitine",
+    "prix": 6900,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "PRELEVEMENT DE GORGE",
+    "abr": "ECBG",
+    "prix": 600,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "PROCALCITONINE",
+    "abr": "Procalcitonine",
+    "prix": 4000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PROGESTERONE",
+    "abr": "PRG",
+    "prix": 800,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PROLACTINE",
+    "abr": "PRL",
+    "prix": 750,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PROTEIN C",
+    "abr": "PRT C",
+    "prix": 4200,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "PROTEIN S",
+    "abr": "PRT S",
+    "prix": 4200,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "PROTEINE C ACTIVE",
+    "abr": "PRT C ACTIVE",
+    "prix": 9050,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "PROTEINES DE BENCE- JONES",
+    "abr": "bence jones TIAR",
+    "prix": 7500,
+    "categorie": "Immunologie",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "Proteines de Bence-Jones",
+    "abr": "bence jones cerba",
+    "prix": 15500,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": ""
+  },
+  {
+    "nom": "proteinurie",
+    "abr": "PRO UM",
+    "prix": 500,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/L"
+  },
+  {
+    "nom": "PROTEINURIE DE 24 H",
+    "abr": "PROT24H",
+    "prix": 300,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "mg/(24.h)"
+  },
+  {
+    "nom": "PROTIDES TOTAUX",
+    "abr": "PRT",
+    "prix": 200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Sang",
+    "unite": "g/L"
+  },
+  {
+    "nom": "PSA LIBRE",
+    "abr": "PSA L",
+    "prix": 800,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PSA TOTALE",
+    "abr": "PSAT",
+    "prix": 800,
+    "categorie": "Marqueurs tumoraux",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "PTH",
+    "abr": "PTH",
+    "prix": 1100,
+    "categorie": "Hormonologie",
+    "source": "Sang",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "QUANTIFERON",
+    "abr": "Quantiferon",
+    "prix": 13000,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "RAI (panel )",
+    "abr": "RAI (panel )",
+    "prix": 5000,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "RAPPORT ALBUMINE / CREATININE URINAIRE",
+    "abr": "ACR",
+    "prix": 700,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "RAPPORT ALDOSTERONE / RENINE",
+    "abr": "TAR",
+    "prix": 12000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "RECHERCHE D'Ag D'HELICOBACTER PYLORI DANS LES SELLES",
+    "abr": "Helico Ag",
+    "prix": 1500,
+    "categorie": "Microbiologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "RECHERCHE DE BK",
+    "abr": "BK",
+    "prix": 1000,
+    "categorie": "Bact�riologie",
+    "source": "Expectorations",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de Chlamydia sur sperme",
+    "abr": "CHLA",
+    "prix": 1800,
+    "categorie": "Bact�riologie",
+    "source": "Spermatozo�des",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de Chlamydia sur un pr�l�vement vaginal",
+    "abr": "chlm pv",
+    "prix": 1800,
+    "categorie": "Microbiologie",
+    "source": "Vaginal",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de Mycoplasme dans l'ur�tre",
+    "abr": "myc ur",
+    "prix": 2200,
+    "categorie": "Microbiologie",
+    "source": "Ur�tre",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de Mycoplasme dans les s�cr�tions vaginales:",
+    "abr": "myco pv",
+    "prix": 2200,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Vaginal",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de mycoplasme sur pr�l�vement de sperme:",
+    "abr": "Myco sperm",
+    "prix": 2200,
+    "categorie": "Bact�riologie",
+    "source": "G�nital",
+    "unite": ""
+  },
+  {
+    "nom": "Recherche de sang dans les selles",
+    "abr": "Sang dans les selles",
+    "prix": 800,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Selles",
+    "unite": ""
+  },
+  {
+    "nom": "RECHERCHE DE SPERME DANS LES URINES",
+    "abr": "SPUR",
+    "prix": 600,
+    "categorie": "Fertilit�",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "recherge ag aspergillaire",
+    "abr": "asp",
+    "prix": 4600,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "RENINE",
+    "abr": "RENINE",
+    "prix": 7050,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "m[IU]/L"
+  },
+  {
+    "nom": "RT-PCR SARS COV-2",
+    "abr": "PCR COV",
+    "prix": 7000,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Nez",
+    "unite": ""
+  },
+  {
+    "nom": "RUBEOLE IgG",
+    "abr": "RUBG",
+    "prix": 750,
+    "categorie": "S�rologie de la Rub�ole",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "RUBEOLE IgM",
+    "abr": "RUBM",
+    "prix": 750,
+    "categorie": "S�rologie de la Rub�ole",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SARS- COV-2 TYPE IGG",
+    "abr": "COVG S",
+    "prix": 1500,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "AU/ml"
+  },
+  {
+    "nom": "SARS- COV-2 TYPE IGM",
+    "abr": "COVM S",
+    "prix": 1500,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "AU/ml"
+  },
+  {
+    "nom": "SARS-COV-2 RNA SCREENING ( REAL TIME RT-PCR )",
+    "abr": "SPCR",
+    "prix": 7000,
+    "categorie": "Biologie mol�culaire",
+    "source": "Nasopharynx",
+    "unite": ""
+  },
+  {
+    "nom": "SCOTCH TEST (RECHERCHE DE PARASITES INTESTINAUX)",
+    "abr": "SCOTCH",
+    "prix": 600,
+    "categorie": "Parasitologie",
+    "source": "Liquide biologique",
+    "unite": ""
+  },
+  {
+    "nom": "sels biliare",
+    "abr": "sels biliare",
+    "prix": 9000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SERO-AGGLUTINATION DE WRIGHT",
+    "abr": "WRIGHT",
+    "prix": 600,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "SEROLOGIE ASPERGILLOSE",
+    "abr": "DEPISTAGE",
+    "prix": 22700,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE CHLAMYDIA IgA",
+    "abr": "CHLAM IgA",
+    "prix": 2000,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "SEROLOGIE CHLAMYDIA IgG",
+    "abr": "CHLAM IgG",
+    "prix": 2000,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "SEROLOGIE CHLAMYDIA IgM",
+    "abr": "Chlam  IgM",
+    "prix": 2000,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": "DU/mL"
+  },
+  {
+    "nom": "SEROLOGIE COVID IGG",
+    "abr": "COVG",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "Plasma_S�rologie",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "SEROLOGIE COVID IGM",
+    "abr": "COVM",
+    "prix": 1200,
+    "categorie": "S�rologie",
+    "source": "Plasma_S�rologie",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "SEROLOGIE COVID-19",
+    "abr": "COV S",
+    "prix": 1800,
+    "categorie": "S�rologie",
+    "source": "Plasma_S�rologie",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE L'HEPATITE A (IgM)",
+    "abr": "HAV IgM",
+    "prix": 1200,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE L'HEPATITE B",
+    "abr": "HBS",
+    "prix": 500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE L'HEPATITE C",
+    "abr": "HCV",
+    "prix": 500,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE LA BRUCELLOSE",
+    "abr": "bruc",
+    "prix": 1700,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE LA CYTOMEGALO VIRUS",
+    "abr": "IGG CMV",
+    "prix": 2800,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE DE LA MALADIE COELIAQUE",
+    "abr": "coeliaque",
+    "prix": 5700,
+    "categorie": "Immunologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "serologie de wright",
+    "abr": "serologie de wright",
+    "prix": 1200,
+    "categorie": "Immuno-h�matologie",
+    "source": "S�rum/Plasma^Donneur",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE EBV",
+    "abr": "EBV",
+    "prix": 6000,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE HEPATITE  E",
+    "abr": "HEV",
+    "prix": 10500,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE HIV",
+    "abr": "HIV",
+    "prix": 700,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE HYDATIDOSE (D�pistage )",
+    "abr": "HYDATIDOSE",
+    "prix": 3500,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE HYDATIQUE",
+    "abr": "HYD",
+    "prix": 3400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE LEISHMANIOSE",
+    "abr": "LEISHMANIOSE (1/2�me d�t.)",
+    "prix": 3800,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "serologie leptospirose",
+    "abr": "LEPT",
+    "prix": 7100,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE MYCOPLASME",
+    "abr": "semyc",
+    "prix": 3400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE SYPHILIS",
+    "abr": "SYPHILIS",
+    "prix": 600,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SEROLOGIE VARICELLE",
+    "abr": "SEROLOGIE VARICELLE",
+    "prix": 12600,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Somatom�dine C (IGF-1)",
+    "abr": "IGF1",
+    "prix": 2700,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "sous classe igG",
+    "abr": "sous classe IgG",
+    "prix": 22300,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "SPERMOCULTURE",
+    "abr": "CULT",
+    "prix": 500,
+    "categorie": "Microbiologie",
+    "source": "Spermatozo�des",
+    "unite": ""
+  },
+  {
+    "nom": "SPERMOCULTURE MYC/CHL",
+    "abr": "SPCM",
+    "prix": 4500,
+    "categorie": "Cyto-Micro-Biologie",
+    "source": "Liquide s�minal",
+    "unite": ""
+  },
+  {
+    "nom": "SPERMOGRAMME",
+    "abr": "SPG",
+    "prix": 1500,
+    "categorie": "CYTOGENETIQUE",
+    "source": "Spermatozo�des",
+    "unite": ""
+  },
+  {
+    "nom": "SPERMOGRAMME ET SPERMOCYTOGRAMME",
+    "abr": "Spg",
+    "prix": 1500,
+    "categorie": "Microbiologie",
+    "source": "Liquide s�minal",
+    "unite": ""
+  },
+  {
+    "nom": "SSA/SSB",
+    "abr": "SSA/SSB",
+    "prix": 7800,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "S�rodiagnostic de Widal et F�lix",
+    "abr": "WIDAL",
+    "prix": 600,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "S�ROLOGIE DE L'H. PYLORI IGG/IGA( AGGLUTINATION )",
+    "abr": "pylori IgG/IgA",
+    "prix": 5000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "S�rologie de l'Helicobacter pylori IgG",
+    "abr": "Helicobacter",
+    "prix": 5000,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "U/mL"
+  },
+  {
+    "nom": "T.P.H.A",
+    "abr": "TPHA",
+    "prix": 400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Taux de prothrombine",
+    "abr": "TP INR",
+    "prix": 200,
+    "categorie": "H�mostase",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TAUX DE PROTHROMBINE",
+    "abr": "TP",
+    "prix": 200,
+    "categorie": "H�mostase",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TAUX DE PROTIDE (LIQUIDE DE PONCTION)",
+    "abr": "PROT AS",
+    "prix": 500,
+    "categorie": "Banque de sang",
+    "source": "Liquide biologique",
+    "unite": "g/L"
+  },
+  {
+    "nom": "TAUX DE RETICULOCYTES",
+    "abr": "RETICULOCYTES",
+    "prix": 400,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": "%"
+  },
+  {
+    "nom": "TEMPS DE CEPHALINE KAOLIN",
+    "abr": "TCK",
+    "prix": 200,
+    "categorie": "H�mostase",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TEMPS DE CEPHALINE KAOLIN (T.C.K)",
+    "abr": "TCK",
+    "prix": 200,
+    "categorie": "H�mostase",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TEMPS DE COAGULATION",
+    "abr": "TC",
+    "prix": 100,
+    "categorie": "H�matologie",
+    "source": "^Patient",
+    "unite": "min"
+  },
+  {
+    "nom": "TEMPS DE SAIGNEMENT",
+    "abr": "TS",
+    "prix": 200,
+    "categorie": "H�matologie",
+    "source": "^Patient",
+    "unite": "min"
+  },
+  {
+    "nom": "TEST ANTIG�NIQUE  SARS COVID 2",
+    "abr": "AG COVID2",
+    "prix": 1000,
+    "categorie": "Maladie Infectueuses",
+    "source": "Nez/Trach�e",
+    "unite": ""
+  },
+  {
+    "nom": "TEST AU ROSE BENGAL",
+    "abr": "Rose Bengale",
+    "prix": 600,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/ML"
+  },
+  {
+    "nom": "TEST DE COOMBS DIRECT",
+    "abr": "COD",
+    "prix": 700,
+    "categorie": "Immuno-h�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "Test de coombs indirect RAI",
+    "abr": "RAI COOMBS",
+    "prix": 2000,
+    "categorie": "Immuno-h�matologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TEST DE FALCIFORMATION",
+    "abr": "TF",
+    "prix": 800,
+    "categorie": "H�matologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "TEST DE GROSSESSE",
+    "abr": "GROSS",
+    "prix": 200,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine non st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "TEST DE MONONUCLEOSE INFECTIEUSE M.N.I",
+    "abr": "MNI",
+    "prix": 900,
+    "categorie": "S�rologie inf�ctieuse",
+    "source": "S�rum",
+    "unite": ""
+  },
+  {
+    "nom": "TEST POST COETAL",
+    "abr": "TPC",
+    "prix": 1000,
+    "categorie": "Fertilit�",
+    "source": "S�cr�tions g�nitales",
+    "unite": ""
+  },
+  {
+    "nom": "TEST RAPIDE MULTI-DROGUES (12)",
+    "abr": "TRD (12)",
+    "prix": 6000,
+    "categorie": "M�dicaments et produits toxiques",
+    "source": "Urine st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "TEST RAPIDE MULTI-DROGUES (7)",
+    "abr": "TRD (7)",
+    "prix": 3400,
+    "categorie": "M�dicaments et produits toxiques",
+    "source": "Urine st�rile",
+    "unite": ""
+  },
+  {
+    "nom": "Test respiratoire H�licobacter pylori",
+    "abr": "helico resp",
+    "prix": 6200,
+    "categorie": "Microbiologie",
+    "source": "Gaz expir�",
+    "unite": ""
+  },
+  {
+    "nom": "TEST REVALTAT",
+    "abr": "rev",
+    "prix": 600,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TESTOSTERONE",
+    "abr": "TEST",
+    "prix": 750,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "testosterone libre",
+    "abr": "testosterone libre",
+    "prix": 10650,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "THYROCALCITONINE",
+    "abr": "TCT",
+    "prix": 1400,
+    "categorie": "Marqueurs tumoraux",
+    "source": "S�rum",
+    "unite": "pg/mL"
+  },
+  {
+    "nom": "THYROGLOBULINE",
+    "abr": "TG",
+    "prix": 1000,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ug/L"
+  },
+  {
+    "nom": "THYROXINE T4",
+    "abr": "T4",
+    "prix": 800,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "nmol/L"
+  },
+  {
+    "nom": "TOXOPLASMOSE IgG",
+    "abr": "TOXG",
+    "prix": 750,
+    "categorie": "S�rologie de la Toxoplasmose",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TOXOPLASMOSE IgM",
+    "abr": "TOXM",
+    "prix": 750,
+    "categorie": "S�rologie de la Toxoplasmose",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TP INR",
+    "abr": "TP INR",
+    "prix": 200,
+    "categorie": "H�mostase",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TPHA",
+    "abr": "TPHA2",
+    "prix": 1000,
+    "categorie": "Banque de sang",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "TRANSAMINASES SERIQUES ASAT/ALAT",
+    "abr": "GOT /GPT",
+    "prix": 300,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "TRANSFERRINE",
+    "abr": "transferrine",
+    "prix": 1400,
+    "categorie": "Banque de sang",
+    "source": "S�rum/Plasma^Unit� de produit sanguin",
+    "unite": ""
+  },
+  {
+    "nom": "TRIGLYCERIDES",
+    "abr": "TRIG",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "TRIIODOTHYRONINE",
+    "abr": "T3",
+    "prix": 800,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "nmol/L"
+  },
+  {
+    "nom": "TROPONINE",
+    "abr": "TRP",
+    "prix": 1500,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "ng/L"
+  },
+  {
+    "nom": "TSHus",
+    "abr": "TSH",
+    "prix": 600,
+    "categorie": "Hormonologie",
+    "source": "Serum/Plasma",
+    "unite": "u[IU]/mL"
+  },
+  {
+    "nom": "TYPAGE HLA B51",
+    "abr": "HLA B51",
+    "prix": 14000,
+    "categorie": "Immunologie",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "U.I.B.C",
+    "abr": "uibc",
+    "prix": 400,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "ug/dL"
+  },
+  {
+    "nom": "uracil�mie",
+    "abr": "uracil�mie",
+    "prix": 12000,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "URAPLASMA",
+    "abr": "URE V",
+    "prix": 1600,
+    "categorie": "Bact�riologie",
+    "source": "G�nital",
+    "unite": ""
+  },
+  {
+    "nom": "UREE SANGUINE",
+    "abr": "UREE",
+    "prix": 200,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": "g/L"
+  },
+  {
+    "nom": "UREE URINAIRE",
+    "abr": "UREE URINAIRE",
+    "prix": 200,
+    "categorie": "Biochimie urinaire",
+    "source": "Urine de 24h",
+    "unite": "g/(24.h)"
+  },
+  {
+    "nom": "V.D.R.L",
+    "abr": "VDRL",
+    "prix": 500,
+    "categorie": "S�rologie de la Syphilis",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "VITAMIBE B6",
+    "abr": "VITAMINE B6",
+    "prix": 9900,
+    "categorie": "Vitamines",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "VITAMINE B1",
+    "abr": "VITAMIBE B1",
+    "prix": 9900,
+    "categorie": "Vitamines",
+    "source": "Sang",
+    "unite": ""
+  },
+  {
+    "nom": "vitamine C",
+    "abr": "VIT C",
+    "prix": 13700,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "VITAMINE D2/D3 : 25 HYDROXY VITAMINE D",
+    "abr": "VITAMINE D",
+    "prix": 2300,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": "ng/mL"
+  },
+  {
+    "nom": "VITAMINE E",
+    "abr": "VIT E",
+    "prix": 8000,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "Vitamine K",
+    "abr": "VIT K",
+    "prix": 34500,
+    "categorie": "Vitamines",
+    "source": "Serum/Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "VITESSE DE SEDIMENTATION (V.S)",
+    "abr": "VS",
+    "prix": 200,
+    "categorie": "Immuno-h�matologie",
+    "source": "Plasma",
+    "unite": ""
+  },
+  {
+    "nom": "WALER ROSE",
+    "abr": "WR",
+    "prix": 400,
+    "categorie": "S�rologie",
+    "source": "Serum/Plasma",
+    "unite": "UI/mL"
+  },
+  {
+    "nom": "ZINC",
+    "abr": "Zinc",
+    "prix": 6600,
+    "categorie": "Biochimie sanguine",
+    "source": "Serum/Plasma",
+    "unite": ""
+  }
+]

@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratoire El HAYAT | Excellence Médicale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ogl/dist/ogl.umd.js"></script>
+    <link rel="stylesheet" href="DarkVeil.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Modern Montserrat and Roboto Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* Zak Arabic Font */
+        @font-face {
+            font-family: 'Zak';
+            src: url('fonts/RH-Zak-Reg-1.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Zak';
+            src: url('fonts/RH-Zak-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="logo_groue_medical_el_h0ayat_4x-removebg-preview.png">
+
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        arabic: ['Zak', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0caac1', // New Main Brand Color
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                            950: '#083344',
+                        },
+                        secondary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4', // Bright Cyan - Accent
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        },
+                        accent: {
+                            DEFAULT: '#f59e0b', // Warm Gold
+                            hover: '#d97706',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-pattern': "url('assets/hero.png')", // Fallback or pattern
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', 'Roboto', sans-serif;
+        }
+
+        /* Custom Glassmorphism & Utilities */
+        .description {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #0caac1;
+            margin-bottom: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+        }
+
+        .video {
+            padding-bottom: 3rem;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .heroLogo {
+            width: 120%;
+            /* Slightly smaller but still prominent */
+            max-width: 1200px;
+            height: auto;
+            object-fit: contain;
+            align-self: flex-start;
+            border: transparent 40px solid;
+            /* Opacity 0 */
+            margin-left: -80px;
+            /* Adjusted offset */
+            margin-top: -160px;
+            /* Adjusted offset */
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.1));
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+        }
+
+        /* Hardware acceleration */
+
+
+        .hero-brand {
+            position: relative;
+            width: min(100%, 320px);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border-radius: 1.5rem;
+        }
+
+        .hero-logo-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-logo-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: transparent;
+        }
+
+        .glass-nav {
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom: none;
+            box-shadow: none;
+        }
+
+        .glass-nav.scrolled {
+            background: #ffffff;
+            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-nav.scrolled .branding-text {
+            color: #0f172a !important;
+        }
+
+        /* Navigation Link Theming */
+        .nav-link-custom {
+            color: #0caac1 !important;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link-custom:hover {
+            color: #f6a201 !important;
+        }
+
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            color: #f6a201 !important;
+            background-color: rgba(246, 162, 1, 0.1) !important;
+        }
+
+        .lang-btn.active {
+            color: #0caac1 !important;
+            background-color: rgba(12, 170, 193, 0.1) !important;
+        }
+
+        /* Unified Button Brand Style */
+        .btn-brand {
+            background-color: #0caac1 !important;
+            color: white !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-brand:hover {
+            background-color: #f6a201 !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(246, 162, 1, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+
+
+        /* Addictive UX Styles */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .tilt-content {
+            transform: translateZ(20px);
+        }
+
+        .magnetic-btn {
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .titre {
+            color: #f1f5f9;
+            font-size: 1rem;
+            font-weight: bold;
+
+        }
+
+
+
+
+
+        /* RTL support */
+        :lang(ar),
+        [lang="ar"] body {
+            font-family: 'Zak', sans-serif !important;
+            direction: rtl;
+        }
+
+        /* Smooth Scroll Padding for fixed header */
+        html {
+            scroll-padding-top: 5rem;
+        }
+
+        /* Premium Hover Effects */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Card Utility for Hidden Sections */
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            border-color: #e2e8f0;
+            transform: translateY(-4px);
+        }
+
+        /* Cool White Background for Non-Hero Sections */
+        .bg-cool-white {
+            background-color: #ffffff;
+            background-image: url('assets/dgg@4x.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #f6a201, transparent);
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 20;
+            opacity: 0.6;
+        }
+
+        #dark-veil-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 antialiased overflow-x-hidden">
+    <div class="content-overlay">
+
+
+
+        <!-- Navigation -->
+        <header class="absolute w-full top-0 z-50 glass-blur transition-all duration-300 border-b border-transparent"
+            id="navbar">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="flex justify-between items-center h-24">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center gap-4">
+                        <a href="index.html" class="flex items-center gap-3 group">
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-0 bg-primary-500 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity">
+                                </div>
+                                <img class="h-12 w-auto relative z-10 transition-transform duration-500 group-hover:scale-110"
+                                    src="logo_groue_medical_el_h0ayat_4x-removebg-preview.png" alt="El Hayat">
+                            </div>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-xl font-black text-white branding-text group-hover:text-primary-600 transition-colors tracking-tight">EL-HAYAT</span>
+                                <span
+                                    class="text-[9px] font-black text-primary-500 tracking-[0.3em] uppercase opacity-80">Groupe
+                                    Médical</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                        <a href="index.html" class="px-3 py-2 text-sm font-semibold nav-link-custom transition-colors"
+                            data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+
+                        <div class="relative group px-3 py-2">
+                            <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                                <span data-fr="Le Groupe" data-ar="المجموعة">Le Groupe</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-1/2 -translate-x-1/2 w-64 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden p-2">
+                                    <a href="index1.html#missions"
+                                        class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <p class="text-sm font-semibold text-slate-900" data-fr="Nos missions"
+                                            data-ar="مهامنا">Nos missions</p>
+                                        <p class="text-xs text-slate-500 mt-0.5" data-fr="Notre engagement envers vous"
+                                            data-ar="التزامنا تجاهكم">Notre engagement envers vous</p>
+                                    </a>
+                                    <a href="index1.html#quality"
+                                        class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <p class="text-sm font-semibold text-slate-900" data-fr="Qualité"
+                                            data-ar="الجودة">
+                                            Qualité</p>
+                                        <p class="text-xs text-slate-500 mt-0.5" data-fr="Standards internationaux"
+                                            data-ar="المعايير الدولية">Standards internationaux</p>
+                                    </a>
+                                    <a href="index1.html#group"
+                                        class="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                        <p class="text-sm font-semibold text-slate-900" data-fr="Notre Histoire"
+                                            data-ar="تاريخنا">Notre Histoire</p>
+                                        <p class="text-xs text-slate-500 mt-0.5" data-fr="L'excellence depuis 25 ans"
+                                            data-ar="التميز منذ 25 عامًا">L'excellence depuis 25 ans</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative group px-3 py-2">
+                            <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                                <span data-fr="Nos Entités" data-ar="كياناتنا">Nos Entités</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full left-1/2 -translate-x-1/2 w-[480px] pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                                <div
+                                    class="bg-white rounded-2xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden grid grid-cols-2">
+                                    <div class="p-4 border-r border-slate-50">
+                                        <span
+                                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4"
+                                            data-fr="Laboratoires" data-ar="المختبرات">Laboratoires</span>
+                                        <div class="space-y-1">
+                                            <a href="index1.html"
+                                                class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                                <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                    data-fr="Bordj Menaïel" data-ar="برج منايل">
+                                                    Bordj Menaïel</p>
+                                                <p class="text-[11px] text-slate-500" data-fr="Siège Principal"
+                                                    data-ar="المقر الرئيسي">Siège Principal</p>
+                                            </a>
+                                            <a href="index2.html"
+                                                class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                                <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                    data-fr="Isser" data-ar="يسر">
+                                                    Isser</p>
+                                                <p class="text-[11px] text-slate-500" data-fr="Centre d'excellence"
+                                                    data-ar="مركز التميز">Centre d'excellence</p>
+                                            </a>
+                                            <a href="index3.html"
+                                                class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                                <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                    data-fr="Dely Ibrahim" data-ar="دالي إبراهيم">
+                                                    Dely Ibrahim</p>
+                                                <p class="text-[11px] text-slate-500" data-fr="Nouvelle entité"
+                                                    data-ar="كيان جديد">Nouvelle entité</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 bg-slate-50/30">
+                                        <span
+                                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4"
+                                            data-fr="Cabinets" data-ar="العيادات">Cabinets</span>
+                                        <div class="space-y-1">
+                                            <a href="dentairesbou_improved.html"
+                                                class="block px-3 py-2.5 rounded-xl hover:bg-primary-50 transition-colors group/item">
+                                                <p class="text-sm font-bold text-slate-900 group-hover/item:text-primary-600"
+                                                    data-fr="Cabinet Dentaire" data-ar="عيادة الأسنان">
+                                                    Cabinet Dentaire</p>
+                                                <p class="text-[11px] text-slate-500" data-fr="Boumerdès"
+                                                    data-ar="بومرداس">
+                                                    Boumerdès</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="prices.html" class="px-3 py-2 text-sm font-semibold nav-link-custom transition-colors"
+                            data-fr="Catalogue" data-ar="الكتالوج">Catalogue</a>
+
+                        <div class="relative group px-3 py-2">
+                            <button class="flex items-center text-sm font-semibold nav-link-custom transition-colors">
+                                <span data-fr="Services" data-ar="الخدمات">Services</span>
+                                <i data-lucide="chevron-down"
+                                    class="w-4 h-4 ml-1 opacity-50 group-hover:opacity-100 transition-all group-hover:rotate-180"></i>
+                            </button>
+                            <div
+                                class="absolute top-full right-0 w-72 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                                <div
+                                    class="bg-white rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 overflow-hidden">
+                                    <div class="p-3 bg-white border-b border-slate-100">
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider"
+                                            data-fr="Patients" data-ar="المرضى">Patients</span>
+                                    </div>
+                                    <div class="p-2">
+                                        <a href="index1.html#results"
+                                            class="flex items-start px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <i data-lucide="file-check"
+                                                class="w-5 h-5 text-primary-500 mt-0.5 mr-3"></i>
+                                            <div>
+                                                <p class="text-sm font-semibold text-slate-900"
+                                                    data-fr="Résultats en ligne" data-ar="النتائج عبر الإنترنت">
+                                                    Résultats en ligne</p>
+                                                <p class="text-xs text-slate-500" data-fr="Consultez vos analyses"
+                                                    data-ar="اطلع على تحاليلك">Consultez vos analyses</p>
+                                            </div>
+                                        </a>
+                                        <a href="index1.html#home-service"
+                                            class="flex items-start px-4 py-3 rounded-lg hover:bg-slate-50 transition-colors">
+                                            <i data-lucide="home" class="w-5 h-5 text-secondary-500 mt-0.5 mr-3"></i>
+                                            <div>
+                                                <p class="text-sm font-semibold text-slate-900"
+                                                    data-fr="Prélèvement domicile" data-ar="سحب منزلي">Prélèvement
+                                                    domicile
+                                                </p>
+                                                <p class="text-xs text-slate-500" data-fr="Sans vous déplacer"
+                                                    data-ar="دون تنقل">Sans vous déplacer</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="ml-4 flex items-center gap-3">
+                            <div class="hidden lg:flex items-center border-l border-slate-200 pl-4 space-x-1">
+                                <button onclick="switchLanguage('fr')"
+                                    class="lang-btn active text-xs font-bold text-primary-600 bg-primary-50 px-2 py-1.5 rounded-lg border border-primary-100 hover:bg-primary-100 transition-colors"
+                                    id="fr-btn">FR</button>
+                                <button onclick="switchLanguage('ar')"
+                                    class="lang-btn text-xs font-bold text-slate-400 hover:text-slate-600 px-2 py-1.5 transition-colors"
+                                    id="ar-btn">AR</button>
+                            </div>
+                            <a href="#contact"
+                                class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-bold rounded-full btn-brand">
+                                <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                                Rendez-vous
+                            </a>
+                        </div>
+                    </nav>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button onclick="toggleMobileMenu()"
+                            class="p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
+                <div class="px-4 pt-4 pb-6 space-y-2">
+                    <div class="px-3 pb-2">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Le Groupe</span>
+                    </div>
+                    <a href="index.html"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Accueil</a>
+                    <a href="#missions"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Missions</a>
+
+                    <div class="px-3 pt-4 pb-2 border-t border-slate-50">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Nos Entités</span>
+                    </div>
+                    <a href="index1.html"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                        Bordj Menaïel</a>
+                    <a href="index2.html"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                        Isser</a>
+                    <a href="index3.html"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Labo
+                        Dely Ibrahim</a>
+                    <a href="dentairesbou_improved.html"
+                        class="block px-3 py-2 rounded-lg text-base font-semibold nav-link-custom hover:bg-slate-50">Cabinet
+                        Dentaire</a>
+
+                    <div class="px-3 pt-4 border-t border-slate-50">
+                        <a href="prices.html"
+                            class="block px-3 py-3 rounded-xl text-base font-bold bg-primary-50 text-primary-600 text-center"
+                            data-fr="Catalogue des Analyses" data-ar="كتالوج التحاليل">Catalogue
+                            des Analyses</a>
+                    </div>
+                    <div class="px-3 pt-4 border-t border-slate-50">
+                        <div class="flex items-center justify-center gap-4 mb-4">
+                            <button onclick="switchLanguage('fr')"
+                                class="lang-btn mobile-lang-btn active px-4 py-2 rounded-lg text-sm font-bold border transition-all">Français</button>
+                            <button onclick="switchLanguage('ar')"
+                                class="lang-btn mobile-lang-btn px-4 py-2 rounded-lg text-sm font-bold border transition-all text-slate-400">العربية</button>
+                        </div>
+                    </div>
+                    <a href="#contact"
+                        class="block px-3 py-4 mt-2 text-center rounded-xl text-base font-bold btn-brand shadow-md"
+                        data-fr="Prendre Rendez-vous" data-ar="تحديد موعد">Prendre
+                        Rendez-vous</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-slate-900">
+            <div id="dark-veil-container"></div>
+            <!-- Dynamic Background Blobs -->
+            <!-- Replacing previous generic blobs with new Art Spots -->
+            <!-- DotGrid Background -->
+
+
+            <!-- Dynamic Background Blobs Removed -->
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left animate-slide-up">
+                        <div class="mb-8 relative group">
+                            <div class="relative transform transition-transform duration-700 hover:scale-105">
+                                <img src="assets/hero.png" alt="Laboratoire El Hayat" class="heroLogo">
+                            </div>
+                        </div>
+                        <p class="description"
+                            data-fr="Technologies de pointe, équipe d'experts et résultats rapides. Votre santé mérite la plus haute précision."
+                            data-ar="تقنيات متطورة، فريق من الخبراء ونتائج سريعة. صحتكم تستحق أعلى درجات الدقة.">
+                            Technologies de pointe, équipe d'experts et résultats rapides. Votre santé mérite la plus
+                            haute
+                            précision.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <a href="#expertises"
+                                class="magnetic-btn w-full sm:w-auto px-8 py-4 rounded-full font-bold text-white btn-brand shadow-lg shadow-primary-500/30 transition-all text-center"
+                                data-fr="Nos Expertises" data-ar="خبراتنا">
+                                Nos Expertises
+                            </a>
+                            <a href="prices.html"
+                                class="magnetic-btn w-full sm:w-auto px-8 py-4 rounded-full font-bold text-slate-700 bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all flex items-center justify-center gap-2 group">
+                                <span data-fr="Catalogue des Analyses" data-ar="كتالوج التحاليل">Catalogue des
+                                    Analyses</span>
+                                <i data-lucide="arrow-right"
+                                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image / Visual -->
+                    <div class="video relative lg:-mr-12 animate-fade-in group flex justify-center lg:justify-end">
+                        <figure class="hero-brand" aria-label="Laboratoire El Hayat Presentation">
+                            <div class="hero-logo-frame glass-card p-1">
+                                <iframe
+                                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1116082759864556&amp;show_text=0&amp;width=560"
+                                    title="Reel Laboratoire El Hayat" loading="lazy"
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                                    allowfullscreen="true" scrolling="no"></iframe>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+        </section>
+
+
+
+        <!-- Key Stats Section -->
+        <section class="py-16 relative bg-cool-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-4 gap-2 md:gap-8 lg:gap-12">
+                    <div class="text-center group hover-lift p-4 rounded-2xl transition-colors hover:bg-slate-50">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="p-3 bg-primary-50 text-primary-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="test-tube-2" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1 stat-number" data-fr="156k+"
+                            data-ar="156k+">156k+</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide" data-fr="Examens / an"
+                            data-ar="فحص / سنة">Examens / an</div>
+                    </div>
+
+                    <div class="text-center group hover-lift p-4 rounded-2xl transition-colors hover:bg-slate-50">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="p-3 bg-secondary-50 text-secondary-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="building" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1 stat-number" data-fr="3"
+                            data-ar="3">3</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide" data-fr="Laboratoires"
+                            data-ar="مختبرات">Laboratoires</div>
+                    </div>
+
+                    <div class="text-center group hover-lift p-4 rounded-2xl transition-colors hover:bg-slate-50">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="p-3 bg-indigo-50 text-indigo-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="users" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1 stat-number" data-fr="50+"
+                            data-ar="50+">50+</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide" data-fr="Experts"
+                            data-ar="خبراء">Experts</div>
+                    </div>
+
+                    <div class="text-center group hover-lift p-4 rounded-2xl transition-colors hover:bg-slate-50">
+                        <div class="flex items-center justify-center mb-4">
+                            <div
+                                class="p-3 bg-emerald-50 text-emerald-600 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="clock" class="w-8 h-8"></i>
+                            </div>
+                        </div>
+                        <div class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1 stat-number" data-fr="24h"
+                            data-ar="24h">24h</div>
+                        <div class="text-sm font-semibold text-slate-500 uppercase tracking-wide"
+                            data-fr="Résultats Rapides" data-ar="نتائج سريعة">Résultats Rapides</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+
+
+        <!-- Expertises Section -->
+        <section id="expertises" class="py-24 bg-cool-white relative overflow-hidden">
+            <!-- Background Elements -->
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-secondary-600 font-bold tracking-wider text-sm uppercase mb-3 block"
+                        data-fr="Nos expertises médicales" data-ar="خبراتنا الطبية">Nos expertises médicales</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6"
+                        data-fr="Découvrez nos domaines d'expertise" data-ar="اكتشف مجالات خبرتنا">Découvrez nos
+                        domaines
+                        d'expertise</h2>
+                    <p class="text-lg text-slate-600"
+                        data-fr="Une gamme complète d'analyses spécialisées réalisées par des experts sur des plateaux techniques de dernière génération."
+                        data-ar="مجموعة كاملة من التحاليل المتخصصة التي يجريها خبراء على أحدث المنصات التقنية.">
+                        Une gamme complète d'analyses spécialisées réalisées par des experts sur des plateaux techniques
+                        de
+                        dernière génération.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Allergologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-primary-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="flower-2" class="w-7 h-7 text-primary-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Allergologie"
+                                data-ar="طب الحساسية">
+                                Allergologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Tests allergologiques complets et diagnostics d'hypersensibilité"
+                                data-ar="تشخيص دقيق للحساسية التنفسية والغذائية. اختبارات من أحدث جيل.">Tests
+                                allergologiques complets et diagnostics d'hypersensibilité</p>
+                        </div>
+                    </div>
+
+                    <!-- Auto-immunité -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-secondary-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="shield-alert" class="w-7 h-7 text-secondary-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Auto-immunité"
+                                data-ar="المناعة الذاتية">Auto-immunité</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Diagnostics des maladies auto-immunes et inflammatoires"
+                                data-ar="استكشاف متعمق لأمراض المناعة الذاتية والالتهابات المزمنة.">Diagnostics des
+                                maladies
+                                auto-immunes et inflammatoires</p>
+                        </div>
+                    </div>
+
+                    <!-- Biologie Moléculaire -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-accent-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="dna" class="w-7 h-7 text-accent-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Biologie moléculaire"
+                                data-ar="البيولوجيا الجزيئية">Biologie moléculaire</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Analyses génétiques et diagnostics moléculaires avancés"
+                                data-ar="PCR وتسلسل للتشخيص الجيني والمعدي عالي الدقة.">Analyses génétiques et
+                                diagnostics
+                                moléculaires avancés</p>
+                        </div>
+                    </div>
+
+                    <!-- Endocrinologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-rose-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="activity" class="w-7 h-7 text-rose-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Endocrinologie"
+                                data-ar="طب الغدد الصماء">Endocrinologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Dosages hormonaux et diagnostics endocriniens"
+                                data-ar="فحوصات هرمونية كاملة: الغدة الدرقية، الخصوبة، النمو والتمثيل الغذائي.">Dosages
+                                hormonaux et diagnostics endocriniens</p>
+                        </div>
+                    </div>
+
+                    <!-- Hématologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-violet-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="droplet" class="w-7 h-7 text-violet-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Hématologie"
+                                data-ar="أمراض الدم">
+                                Hématologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Analyses sanguines spécialisées et diagnostics hématologiques"
+                                data-ar="علم خلايا الدم، التخثر والمناعة الدموية المتخصصة.">Analyses sanguines
+                                spécialisées
+                                et diagnostics hématologiques</p>
+                        </div>
+                    </div>
+
+                    <!-- Microbiologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="microscope" class="w-7 h-7 text-emerald-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Microbiologie"
+                                data-ar="علم الأحياء الدقيقة">Microbiologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Identification et antibiogrammes, diagnostics infectieux"
+                                data-ar="تحديد بكتيري سريع ومخططات مضادات حيوية مستهدفة لعلاج فعال.">Identification et
+                                antibiogrammes, diagnostics infectieux</p>
+                        </div>
+                    </div>
+
+                    <!-- Oncologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-amber-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="crosshair" class="w-7 h-7 text-amber-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Oncologie" data-ar="علم الأورام">
+                                Oncologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Marqueurs tumoraux et diagnostics en cancérologie"
+                                data-ar="متابعة علامات الأورام والكشف المبكر عن الأمراض السرطانية.">Marqueurs tumoraux
+                                et
+                                diagnostics en cancérologie</p>
+                        </div>
+                    </div>
+
+                    <!-- Toxicologie -->
+                    <div
+                        class="tilt-card group bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-primary-200">
+                        <div class="tilt-content">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="flask-round" class="w-7 h-7 text-slate-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Toxicologie"
+                                data-ar="علم السموم">
+                                Toxicologie</h3>
+                            <p class="text-slate-500 leading-relaxed"
+                                data-fr="Analyses toxicologiques et suivi thérapeutique"
+                                data-ar="قياس الأدوية، المعادن الثقيلة والكشف عن السموم.">Analyses toxicologiques et
+                                suivi
+                                thérapeutique</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+
+
+
+        <!-- Prescription Process Section -->
+        <section class="py-24 bg-cool-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20">
+                    <span class="text-primary-600 font-bold tracking-wider text-sm uppercase mb-3 block"
+                        data-fr="Parcours Patient" data-ar="مسار المريض">Parcours Patient</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4" data-fr="Comment prescrire ?"
+                        data-ar="كيف يعمل؟">Comment prescrire ?</h2>
+                    <p class="text-lg text-slate-500 max-w-2xl mx-auto"
+                        data-fr="Processus simplifié pour les professionnels de santé"
+                        data-ar="مسار مبسط لرعاية سريعة وفعالة">
+                        Processus simplifié pour les professionnels de santé
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <!-- Connecting Line (Desktop) -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2 z-0">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="relative group">
+                            <div
+                                class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 text-center h-full">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-primary-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border-4 border-white shadow-sm relative">
+                                    <span
+                                        class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold border-4 border-white">1</span>
+                                    <i data-lucide="clipboard-list" class="w-8 h-8 text-primary-600"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Prescription"
+                                    data-ar="الوصفة الطبية">Prescription</h3>
+                                <p class="text-slate-500 text-sm mb-3"
+                                    data-fr="Rédigez votre ordonnance avec les analyses souhaitées"
+                                    data-ar="اكتب أو قدم وصفتك الطبية.">Rédigez votre ordonnance avec les analyses
+                                    souhaitées</p>
+                                <ul
+                                    class="text-xs text-slate-400 text-left space-y-1 mt-4 border-t border-slate-50 pt-4">
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-primary-500 mt-0.5"></i> Ordonnance
+                                        manuscrite/électronique
+                                    </li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-primary-500 mt-0.5"></i> Indication du diagnostic</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-primary-500 mt-0.5"></i> Urgence si nécessaire</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div id="home-service" class="relative group">
+                            <div
+                                class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-secondary-500/10 transition-all duration-300 text-center h-full">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-secondary-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border-4 border-white shadow-sm relative">
+                                    <span
+                                        class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold border-4 border-white">2</span>
+                                    <i data-lucide="syringe" class="w-8 h-8 text-secondary-600"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Prélèvement"
+                                    data-ar="أخذ العينات">Prélèvement</h3>
+                                <p class="text-slate-500 text-sm mb-3"
+                                    data-fr="Le patient se rend au laboratoire ou bénéficie du service à domicile"
+                                    data-ar="في المختبر أو في المنزل بموعد.">Le patient se rend au laboratoire ou
+                                    bénéficie
+                                    du service à domicile</p>
+                                <ul
+                                    class="text-xs text-slate-400 text-left space-y-1 mt-4 border-t border-slate-50 pt-4">
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-secondary-500 mt-0.5"></i> À jeun si nécessaire</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-secondary-500 mt-0.5"></i> Service à domicile disponible
+                                    </li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-secondary-500 mt-0.5"></i> Prélèvement d'urgence 24h/24
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="relative group">
+                            <div
+                                class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300 text-center h-full">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-indigo-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border-4 border-white shadow-sm relative">
+                                    <span
+                                        class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold border-4 border-white">3</span>
+                                    <i data-lucide="microscope" class="w-8 h-8 text-indigo-600"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Analyse" data-ar="تحليل">
+                                    Analyse
+                                </h3>
+                                <p class="text-slate-500 text-sm mb-3"
+                                    data-fr="Traitement de l'échantillon par nos experts qualifiés"
+                                    data-ar="معالجة سريعة على منصاتنا التقنية.">Traitement de l'échantillon par nos
+                                    experts
+                                    qualifiés</p>
+                                <ul
+                                    class="text-xs text-slate-400 text-left space-y-1 mt-4 border-t border-slate-50 pt-4">
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-indigo-500 mt-0.5"></i> Technologie de pointe</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-indigo-500 mt-0.5"></i> Contrôle qualité continu</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-indigo-500 mt-0.5"></i> Équipe spécialisée</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div id="results" class="relative group">
+                            <div
+                                class="bg-white p-6 rounded-3xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 text-center h-full">
+                                <div
+                                    class="w-16 h-16 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border-4 border-white shadow-sm relative">
+                                    <span
+                                        class="absolute -top-2 -right-2 w-8 h-8 bg-slate-900 text-white rounded-full flex items-center justify-center text-sm font-bold border-4 border-white">4</span>
+                                    <i data-lucide="file-check" class="w-8 h-8 text-emerald-600"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 mb-3" data-fr="Résultats" data-ar="النتائج">
+                                    Résultats</h3>
+                                <p class="text-slate-500 text-sm mb-3"
+                                    data-fr="Transmission sécurisée des résultats sous 24h"
+                                    data-ar="متاحة عبر الإنترنت، بالبريد الإلكتروني أو في المختبر.">Transmission
+                                    sécurisée
+                                    des résultats sous 24h</p>
+                                <ul
+                                    class="text-xs text-slate-400 text-left space-y-1 mt-4 border-t border-slate-50 pt-4">
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-emerald-500 mt-0.5"></i> Remise en main propre</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-emerald-500 mt-0.5"></i> Envoi sécurisé par email</li>
+                                    <li class="flex items-start gap-2"><i data-lucide="check"
+                                            class="w-3 h-3 text-emerald-500 mt-0.5"></i> Résultats d'urgence immédiats
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="contact" class="py-24 bg-cool-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Contact Info Card (Now Main) -->
+                    <div class="lg:col-span-2 space-y-8">
+                        <!-- Main Contact Card -->
+                        <div class="bg-white rounded-3xl shadow-xl shadow-slate-200/40 p-8 border border-slate-100">
+                            <div class="flex items-center justify-between mb-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900">Informations de contact</h3>
+                                    <p class="text-slate-500">Nous sommes à votre écoute 24/7</p>
+                                </div>
+                                <span
+                                    class="px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-bold flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                                    Ouvert 24/7
+                                </span>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Address -->
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center flex-shrink-0 text-primary-600">
+                                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-slate-400 font-medium mb-1">Adresse</p>
+                                            <p class="text-slate-900 font-bold leading-relaxed">
+                                                Rue Colonel Amirouche<br>
+                                                Bordj Menaïel, Boumerdès 35002<br>
+                                                Algérie
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center flex-shrink-0 text-primary-600">
+                                            <i data-lucide="mail" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-slate-400 font-medium mb-1">Email</p>
+                                            <a href="mailto:contact@lamelhayat.com"
+                                                class="text-slate-900 font-bold hover:text-primary-600 transition-colors">
+                                                contact@lamelhayat.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div
+                                            class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center flex-shrink-0 text-primary-600">
+                                            <i data-lucide="phone" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-slate-400 font-medium mb-1">Téléphone & Urgences</p>
+                                            <div class="space-y-1">
+                                                <a href="tel:0660070962"
+                                                    class="block text-xl font-black text-slate-900 hover:text-primary-600 transition-colors">
+                                                    0660 07 09 62
+                                                </a>
+                                                <a href="tel:044334971"
+                                                    class="block text-lg font-bold text-slate-600 hover:text-primary-600 transition-colors">
+                                                    044 33 49 71
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Socials -->
+                            <div class="mt-8 pt-8 border-t border-slate-100">
+                                <div class="flex items-center justify-between flex-wrap gap-4">
+                                    <span class="font-bold text-slate-900">Suivez-nous</span>
+                                    <div class="flex gap-3">
+                                        <a href="#"
+                                            class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-[#E1306C] hover:text-white transition-all duration-300 group">
+                                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                                            <span class="text-sm font-medium">Instagram</span>
+                                        </a>
+                                        <a href="#"
+                                            class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-[#1877F2] hover:text-white transition-all duration-300 group">
+                                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                                            <span class="text-sm font-medium">Facebook</span>
+                                        </a>
+                                        <a href="#"
+                                            class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white hover:bg-black hover:text-white transition-all duration-300 group">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                                            </svg>
+                                            <span class="text-sm font-medium">TikTok</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map (Smaller) -->
+                        <div class="h-[250px] w-full rounded-3xl overflow-hidden shadow-lg border border-slate-100">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.055217397562!2d3.7167038755459822!3d36.7452456707958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e775f9ebfb713%3A0xa10f00d22b41b829!2sLaboratoire%20EL%20HAYATE!5e0!3m2!1sfr!2sdz!4v1755767605919!5m2!1sfr!2sdz"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Quick Services Sidebar -->
+                    <div class="space-y-6">
+                        <div class="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                            <h3 class="text-xl font-bold mb-6 relative z-10">Services rapides</h3>
+
+                            <div class="space-y-4 relative z-10">
+                                <a href="tel:0660070962" class="block group">
+                                    <div
+                                        class="bg-white/10 hover:bg-white/20 p-4 rounded-2xl transition-all border border-white/5">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center">
+                                                <i data-lucide="phone" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <span class="font-bold">Prendre rendez-vous</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400 pl-[52px]">Réservez votre créneau</p>
+                                    </div>
+                                </a>
+
+                                <div class="block group">
+                                    <div
+                                        class="bg-white/10 hover:bg-white/20 p-4 rounded-2xl transition-all border border-white/5">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-secondary-500 flex items-center justify-center">
+                                                <i data-lucide="home" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <span class="font-bold">Service à domicile</span>
+                                        </div>
+                                        <p class="text-sm text-slate-400 pl-[52px]">Prélèvement chez vous</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-8 border-t border-white/10 text-center">
+                                <p class="text-sm text-slate-400 mb-2">Une urgence ?</p>
+                                <p class="text-2xl font-black text-white">0660 07 09 62</p>
+                            </div>
+                        </div>
+
+                        <!-- Practical Info -->
+                        <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100">
+                            <h4 class="font-bold text-slate-900 mb-4">Informations pratiques</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-500">Horaires</span>
+                                    <span class="font-bold text-slate-900">24h/24, 7j/7</span>
+                                </li>
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-500">Service à domicile</span>
+                                    <span class="font-bold text-green-600">Disponible</span>
+                                </li>
+                                <li class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-500">Parking</span>
+                                    <span class="font-bold text-slate-900">Gratuit</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-slate-950 text-white pt-20 pb-10 border-t border-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-12 mb-16">
+                    <!-- Brand -->
+                    <div class="md:col-span-2">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/20">
+                                <i data-lucide="activity" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold tracking-tight">El HAYAT</h4>
+                                <p class="text-slate-400 text-sm">Laboratoire Médical</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 leading-relaxed max-w-md mb-8">
+                            Leader en biologie médicale spécialisée. Nous combinons expertise humaine et innovation
+                            technologique pour votre santé.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#expertises"
+                                class="text-sm font-semibold text-white border-b border-primary-500 pb-0.5 hover:text-primary-400 transition-colors">Nos
+                                expertises</a>
+                            <a href="#contact"
+                                class="text-sm font-semibold text-white border-b border-slate-700 pb-0.5 hover:text-slate-300 transition-colors">Nous
+                                trouver</a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h5 class="font-bold text-lg mb-6 text-white">Services</h5>
+                        <ul class="space-y-4">
+                            <li><a href="prices.html"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Catalogue</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Résultats</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Prélèvement domicile</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Espace Pro</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Legal/Support -->
+                    <div>
+                        <h5 class="font-bold text-lg mb-6 text-white">Support</h5>
+                        <ul class="space-y-4">
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> FAQ</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Politique RSE</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Mentions Légales</a></li>
+                            <li><a href="#"
+                                    class="text-slate-400 hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                        data-lucide="chevron-right" class="w-3 h-3"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-slate-500 text-sm">
+                        &copy; 2025 Laboratoire El HAYAT. Tous droits réservés.
+                    </p>
+                    <div class="flex items-center gap-2 text-sm text-slate-600">
+                        <span>Fait avec excellence</span>
+                        <i data-lucide="heart" class="w-3 h-3 text-red-500 fill-current"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('active');
+            }
+
+            // Language switching
+            const translations = {
+                ar: {
+                    // Header Navigation
+                    'À propos': 'حولنا',
+                    'Nos expertises': 'خبراتنا',
+                    'Expertises': 'خبراتنا',
+                    'Catalogue': 'الكتالوج',
+                    'Services': 'الخدمات',
+                    'Contact': 'اتصل بنا',
+                    'Rendez-vous': 'مواعيد',
+                    'FR': 'الفرنسية',
+                    'AR': 'العربية',
+
+                    // Header Top Bar
+                    'Patients': 'مرضى',
+                    'Résultats en ligne': 'النتائج عبر الإنترنت',
+                    'Consultez vos analyses': 'اطلع على تحاليلك',
+                    'Prélèvement domicile': 'سحب العينات في المنزل',
+                    'Sans vous déplacer': 'دون التنقل',
+                    'Prendre Rendez-vous': 'حجز موعد',
+
+                    // Mega Menu
+                    'Nos missions': 'مهامنا',
+                    'Notre engagement envers vous': 'التزامنا تجاهكم',
+                    'Qualité': 'الجودة',
+                    'Standards internationaux': 'المعايير الدولية',
+                    'Le Groupe': 'المجموعة',
+                    'Notre histoire et valeurs': 'تاريخنا وقيمنا',
+
+                    // Hero Section
+                    'EL HAYAT': 'الحياة',
+                    'Laboratoire Médical': 'مختبر طبي',
+                    'L\'Excellence de la': 'التميز في',
+                    'Biologie Médicale': 'البيولوجيا الطبية',
+                    'à votre service.': 'في خدمتكم.',
+                    'Technologies de pointe, équipe d\'experts et résultats rapides. Votre santé mérite la plus haute précision.': 'تقنيات متطورة، فريق من الخبراء ونتائج سريعة. صحتكم تستحق أعلى درجات الدقة.',
+                    'Nos Expertises': 'خبراتنا',
+                    'Catalogue des Analyses': 'كتالوج التحاليل',
+
+                    // Stats
+                    'Examens / an': 'فحص / سنة',
+                    'Laboratoires': 'مختبرات',
+                    'Experts': 'خبراء',
+                    'Résultats Rapides': 'نتائج سريعة',
+
+                    // Expertise Section
+                    'Nos Domaines': 'مجالاتنا',
+                    'Expertises Médicales': 'الخبرات الطبية',
+                    'Une gamme complète d\'analyses spécialisées réalisées par des experts sur des plateaux techniques de dernière génération.': 'مجموعة كاملة من التحاليل المتخصصة التي يجريها خبراء على أحدث المنصات التقنية.',
+                    'Consulter le catalogue complet': 'عرض الكتالوج الكامل',
+
+                    // Cards Titles & Descriptions
+                    'Allergologie': 'طب الحساسية',
+                    'Diagnostic précis des allergies respiratoires et alimentaires. اختبارات من أحدث جيل.': 'تشخيص دقيق للحساسية التنفسية والغذائية. اختبارات من أحدث جيل.',
+                    'Auto-immunité': 'المناعة الذاتية',
+                    'Exploration approfondie des maladies auto-immunes et inflammatoires chroniques.': 'استكشاف متعمق لأمراض المناعة الذاتية والالتهابات المزمنة.',
+                    'Biologie Moléculaire': 'البيولوجيا الجزيئية',
+                    'PCR et séquençage pour le diagnostic génétique et infectieux de haute précision.': 'PCR وتسلسل للتشخيص الجيني والمعدي عالي الدقة.',
+                    'Endocrinologie': 'طب الغدد الصماء',
+                    'Bilans hormonaux complets : thyroïde, fertilité, croissance et métabolisme.': 'فحوصات هرمونية كاملة: الغدة الدرقية، الخصوبة، النمو والتمثيل الغذائي.',
+                    'Hématologie': 'أمراض الدم',
+                    'Cytologie sanguine, coagulation et immuno-hématologie spécialisée.': 'علم خلايا الدم، التخثر والمناعة الدموية المتخصصة.',
+                    'Microbiologie': 'علم الأحياء الدقيقة',
+                    'Identification bactérienne rapide et antibiogrammes ciblés pour un traitement efficace.': 'تحديد بكتيري سريع ومخططات مضادات حيوية مستهدفة لعلاج فعال.',
+                    'Oncologie': 'علم الأورام',
+                    'Suivi des marqueurs tumoraux et dépistage précoce des pathologies cancéreuses.': 'متابعة علامات الأورام والكشف المبكر عن الأمراض السرطانية.',
+                    'Toxicologie': 'علم السموم',
+                    'Dosage de médicaments, métaux lourds et dépistage de toxiques.': 'قياس الأدوية، المعادن الثقيلة والكشف عن السموم.',
+
+                    // Process Section
+                    'Parcours Patient': 'مسار المريض',
+                    'Comment ça marche ?': 'كيف يعمل؟',
+                    'Un parcours simplifié pour une prise en charge rapide et efficace': 'مسار مبسط لرعاية سريعة وفعالة',
+
+                    // Steps
+                    'Prescription': 'الوصفة الطبية',
+                    'Rédigez ou présentez votre ordonnance médicale.': 'اكتب أو قدم وصفتك الطبية.',
+                    'Prélèvement': 'أخذ العينات',
+                    'Au laboratoire ou à domicile sur rendez-vous.': 'في المختبر أو في المنزل بموعد.',
+                    'Analyse': 'تحليل',
+                    'Traitement rapide sur nos plateaux techniques.': 'معالجة سريعة على منصاتنا التقنية.',
+                    'Résultats': 'النتائج',
+                    'Disponibles en ligne, par email ou au laboratoire.': 'متاحة عبر الإنترنت، بالبريد الإلكتروني أو في المختبر.',
+
+                    // Contact Section
+                    'Notre Localisation': 'موقعنا',
+                    'Ouvert 24/7': 'مفتوح 24/7',
+                    'Contactez-nous': 'اتصل بنا',
+                    'Adresse': 'العنوان',
+                    'Rue Colonel Amirouche': 'شارع العقيد عميروش',
+                    'Bordj Menaïel, 35002': 'برج منايل، 35002',
+                    'Téléphone': 'الهاتف',
+                    'Email': 'البريد الإلكتروني',
+                    'Suivez-nous sur les réseaux': 'تابعنا على الشبكات',
+
+                    // Footer
+                    'El HAYAT': 'الحياة',
+                    'Leader en biologie médicale spécialisée. Nous combinons expertise humaine et innovation technologique pour votre santé.': 'رائد في البيولوجيا الطبية المتخصصة. نجمع بين الخبرة البشرية والابتكار التكنولوجي لصحتك.',
+                    'Nos expertises': 'خبراتنا',
+                    'Nous trouver': 'اعثر علينا',
+                    'Espace Pro': 'فضاء المهنيين',
+                    'FAQ': 'الأسئلة الشائعة',
+                    'Politique RSE': 'سياسة المسؤولية الاجتماعية',
+                    'Mentions Légales': 'إشعارات قانونية',
+                    'Fait avec excellence': 'صنع بامتياز',
+
+                    // Common
+                    'Copyright': 'حقوق النشر',
+                    'Tous droits réservés.': 'جميع الحقوق محفوظة.'
+                }
+            };
+
+            function switchLanguage(lang) {
+                const html = document.documentElement;
+                const isArabic = lang === 'ar';
+
+                // Set lang and dir
+                html.setAttribute('lang', lang);
+                html.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+
+                // Update button active states
+                const langButtons = document.querySelectorAll('.lang-btn');
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('onclick').includes(lang)) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                // Text Node Walker for precise key matching
+                const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+                let node;
+                const nodes = [];
+                while (node = walk.nextNode()) {
+                    // Skip script and style tags content just in case
+                    if (node.parentNode.tagName === 'SCRIPT' || node.parentNode.tagName === 'STYLE') continue;
+                    nodes.push(node);
+                }
+
+                nodes.forEach(node => {
+                    const text = node.nodeValue.trim();
+                    if (!text) return;
+
+                    if (isArabic) {
+                        // FR -> AR
+                        if (translations.ar[text]) {
+                            node.nodeValue = node.nodeValue.replace(text, translations.ar[text]);
+                        }
+                    } else {
+                        // AR -> FR
+                        const frKey = Object.keys(translations.ar).find(key => translations.ar[key] === text);
+                        if (frKey) {
+                            node.nodeValue = node.nodeValue.replace(text, frKey);
+                        }
+                    }
+                });
+
+                // Handle placeholders
+                document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+                    const text = el.getAttribute('placeholder');
+                    if (!text) return;
+
+                    if (isArabic) {
+                        if (translations.ar[text]) el.setAttribute('placeholder', translations.ar[text]);
+                    } else {
+                        const frKey = Object.keys(translations.ar).find(key => translations.ar[key] === text);
+                        if (frKey) el.setAttribute('placeholder', frKey);
+                    }
+                });
+            }
+
+            // Smooth scrolling for anchor links (excluding empty # links)
+            document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        </script>
+
+        <!-- Hidden Content Sections -->
+
+        <!-- Policy Section -->
+        <section id="policy" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Notre politique RSE</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Responsabilité Sociale et Environnementale au cœur de nos actions
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Engagement environnemental</h3>
+                        <p class="text-gray-600 mb-4">
+                            Laboratoire El HAYAT s'engage dans une démarche éco-responsable avec la réduction de notre
+                            empreinte carbone,
+                            la gestion optimisée des déchets médicaux, et l'utilisation d'équipements éco-énergétiques.
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Réduction de 30% de notre consommation énergétique</li>
+                            <li>• Tri sélectif et recyclage des déchets de laboratoire</li>
+                            <li>• Digitalisation des processus administratifs</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Responsabilité sociale</h3>
+                        <p class="text-gray-600 mb-4">
+                            Notre engagement envers la communauté se traduit par des actions concrètes pour améliorer
+                            l'accès aux soins
+                            et soutenir la formation médicale continue.
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Programmes de dépistage gratuits</li>
+                            <li>• Formation continue du personnel médical</li>
+                            <li>• Partenariats avec les établissements de santé publique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Governance Section -->
+        <section id="governance" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Notre gouvernance</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Une structure organisationnelle transparente et efficace
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Conseil d'administration</h3>
+                        <p class="text-gray-600">Supervision stratégique et prise de décisions importantes pour l'avenir
+                            du
+                            laboratoire</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Comité qualité</h3>
+                        <p class="text-gray-600">Surveillance continue des processus et maintien des standards
+                            d'excellence
+                        </p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Direction exécutive</h3>
+                        <p class="text-gray-600">Gestion opérationnelle quotidienne et mise en œuvre de la stratégie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missions Section -->
+        <section id="missions" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos missions</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Des objectifs clairs pour servir la santé publique
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="microscope" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Excellence diagnostique</h3>
+                        </div>
+                        <p class="text-gray-600">Fournir des analyses médicales précises et fiables pour un diagnostic
+                            optimal et une prise en charge adaptée des patients.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Rapidité de service</h3>
+                        </div>
+                        <p class="text-gray-600">Garantir des délais de rendu optimisés tout en maintenant la qualité,
+                            pour
+                            une prise en charge médicale efficace.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Accessibilité des soins</h3>
+                        </div>
+                        <p class="text-gray-600">Rendre les analyses médicales accessibles à tous avec nos services à
+                            domicile et nos tarifs adaptés.</p>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Formation continue</h3>
+                        </div>
+                        <p class="text-gray-600">Assurer la formation permanente de nos équipes pour maintenir
+                            l'excellence
+                            technique et scientifique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Innovations Section -->
+        <section id="innovations" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos innovations</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Technologies de pointe au service de la médecine moderne
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="cpu" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Intelligence Artificielle</h3>
+                        <p class="text-gray-600">Analyse automatisée des résultats et détection précoce d'anomalies
+                            grâce à
+                            nos algorithmes avancés.</p>
+                    </div>
+                    <div class="card">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="smartphone" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Application mobile</h3>
+                        <p class="text-gray-600">Suivi en temps réel de vos analyses, prise de rendez-vous et
+                            consultation
+                            des résultats via notre app.</p>
+                    </div>
+                    <div class="card">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="dna" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Séquençage génétique</h3>
+                        <p class="text-gray-600">Analyses génétiques de nouvelle génération pour la médecine
+                            personnalisée
+                            et prédictive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos projets de recherche clinique</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Contribution active à l'avancement de la science médicale
+                    </p>
+                </div>
+                <div class="space-y-8">
+                    <div class="card">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 mt-1"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="flask-conical" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Étude sur les biomarqueurs du cancer
+                                </h3>
+                                <p class="text-gray-600 mb-3">Recherche collaborative avec l'université d'Alger pour
+                                    identifier de nouveaux biomarqueurs dans le diagnostic précoce des cancers
+                                    digestifs.
+                                </p>
+                                <span class="text-sm bg-teal-100 text-teal-800 px-3 py-1 rounded-full">En cours • Phase
+                                    II</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 mt-1"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="heart-pulse" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Projet CardioPredict</h3>
+                                <p class="text-gray-600 mb-3">Développement d'un score prédictif des maladies
+                                    cardiovasculaires basé sur l'analyse multi-paramètres des lipides sanguins.</p>
+                                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Planifié •
+                                    2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 mt-1"
+                                style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                <i data-lucide="virus" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3 text-gray-900">Surveillance épidémiologique</h3>
+                                <p class="text-gray-600 mb-3">Participation au réseau national de surveillance des
+                                    maladies
+                                    infectieuses émergentes en collaboration avec l'INSP.</p>
+                                <span
+                                    class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">Permanent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Section -->
+        <section id="quality" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Qualité</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Excellence et fiabilité à chaque étape du processus analytique
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Certifications et accréditations</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3"
+                                    style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-600">Certification nationale - Laboratoires de biologie
+                                    médicale</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3"
+                                    style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-600">Agrément Ministère de la Santé</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mr-3"
+                                    style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-600">Certification qualité laboratoire</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900">Contrôles qualité</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i data-lucide="target" class="w-5 h-5 text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Contrôle interne quotidien</h4>
+                                    <p class="text-gray-600 text-sm">Vérification continue de la précision des analyses
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="clipboard-check" class="w-5 h-5 text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Évaluation externe</h4>
+                                    <p class="text-gray-600 text-sm">Participation aux programmes d'EEQ internationaux
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Traçabilité complète</h4>
+                                    <p class="text-gray-600 text-sm">Suivi depuis la pré-analytique jusqu'au rendu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos valeurs</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Les principes qui guident notre action quotidienne
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="star" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Excellence</h3>
+                        <p class="text-gray-600">Recherche permanente de la perfection dans chaque analyse</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="handshake" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Intégrité</h3>
+                        <p class="text-gray-600">Transparence et éthique dans toutes nos relations</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="users-round" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Respect</h3>
+                        <p class="text-gray-600">Considération pour chaque patient et collaborateur</p>
+                    </div>
+                    <div class="card text-center">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                            style="background: linear-gradient(to right, var(--secondary), var(--tertiary));">
+                            <i data-lucide="lightbulb" class="w-8 h-8 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Innovation</h3>
+                        <p class="text-gray-600">Anticipation des besoins futurs de la médecine</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Group Section -->
+        <section id="group" class="py-20 bg-white" style="display: none;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Le laboratoire El HAYAT</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Laboratoire de référence en biologie médicale spécialisée en Algérie
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">Notre histoire</h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-600">
+                                Fondé avec la vision d'excellence médicale, Laboratoire El HAYAT est devenu une
+                                référence en
+                                biologie médicale spécialisée en Algérie.
+                                Notre laboratoire combine innovation technologique et expertise locale depuis sa
+                                création.
+                            </p>
+                            <p class="text-gray-600">
+                                Notre laboratoire offre une approche personnalisée adaptée aux besoins spécifiques de la
+                                population algérienne
+                                avec les technologies les plus avancées en biologie médicale.
+                            </p>
+                        </div>
+                        <div class="mt-8 grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-teal-600 mb-2">25+</div>
+                                <div class="text-gray-600">Années d'expérience</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-teal-600 mb-2">50K+</div>
+                                <div class="text-gray-600">Patients satisfaits</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-900">Notre présence</h3>
+                        <div class="card">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Bordj Menaiel</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Boumerdes</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Alger</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Services à domicile</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="clock" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Disponible 24/7</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-teal-500 mr-2"></i>
+                                    <span class="text-gray-600">Service d'urgence</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 card">
+                            <h4 class="text-lg font-bold mb-3 text-gray-900">Nos services spécialisés</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Analyses
+                                    sanguines</span>
+                                <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Tests
+                                    hormonaux</span>
+                                <span
+                                    class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Microbiologie</span>
+                                <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Biochimie</span>
+                                <span
+                                    class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Immunologie</span>
+                                <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">PCR
+                                    COVID-19</span>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Footer -->
+                        <footer class="bg-slate-900 text-white pt-20 pb-10 mt-20">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                                    <!-- Group Info -->
+                                    <div class="col-span-1 md:col-span-1">
+                                        <div class="flex items-center gap-3 mb-6">
+                                            <img src="logo_groue_medical_el_h0ayat_4x-removebg-preview.png"
+                                                class="h-10 w-auto brightness-0 invert" alt="Logo">
+                                            <span class="font-bold text-xl tracking-tight">EL-HAYAT</span>
+                                        </div>
+                                        <p class="text-slate-400 text-sm leading-relaxed mb-6"
+                                            data-fr="L'excellence en biologie médicale et en soins dentaires. Un réseau d'experts dédié à votre santé à travers l'Algérie."
+                                            data-ar="التميز في البيولوجيا الطبية وعلاجات الأسنان. شبكة من الخبراء مخصصة لصحتكم عبر الجزائر.">
+                                            L'excellence en biologie médicale et en soins dentaires. Un réseau d'experts
+                                            dédié à votre santé
+                                            à travers l'Algérie.
+                                        </p>
+                                        <div class="flex gap-4">
+                                            <a href="#"
+                                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                                            </a>
+                                            <a href="#"
+                                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                                            </a>
+                                            <a href="#"
+                                                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 transition-colors">
+                                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Labs -->
+                                    <div>
+                                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6"
+                                            data-fr="Nos Laboratoires" data-ar="مختبراتنا">Nos Laboratoires</h4>
+                                        <ul class="space-y-4">
+                                            <li><a href="index1.html"
+                                                    class="text-slate-400 hover:text-white transition-colors text-sm"
+                                                    data-fr="Laboratoire Bordj Menaïel"
+                                                    data-ar="مختبر برج منايل">Laboratoire Bordj
+                                                    Menaïel</a></li>
+                                            <li><a href="index2.html"
+                                                    class="text-slate-400 hover:text-white transition-colors text-sm"
+                                                    data-fr="Laboratoire Isser" data-ar="مختبر يسر">Laboratoire
+                                                    Isser</a>
+                                            </li>
+                                            <li><a href="index3.html"
+                                                    class="text-slate-400 hover:text-white transition-colors text-sm"
+                                                    data-fr="Laboratoire Dely Ibrahim"
+                                                    data-ar="مختبر دالي إبراهيم">Laboratoire Dely
+                                                    Ibrahim</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Cabinets -->
+                                    <div>
+                                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6"
+                                            data-fr="Nos Cabinets" data-ar="عياداتنا">Nos Cabinets</h4>
+                                        <ul class="space-y-4">
+                                            <li><a href="dentairesbou_improved.html"
+                                                    class="text-slate-400 hover:text-white transition-colors text-sm"
+                                                    data-fr="Cabinet Dentaire Boumerdès"
+                                                    data-ar="عيادة الأسنان بومرداس">Cabinet Dentaire
+                                                    Boumerdès</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Contact -->
+                                    <div>
+                                        <h4 class="text-sm font-bold uppercase tracking-widest text-primary-400 mb-6"
+                                            data-fr="Contact Central" data-ar="الاتصال المركزي">Contact Central</h4>
+                                        <ul class="space-y-4">
+                                            <li class="flex items-start gap-3">
+                                                <i data-lucide="mail" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                                <span class="text-slate-400 text-sm">contact@elhayat-groupe.dz</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i data-lucide="phone" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                                <span class="text-slate-400 text-sm" dir="ltr">+213 (0) 550 00 00
+                                                    00</span>
+                                            </li>
+                                            <li class="flex items-start gap-3">
+                                                <i data-lucide="calendar" class="w-5 h-5 text-primary-500 mt-0.5"></i>
+                                                <span class="text-slate-400 text-sm" data-fr="Disponible 24h/24 & 7j/7"
+                                                    data-ar="متوفر 24 ساعة/24 و 7 أيام/7">Disponible 24h/24 &
+                                                    7j/7</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                                    <p class="text-slate-500 text-xs"
+                                        data-fr="&copy; 2024 Groupe Médical EL-HAYAT. Tous droits réservés."
+                                        data-ar="&copy; 2024 مجموعة الحياة الطبية. جميع الحقوق محفوظة.">
+                                        &copy; 2024 Groupe Médical EL-HAYAT. Tous droits réservés.
+                                    </p>
+                                    <div class="flex gap-8">
+                                        <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors"
+                                            data-fr="Mentions Légales" data-ar="إشعارات قانونية">Mentions Légales</a>
+                                        <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors"
+                                            data-fr="Confidentialité" data-ar="الخصوصية">Confidentialité</a>
+                                        <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors"
+                                            data-fr="Cookies" data-ar="ملفات تعريف الارتباط">Cookies</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+
+                        <script>
+                            // Show/hide sections based on navigation clicks
+                            document.addEventListener('DOMContentLoaded', function () {
+                                // Hide all sections initially
+                                const sections = ['policy', 'governance', 'missions', 'innovations', 'research', 'quality', 'values', 'group'];
+
+                                // Add click handlers for dropdown items
+                                sections.forEach(sectionId => {
+                                    const link = document.querySelector(`a[href="#${sectionId}"]`);
+                                    const section = document.getElementById(sectionId);
+
+                                    if (link && section) {
+                                        link.addEventListener('click', function (e) {
+                                            e.preventDefault();
+
+                                            // Hide all other sections
+                                            sections.forEach(id => {
+                                                const otherSection = document.getElementById(id);
+                                                if (otherSection && id !== sectionId) {
+                                                    otherSection.style.display = 'none';
+                                                }
+                                            });
+
+                                            // Show clicked section
+                                            section.style.display = 'block';
+
+                                            // Scroll to section
+                                            section.scrollIntoView({ behavior: 'smooth' });
+                                        });
+                                    }
+                                });
+                            });
+
+                            // Handle navigation to pricing page
+                            const pricingLink = document.getElementById('pricingLink');
+                            if (pricingLink) {
+                                pricingLink.addEventListener('click', function (e) {
+                                    e.preventDefault();
+
+                                    // Show loading indicator
+                                    this.innerHTML = 'Navigation... ⏳';
+                                    this.style.pointerEvents = 'none';
+
+                                    // Use postMessage to communicate with canvas
+                                    setTimeout(() => {
+                                        try {
+                                            // Try to focus on the pricing page shape
+                                            if (window.parent && window.parent !== window) {
+                                                window.parent.postMessage({
+                                                    type: 'NAVIGATE_TO_SHAPE',
+                                                    shapeId: 'shape:BviUA2pXNiX5isAXIcdZ4',
+                                                    action: 'focus'
+                                                }, '*');
+                                            }
+
+                                            // Show success notification
+                                            const notification = document.createElement('div');
+                                            notification.innerHTML = '📊 انتقال إلى صفحة الأسعار | Navigation vers la page des prix';
+                                            notification.style.cssText = `
+                        position: fixed; top: 20px; right: 20px; z-index: 1000;
+                        background: linear-gradient(135deg, #0caac1, #28cfe2);
+                        color: white; padding: 15px 25px; border-radius: 10px;
+                        font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                        animation: slideIn 0.5s ease-out;
+                    `;
+                                            document.body.appendChild(notification);
+                                            setTimeout(() => notification.remove(), 3000);
+
+                                        } catch (error) {
+                                            console.log('Navigation attempt made');
+                                        }
+
+                                        // Reset button
+                                        setTimeout(() => {
+                                            this.innerHTML = 'Prix des analyses <span class="text-cyan-400">→</span>';
+                                            this.style.pointerEvents = 'auto';
+                                        }, 1000);
+                                    }, 300);
+                                });
+                            }
+
+                            // Addictive UX: Magnetic Buttons
+                            const magneticBtns = document.querySelectorAll('.magnetic-btn');
+                            magneticBtns.forEach(btn => {
+                                btn.addEventListener('mousemove', (e) => {
+                                    const rect = btn.getBoundingClientRect();
+                                    const x = e.clientX - rect.left - rect.width / 2;
+                                    const y = e.clientY - rect.top - rect.height / 2;
+
+                                    // Strength of the magnet
+                                    const strength = 0.5;
+
+                                    btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+                                });
+
+                                btn.addEventListener('mouseleave', () => {
+                                    btn.style.transform = 'translate(0, 0)';
+                                });
+                            });
+
+                            // Addictive UX: 3D Tilt Cards
+                            const tiltCards = document.querySelectorAll('.tilt-card');
+                            tiltCards.forEach(card => {
+                                card.addEventListener('mousemove', (e) => {
+                                    const rect = card.getBoundingClientRect();
+                                    const x = e.clientX - rect.left;
+                                    const y = e.clientY - rect.top;
+
+                                    const centerX = rect.width / 2;
+                                    const centerY = rect.height / 2;
+
+                                    // Max rotation degrees
+                                    const maxRotate = 8;
+
+                                    const rotateX = ((y - centerY) / centerY) * -maxRotate;
+                                    const rotateY = ((x - centerX) / centerX) * maxRotate;
+
+                                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                                });
+
+                                card.addEventListener('mouseleave', () => {
+                                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                                });
+                            });
+
+                            // Addictive UX: Scroll Reveal & Counters
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const observerOptions = {
+                                    threshold: 0.1,
+                                    rootMargin: "0px"
+                                };
+
+                                const observer = new IntersectionObserver((entries, obs) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            entry.target.classList.add('reveal-visible');
+
+                                            // Trigger counter if the element contains a stat-number
+                                            const statNumber = entry.target.querySelector('.stat-number');
+                                            if (statNumber) {
+                                                animateCounter(statNumber);
+                                            }
+
+                                            obs.unobserve(entry.target);
+                                        }
+                                    });
+                                }, observerOptions);
+
+                                const revealElements = document.querySelectorAll('.scroll-reveal');
+                                revealElements.forEach(el => observer.observe(el));
+
+                                // Fallback: Make visible if observer fails or stuck
+                                setTimeout(() => {
+                                    revealElements.forEach(el => {
+                                        el.classList.add('reveal-visible');
+                                        el.style.opacity = '1';
+                                        el.style.transform = 'translateY(0)';
+                                    });
+                                }, 500);
+                            });
+
+                            function animateCounter(el) {
+                                const text = el.innerText;
+                                const numberMatch = text.match(/\d+/);
+                                if (!numberMatch) return;
+
+                                const targetNum = parseInt(numberMatch[0]);
+                                const suffixText = text.replace(/\d+/, '');
+
+                                // If already animated or invalid
+                                if (isNaN(targetNum)) return;
+
+                                const duration = 2000;
+                                const start = 0;
+                                const startTime = performance.now();
+
+                                function update(currentTime) {
+                                    const elapsed = currentTime - startTime;
+                                    const progress = Math.min(elapsed / duration, 1);
+
+                                    // Easing (Out Quart)
+                                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                                    const currentNum = Math.floor(start + (targetNum - start) * ease);
+                                    el.innerText = currentNum + suffixText;
+
+                                    if (progress < 1) {
+                                        requestAnimationFrame(update);
+                                    } else {
+                                        el.innerText = targetNum + suffixText; // Ensure final value is exact
+                                    }
+                                }
+
+                                requestAnimationFrame(update);
+                            }
+
+                            function toggleMobileMenu() {
+                                const menu = document.getElementById('mobileMenu');
+                                menu.classList.toggle('hidden');
+                            }
+
+                            let currentLang = 'fr';
+                            function switchLanguage(lang) {
+                                if (!lang) return;
+                                localStorage.setItem('lang', lang);
+                                currentLang = lang;
+
+                                // Update all matching language buttons (desktop and mobile)
+                                document.querySelectorAll('.lang-btn').forEach(btn => {
+                                    const onclickAttr = btn.getAttribute('onclick') || '';
+                                    const isTarget = onclickAttr.includes(`'${lang}'`);
+                                    btn.classList.toggle('active', isTarget);
+
+                                    if (btn.classList.contains('mobile-lang-btn')) {
+                                        if (isTarget) {
+                                            btn.classList.add('bg-primary-50', 'text-primary-600', 'border-primary-100');
+                                            btn.classList.remove('text-slate-400', 'border-transparent');
+                                        } else {
+                                            btn.classList.remove('bg-primary-50', 'text-primary-600', 'border-primary-100');
+                                            btn.classList.add('text-slate-400', 'border-transparent');
+                                        }
+                                    } else {
+                                        // Desktop buttons
+                                        if (isTarget) {
+                                            btn.classList.add('text-primary-600', 'bg-primary-50', 'border-primary-100');
+                                            btn.classList.remove('text-slate-400');
+                                        } else {
+                                            btn.classList.remove('text-primary-600', 'bg-primary-50', 'border-primary-100');
+                                            btn.classList.add('text-slate-400');
+                                        }
+                                    }
+                                });
+
+                                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                                document.documentElement.lang = lang;
+
+                                document.querySelectorAll('[data-fr]').forEach(el => {
+                                    el.textContent = el.getAttribute('data-' + lang);
+                                });
+
+                                if (window.lucide) lucide.createIcons();
+                            }
+
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const savedLang = localStorage.getItem('lang') || 'fr';
+                                switchLanguage(savedLang);
+                            });
+                        </script>
+
+                        <script type="module">
+                            import DarkVeil from './DarkVeil.js';
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const container = document.getElementById('dark-veil-container');
+                                if (container) {
+                                    new DarkVeil(container, {
+                                        hueShift: 44,
+                                        noiseIntensity: 0,
+                                        scanlineIntensity: 0,
+                                        speed: 1.1,
+                                        scanlineFrequency: 0,
+                                        warpAmount: 0
+                                    });
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupe Médical EL-HAYAT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="logo groue medical el h0ayat@4x.png">
+    <link rel="stylesheet" href="DarkVeil.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            font-family: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .hero-logo {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .main-button {
+            background-color: #08acbd;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .main-button:hover {
+            background-color: #069cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(8, 172, 189, 0.3);
+        }
+
+        .sub-button {
+            background-color: rgba(8, 172, 189, 0.1);
+            border: 2px solid #08acbd;
+            color: #08acbd;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .sub-button:hover {
+            background-color: #08acbd;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+            background-color: transparent;
+            border: 2px solid #6b7280;
+            color: #6b7280;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .back-button:hover {
+            background-color: #6b7280;
+            color: white;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 2px solid #08acbd;
+            border-radius: 25px;
+            padding: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            min-width: 45px;
+        }
+
+        .lang-btn.active {
+            background-color: #08acbd;
+            color: white;
+        }
+
+        .lang-btn:not(.active) {
+            color: #08acbd;
+        }
+
+        .lang-btn:not(.active):hover {
+            background-color: rgba(8, 172, 189, 0.1);
+        }
+
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .ltr {
+            direction: ltr;
+            text-align: left;
+        }
+
+        #dark-veil-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bg-cool-background {
+            background-image: url('assets/dgg@4x.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #f6a201, transparent);
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 20;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body class="bg-cool-background min-h-screen" id="body">
+    <div id="dark-veil-container"></div>
+    <div class="content-overlay">
+        <!-- Language Switch -->
+        <div class="language-switch">
+            <button class="lang-btn active" onclick="switchLanguage('fr')" id="fr-btn">FR</button>
+            <button class="lang-btn" onclick="switchLanguage('ar')" id="ar-btn">AR</button>
+        </div>
+
+        <div class="container mx-auto px-6 py-12">
+            <!-- Hero Section -->
+            <div class="text-center mb-16 mt-16">
+                <img src="logo_groue_medical_el_h0ayat_4x-removebg-preview (1).png" alt="Groupe Médical EL-HAYAT"
+                    class="hero-logo mx-auto mb-8">
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                    data-fr="Votre santé, notre priorité. Des soins médicaux de qualité avec une équipe professionnelle dédiée."
+                    data-ar="صحتكم أولويتنا. رعاية طبية عالية الجودة مع فريق مهني متفاني.">
+                    Votre santé, notre priorité. Des soins médicaux de qualité avec une équipe professionnelle dédiée.
+                </p>
+            </div>
+
+            <!-- Main Navigation -->
+            <div id="mainMenu" class="max-w-md mx-auto space-y-6">
+                <button onclick="showLaboratories()"
+                    class="main-button w-full py-4 px-8 text-white text-lg rounded-xl shadow-lg"
+                    data-fr="Les Laboratoires" data-ar="المختبرات">
+                    Les Laboratoires
+                </button>
+
+                <button onclick="showCabinets()"
+                    class="main-button w-full py-4 px-8 text-white text-lg rounded-xl shadow-lg"
+                    data-fr="Les Cabinets Dentaires" data-ar="عيادات الأسنان">
+                    Les Cabinets Dentaires
+                </button>
+            </div>
+
+            <!-- Laboratories Submenu -->
+            <div id="laboratoriesMenu" class="hidden max-w-lg mx-auto">
+                <div class="mb-8 text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2" data-fr="Nos Laboratoires" data-ar="مختبراتنا">Nos
+                        Laboratoires</h2>
+                    <p class="text-gray-600" data-fr="Choisissez votre laboratoire le plus proche"
+                        data-ar="اختر المختبر الأقرب إليك">Choisissez votre laboratoire le plus proche</p>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <button onclick="window.location.href='index1.html'"
+                        class="sub-button w-full py-3 px-6 text-lg rounded-lg"
+                        data-fr="Laboratoire de Bordj Mnaiel, Boumerdès" data-ar="مختبر برج منايل، بومرداس">
+                        Laboratoire de Bordj Mnaiel, Boumerdès
+                    </button>
+
+                    <button onclick="window.location.href='index2.html'"
+                        class="sub-button w-full py-3 px-6 text-lg rounded-lg" data-fr="Laboratoire de Isser, Boumerdès"
+                        data-ar="مختبر يسر، بومرداس">
+                        Laboratoire de Isser, Boumerdès
+                    </button>
+
+                    <button onclick="window.location.href='index3.html'"
+                        class="sub-button w-full py-3 px-6 text-lg rounded-lg"
+                        data-fr="Laboratoire de Dely Ibrahim, Alger" data-ar="مختبر دالي إبراهيم، الجزائر">
+                        Laboratoire de Dali Brahim, Alger
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showMainMenu()" class="back-button py-2 px-6 rounded-lg"
+                        data-fr="← Retour au menu principal" data-ar="← العودة للقائمة الرئيسية">
+                        ← Retour au menu principal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cabinets Submenu -->
+            <div id="cabinetsMenu" class="hidden max-w-lg mx-auto">
+                <div class="mb-8 text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2" data-fr="Nos Cabinets Dentaires"
+                        data-ar="عياداتنا لطب الأسنان">Nos Cabinets Dentaires</h2>
+                    <p class="text-gray-600" data-fr="Soins dentaires professionnels" data-ar="رعاية أسنان احترافية">
+                        Soins
+                        dentaires professionnels</p>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <button onclick="window.location.href='dentairesbou_improved.html'"
+                        class="sub-button w-full py-3 px-6 text-lg rounded-lg" data-fr="Cabinet de Boumerdes"
+                        data-ar="عيادة بومرداس">
+                        Cabinet de Bordj Mnaiel 1
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showMainMenu()" class="back-button py-2 px-6 rounded-lg"
+                        data-fr="← Retour au menu principal" data-ar="← العودة للقائمة الرئيسية">
+                        ← Retour au menu principal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Divider before Footer -->
+            <div class="section-divider my-12"></div>
+
+            <!-- Footer -->
+            <footer class="mt-20 text-center text-gray-500 text-sm">
+                <p data-fr="&copy; 2025 Groupe Médical EL-HAYAT. Tous droits réservés."
+                    data-ar="&copy; 2025 المجموعة الطبية الحياة. جميع الحقوق محفوظة.">&copy; 2025 Groupe Médical
+                    EL-HAYAT.
+                    Tous droits réservés.</p>
+            </footer>
+        </div>
+
+        <script type="module">
+            function showLaboratories() {
+                document.getElementById('mainMenu').classList.add('hidden');
+                document.getElementById('cabinetsMenu').classList.add('hidden');
+                const labMenu = document.getElementById('laboratoriesMenu');
+                labMenu.classList.remove('hidden');
+                labMenu.classList.add('fade-in');
+            }
+
+            function showCabinets() {
+                document.getElementById('mainMenu').classList.add('hidden');
+                document.getElementById('laboratoriesMenu').classList.add('hidden');
+                const cabMenu = document.getElementById('cabinetsMenu');
+                cabMenu.classList.remove('hidden');
+                cabMenu.classList.add('fade-in');
+            }
+
+            function showMainMenu() {
+                document.getElementById('laboratoriesMenu').classList.add('hidden');
+                document.getElementById('cabinetsMenu').classList.add('hidden');
+                const mainMenu = document.getElementById('mainMenu');
+                mainMenu.classList.remove('hidden');
+                mainMenu.classList.add('fade-in');
+            }
+
+            let currentLang = 'fr';
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+
+                // Update button states
+                document.getElementById('fr-btn').classList.toggle('active', lang === 'fr');
+                document.getElementById('ar-btn').classList.toggle('active', lang === 'ar');
+
+                // Update HTML direction and language
+                const html = document.documentElement;
+                const body = document.getElementById('body');
+
+                if (lang === 'ar') {
+                    html.setAttribute('lang', 'ar');
+                    html.setAttribute('dir', 'rtl');
+                    body.classList.add('rtl');
+                    body.classList.remove('ltr');
+                } else {
+                    html.setAttribute('lang', 'fr');
+                    html.setAttribute('dir', 'ltr');
+                    body.classList.add('ltr');
+                    body.classList.remove('rtl');
+                }
+
+                // Update all text content
+                const elements = document.querySelectorAll('[data-fr][data-ar]');
+                elements.forEach(element => {
+                    const text = element.getAttribute(`data-${lang}`);
+                    if (text) {
+                        element.innerHTML = text;
+                    }
+                });
+            }
+
+            // Initialize with French
+            switchLanguage('fr');
+
+            // Initialize Dark Veil
+            import DarkVeil from './DarkVeil.js';
+            const container = document.getElementById('dark-veil-container');
+            if (container) {
+                new DarkVeil(container, {
+                    hueShift: 44,
+                    noiseIntensity: 0,
+                    scanlineIntensity: 0,
+                    speed: 1.1,
+                    scanlineFrequency: 0,
+                    warpAmount: 0
+                });
+            }
+
+            // Make functions globally accessible
+            window.showLaboratories = showLaboratories;
+            window.showCabinets = showCabinets;
+            window.showMainMenu = showMainMenu;
+            window.switchLanguage = switchLanguage;
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+$user_list = @(
+"(Thyroxine libre) ft4.pdf",
+"(Thyroxine libre).pdf",
+"17-Hydroxyprogesteron.pdf",
+"AC ANTI CARDIOLIPINE IgG.pdf",
+"Ac anti DNA natif.pdf",
+"AC ANTI INSULINE 2.pdf",
+"AC ANTI INSULINE.pdf",
+"AC ANTI MITOCHONDRI.pdf",
+"Ac anti- peau.pdf",
+"AC ANTI-ACIDE GLUTAMIQUE DECARBOXYLASE.pdf",
+"AC ANTI-ANTIGENES ENA.pdf",
+"AC ANTI-CARDIOLIPINE IGM.pdf",
+"AC ANTI-CARDIOLIPINE Screen (IgG, IgM).pdf",
+"AC ANTI-RETICULINE.pdf",
+"Ac anti-transglutaminase IgA.pdf",
+"Ac anti-transglutaminase IgG.pdf",
+"AC-ANTI ACETYLCHOLINE.pdf",
+"ACIDE LACTIQUE.pdf",
+"Aldolase.pdf",
+"ALDOSTERONE URINAIRE.pdf",
+"ALDOSTERONE.pdf",
+"ALPHA 1 ANTI TRYPSINE.pdf",
+"alpha-foetoproteine.pdf",
+"Amylase.pdf",
+"Anti corps anti beta.pdf",
+"anti lupique circulant.pdf",
+"Anti muscle lisse.pdf",
+"ANTI-GAD.pdf",
+"ANti-TPO.pdf",
+"ANTICORPS ANTI -THYROGLOBILINE (anti TG).pdf",
+"Anticorps anti-cytoplasme des polynucléaires neutro philes.pdf",
+"Anticorps anti-endomysium IgA.pdf",
+"Anticorps anti-muscles lisses.pdf",
+"Anticorps anti-saccharomyces cervisiae (ASCA).pdf",
+"antigéne carcino-embryonnaire.pdf",
+"ANTISTREPTOLYSINE.pdf",
+"ANTITHROMBINE 3.pdf",
+"AUTO-ANTICORPS ANTI-IA2.pdf",
+"b1bff4c8-93b7-4eef-b1d9-1189c9e87210.pdf",
+"BETA HCG.pdf",
+"c reactive.pdf",
+"CERULEOPLASMINE.pdf",
+"chain legere lambda.pdf",
+"chaine legere urinaire.pdf",
+"Chaines légéres Kappa.pdf",
+"CHLAMYDIA IgG.pdf",
+"CHLAMYDIA IgM.pdf",
+"chlamydia oga.pdf",
+"CHLAMYDIA.pdf",
+"CHOLESTEROL HDL.pdf",
+"CHOLESTEROL LDL.pdf",
+"CHROMATOGRAPHI DES ACIDE AMINES.pdf",
+"Cortisol - Copy.pdf",
+"Cortisol.pdf",
+"CPK.pdf",
+"Créatine Phosphokinase.pdf",
+"D-DIMERES.pdf",
+"depakine.pdf",
+"Déhydroépiandrostérone-sulfate.pdf",
+"Déhydroépiandrostérone.pdf",
+"ELECTROPHORESE DES PROTEINES.pdf",
+"ELECTROPHORéSE DES PROTEINES URINAIRES.pdf",
+"Enzyme de conversion de l'angiotensine.pdf",
+"facteur de willebrand.pdf",
+"facteur ix.pdf",
+"facteur ruhmatdois.pdf",
+"facteur vii.pdf",
+"FER SERIQUE.pdf",
+"FIBRINOGENE.pdf",
+"FRUCTOSAMINE.pdf",
+"Fsh.pdf",
+"Ft3.pdf",
+"GLUCOSE-6-PHOSPHATE DESHYDROGENASE (G6-PDH).pdf",
+"GLUCOSE.pdf",
+"HbA1C (Hb glyquée).pdf",
+"HbA1C (Hb glyquée)HbA1C (Hb glyquée).pdf",
+"HbA1C.pdf",
+"HCG, MARQUEUR TUMORAL.pdf",
+"HEMOSTASE (1).pdf",
+"HEMOSTASE.pdf",
+"HOMOCYSTEINE URINAIRE.pdf",
+"HOMOCYSTEINEpdf.pdf",
+"Hormone ANTI mullurienne.pdf",
+"HORMONE ANTI-DIURETIQUE.pdf",
+"Hormone de croissance (GH).pdf",
+"Hormone de croissance GH.pdf",
+"IgA anti-transglutaminase tissulaire.pdf",
+"IGE LAIT DE VACHE.pdf",
+"IGG 4.pdf",
+"IgG anti-transglutaminase.pdf",
+"Igg.pdf",
+"insuline.pdf",
+"LDH.pdf",
+"LH.pdf",
+"Lipase.pdf",
+"LKM1.pdf",
+"Locus B (Guide_immunogénétique_2018.)pdf.pdf",
+"MAGNESIUM.pdf",
+"magnisiuem.pdf",
+"Mycloplasme sur sperm.pdf",
+"OESTRADIOL.pdf",
+"peptide c.pdf",
+"PHOSPHORE.pdf",
+"phsphatase aclcaline.pdf",
+"Phénylalanine.pdf",
+"PROCALCITONINE.pdf",
+"Progesterone.pdf",
+"PROTEINE C ACTIVE.pdf",
+"PSA LIBRE.pdf",
+"PSA TOTALE.pdf",
+"PTH.pdf",
+"Somatomédine C IGF.pdf",
+"sou IGC.pdf",
+"testosterone libre.pdf",
+"Testosterone.pdf",
+"thrypoglobuline.pdf",
+"THYROCALCITONINE.pdf",
+"thyroxine t4.pdf",
+"TRANSFERRINE.pdf",
+"Tri-iodothyronine libre.pdf",
+"triiodothyronine.pdf",
+"troponine.pdf",
+"Tshus.pdf",
+"VITAMINE D2D3  25 HYDROXY VITAMINE D.pdf",
+"ZINC.pdf"
+)
+
+$target_dir = "c:\Users\M4C\Documents\laboxo - Copy\laboxo\nunupdf"
+
+function Get-CleanName($name) {
+    return ($name -replace "\.pdf$", "" -replace "[^a-zA-Z0-9]", "").ToLower()
+}
+
+$actual_files = Get-ChildItem -Path $target_dir
+
+foreach ($user_file in $user_list) {
+    $user_clean = Get-CleanName $user_file
+    
+    foreach ($actual in $actual_files) {
+        $actual_clean = Get-CleanName $actual.Name
+        
+        if ($user_clean -eq $actual_clean) {
+            if ($user_file -ne $actual.Name) {
+                $new_path = Join-Path $target_dir $user_file
+                if (-not (Test-Path $new_path)) {
+                    Write-Host "Renaming '$($actual.Name)' to '$user_file'"
+                    Rename-Item -Path $actual.FullName -NewName $user_file -Force
+                } else {
+                     Write-Host "File '$user_file' already exists, skipping rename of '$($actual.Name)'"
+                }
+            }
+            break
+        }
+    }
+}
