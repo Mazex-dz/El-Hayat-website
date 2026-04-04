@@ -7,13 +7,16 @@
     <title>Groupe Médical EL-HAYAT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="logo groue medical el h0ayat@4x.png">
-    <link rel="stylesheet" href="DarkVeil.css">
+    <link rel="stylesheet" href="DarkVeil.css?v=2">
+    <script src="DarkVeil.js?v=2"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
         body {
             font-family: 'Montserrat', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at 10% 30%, #003E44 0%, #01161E 40%, #000508 100%);
+            color: #FFFFFF;
         }
 
         .hero-logo {
@@ -21,35 +24,37 @@
             width: 100%;
             height: auto;
             object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(0, 173, 181, 0.3));
         }
 
         .main-button {
-            background-color: #08acbd;
+            background-color: #0caac1;
             transition: all 0.3s ease;
             border-radius: 12px;
             font-weight: 600;
             letter-spacing: 0.025em;
+            color: #01161E;
         }
 
         .main-button:hover {
-            background-color: #069cb0;
+            background-color: #098ea2;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(8, 172, 189, 0.3);
+            box-shadow: 0 10px 25px rgba(12, 170, 193, 0.4);
         }
 
         .sub-button {
-            background-color: rgba(8, 172, 189, 0.1);
-            border: 2px solid #08acbd;
-            color: #08acbd;
+            background-color: #FFFFFF;
+            border: 2px solid transparent;
+            color: #003E44;
             transition: all 0.3s ease;
             border-radius: 8px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .sub-button:hover {
-            background-color: #08acbd;
-            color: white;
+            background-color: #f0f0f0;
             transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
         .fade-in {
@@ -61,7 +66,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -70,26 +74,28 @@
 
         .back-button {
             background-color: transparent;
-            border: 2px solid #6b7280;
-            color: #6b7280;
+            border: 2px solid #0caac1;
+            color: #0caac1;
             transition: all 0.3s ease;
             border-radius: 8px;
         }
 
         .back-button:hover {
-            background-color: #6b7280;
-            color: white;
+            background-color: #0caac1;
+            color: #01161E;
         }
 
         .language-switch {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: white;
-            border: 2px solid #08acbd;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 25px;
             padding: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 100;
         }
 
         .lang-btn {
@@ -99,19 +105,16 @@
             cursor: pointer;
             font-weight: 600;
             min-width: 45px;
+            color: #FFFFFF;
         }
 
         .lang-btn.active {
-            background-color: #08acbd;
-            color: white;
-        }
-
-        .lang-btn:not(.active) {
-            color: #08acbd;
+            background-color: #0caac1;
+            color: #01161E;
         }
 
         .lang-btn:not(.active):hover {
-            background-color: rgba(8, 172, 189, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .rtl {
@@ -139,26 +142,19 @@
             z-index: 1;
         }
 
-        .bg-cool-background {
-            background-image: url('assets/dgg@4x.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
         .section-divider {
             height: 2px;
-            background: linear-gradient(to right, transparent, #f6a201, transparent);
+            background: linear-gradient(to right, transparent, #0caac1, transparent);
             width: 100%;
             margin: 0 auto;
             position: relative;
             z-index: 20;
-            opacity: 0.6;
+            opacity: 0.4;
         }
     </style>
 </head>
 
-<body class="bg-cool-background min-h-screen" id="body">
+<body class="min-h-screen overflow-x-hidden" id="body">
     <div id="dark-veil-container"></div>
     <div class="content-overlay">
         <!-- Language Switch -->
@@ -172,7 +168,7 @@
             <div class="text-center mb-16 mt-16">
                 <img src="logo_groue_medical_el_h0ayat_4x-removebg-preview (1).png" alt="Groupe Médical EL-HAYAT"
                     class="hero-logo mx-auto mb-8">
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto leading-relaxed"
                     data-fr="Votre santé, notre priorité. Des soins médicaux de qualité avec une équipe professionnelle dédiée."
                     data-ar="صحتكم أولويتنا. رعاية طبية عالية الجودة مع فريق مهني متفاني.">
                     Votre santé, notre priorité. Des soins médicaux de qualité avec une équipe professionnelle dédiée.
@@ -197,9 +193,9 @@
             <!-- Laboratories Submenu -->
             <div id="laboratoriesMenu" class="hidden max-w-lg mx-auto">
                 <div class="mb-8 text-center">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2" data-fr="Nos Laboratoires" data-ar="مختبراتنا">Nos
+                    <h2 class="text-2xl font-bold text-white mb-2" data-fr="Nos Laboratoires" data-ar="مختبراتنا">Nos
                         Laboratoires</h2>
-                    <p class="text-gray-600" data-fr="Choisissez votre laboratoire le plus proche"
+                    <p class="text-white opacity-80" data-fr="Choisissez votre laboratoire le plus proche"
                         data-ar="اختر المختبر الأقرب إليك">Choisissez votre laboratoire le plus proche</p>
                 </div>
 
@@ -234,9 +230,9 @@
             <!-- Cabinets Submenu -->
             <div id="cabinetsMenu" class="hidden max-w-lg mx-auto">
                 <div class="mb-8 text-center">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2" data-fr="Nos Cabinets Dentaires"
+                    <h2 class="text-2xl font-bold text-white mb-2" data-fr="Nos Cabinets Dentaires"
                         data-ar="عياداتنا لطب الأسنان">Nos Cabinets Dentaires</h2>
-                    <p class="text-gray-600" data-fr="Soins dentaires professionnels" data-ar="رعاية أسنان احترافية">
+                    <p class="text-white opacity-80" data-fr="Soins dentaires professionnels" data-ar="رعاية أسنان احترافية">
                         Soins
                         dentaires professionnels</p>
                 </div>
@@ -245,7 +241,12 @@
                     <button onclick="window.location.href='dentairesbou_improved.html'"
                         class="sub-button w-full py-3 px-6 text-lg rounded-lg" data-fr="Cabinet de Boumerdes"
                         data-ar="عيادة بومرداس">
-                        Cabinet de Bordj Mnaiel 1
+                    </button>
+                </div>
+                <div class="space-y-4 mb-8">
+                    <button onclick="window.location.href='clinuique bm.html'"
+                        class="sub-button w-full py-3 px-6 text-lg rounded-lg" data-fr="Cabinet de Bordj Mnaiel 1"
+                        data-ar="عيادة برج منايل 1">
                     </button>
                 </div>
 
@@ -261,7 +262,7 @@
             <div class="section-divider my-12"></div>
 
             <!-- Footer -->
-            <footer class="mt-20 text-center text-gray-500 text-sm">
+            <footer class="mt-20 text-center text-white opacity-60 text-sm">
                 <p data-fr="&copy; 2025 Groupe Médical EL-HAYAT. Tous droits réservés."
                     data-ar="&copy; 2025 المجموعة الطبية الحياة. جميع الحقوق محفوظة.">&copy; 2025 Groupe Médical
                     EL-HAYAT.
@@ -269,7 +270,7 @@
             </footer>
         </div>
 
-        <script type="module">
+        <script>
             function showLaboratories() {
                 document.getElementById('mainMenu').classList.add('hidden');
                 document.getElementById('cabinetsMenu').classList.add('hidden');
@@ -331,26 +332,28 @@
 
             // Initialize with French
             switchLanguage('fr');
+        </script>
 
-            // Initialize Dark Veil
-            import DarkVeil from './DarkVeil.js';
-            const container = document.getElementById('dark-veil-container');
-            if (container) {
-                new DarkVeil(container, {
-                    hueShift: 44,
-                    noiseIntensity: 0,
-                    scanlineIntensity: 0,
-                    speed: 1.1,
-                    scanlineFrequency: 0,
-                    warpAmount: 0
-                });
-            }
-
-            // Make functions globally accessible
-            window.showLaboratories = showLaboratories;
-            window.showCabinets = showCabinets;
-            window.showMainMenu = showMainMenu;
-            window.switchLanguage = switchLanguage;
+        <script>
+            console.log('Antigravity Redesign Initializing...');
+            // Initialize Dark Veil Standalone
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('dark-veil-container');
+                if (container && window.DarkVeil) {
+                    console.log('DarkVeil Engine Detected, launching background...');
+                    new DarkVeil(container, {
+                        hueShift: 0,
+                        noiseIntensity: 0,
+                        scanlineIntensity: 0,
+                        speed: 0.5,
+                        scanlineFrequency: 0,
+                        warpAmount: 0,
+                        resolutionScale: 1
+                    });
+                } else {
+                    console.error('DarkVeil container or script missing!');
+                }
+            });
         </script>
     </div>
 </body>
