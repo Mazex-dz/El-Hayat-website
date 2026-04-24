@@ -1,3 +1,4 @@
+<!-- Built by Abdelmalek Zergui 0555954569 | Instagram: mkill_9 -->
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
@@ -7,6 +8,7 @@
     <title>Catalogue des Analyses | Laboratoire El HAYAT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <meta name="author" content="Abdelmalek Zergui 0555954569 | Instagram: mkill_9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -688,7 +690,7 @@
     </section>
 
     <!-- Contact Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer id="contact" class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <div>
@@ -862,6 +864,11 @@
                     <p class="text-slate-500 text-xs">
                         &copy; 2024 Groupe Médical EL-HAYAT. Tous droits réservés.
                     </p>
+                    <div class="mt-4 text-[10px] opacity-100">
+                        <p>Built by <a href="https://www.instagram.com/mkill_9" target="_blank"
+                                class="hover:text-primary-400 transition-colors">Abdelmalek Zergui</a> | 0555954569 |
+                            Instagram: mkill_9</p>
+                    </div>
                     <div class="flex gap-8">
                         <a href="#" class="text-slate-500 hover:text-white text-xs transition-colors">Mentions
                             Légales</a>
@@ -1857,7 +1864,15 @@
                     const total = selectedAnalyses.reduce((sum, analysis) => sum + analysis.prix, 0);
                     const analysisNames = selectedAnalyses.map(a => a.nom).join(', ');
 
-                    alert(`🎉 Réservation confirmée !\n\nAnalyses : ${analysisNames}\n\nTotal Estimation: ${total.toFixed(0)} DZD\n\nNous vous contacterons bientôt.`);
+                    // alert(`🎉 Réservation confirmée !\n\nAnalyses : ${analysisNames}\n\nTotal Estimation: ${total.toFixed(0)} DZD\n\nNous vous contacterons bientôt.`);
+
+                    // Scroll to contact section
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+
+                    // Initiate phone call
+                    setTimeout(() => {
+                        window.location.href = 'tel:0660070962';
+                    }, 800);
 
                     selectedAnalyses = [];
                     renderAnalyses();
